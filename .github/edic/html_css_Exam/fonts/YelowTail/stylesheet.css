@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Yellowtail';
+    src: url('Yellowtail-Regular.eot');
+    src: local('Yellowtail Regular'), local('Yellowtail-Regular'),
+        url('Yellowtail-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Yellowtail-Regular.woff2') format('woff2'),
+        url('Yellowtail-Regular.woff') format('woff'),
+        url('Yellowtail-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

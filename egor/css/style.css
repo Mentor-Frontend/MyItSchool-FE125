@@ -86,7 +86,7 @@ li.li_items a:hover > img {
   display: none;
 }
 .welcom {
-  background-image: url(/img/img1.png);
+  background-image: url(../img/img1.png);
   background-size: cover;
   background-repeat: no-repeat;
   height: 915px;
@@ -146,7 +146,7 @@ li.li_items a:hover > img {
   display: flex;
 }
 .natural_foods {
-  background-image: url(/img/img2.png);
+  background-image: url(../img/img2.png);
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 30px;
@@ -157,7 +157,7 @@ li.li_items a:hover > img {
 }
 .natural_foods_stonks {
   
-  background-image: url(/img/img3.png);
+  background-image: url(../img/img3.png);
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 30px;
@@ -400,7 +400,7 @@ div.organic_products div a div.underline {
   background-color: #D4D4D4;
 }
 .testimonial{
-  background-image: url(/img/img10.png);
+  background-image: url(../img/img10.png);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -557,7 +557,7 @@ div.underline {
   display: flex;
 }
 .eco_friendly_fon_left {
-  background-image: url(/img/img5E.png);
+  background-image: url(../img/img5E.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
@@ -609,21 +609,21 @@ div.underline {
   justify-content: space-between;
 }
 .range_fruit{
-  background-image: url(/img/img6.png);
+  background-image: url(../img/img6.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
   background-attachment: scroll;
 }
 .range_organic{
-  background-image: url(/img/img7.png);
+  background-image: url(../img/img7.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
   background-attachment: scroll;
 }
 .range_nuts{
-  background-image: url(/img/img8.png);
+  background-image: url(../img/img8.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
@@ -650,7 +650,7 @@ div.underline {
 .subs{
   max-width: 1380px;
   margin: 30px auto;
-  background-image: url(/img/img9.png);
+  background-image: url(../img/img9.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;

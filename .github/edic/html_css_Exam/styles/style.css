@@ -2,11 +2,6 @@
   margin: 0;
   padding: 0;
 }
-body {
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-}
 main {
   margin-bottom: 86px;
 }
@@ -250,7 +245,7 @@ nav {
   margin-bottom: 140px;
 }
 .offer {
-  background-image: url(/Images/section-2-offer-2.png);
+  background-image: url(../Images/section-2-offer-2.png);
   max-width: 665px;
   height: 378px;
   border-radius: 30px;
@@ -278,7 +273,7 @@ nav {
   transition: all 1s;
 }
 .left {
-  background-image: url(/Images/section-2-offer-left.png);
+  background-image: url(../Images/section-2-offer-left.png);
 }
 .offer .text:hover h2 {
   color: #fff;
@@ -306,7 +301,7 @@ nav {
   max-width: 675px;
   min-height: 642px;
   margin-top: 177px;
-  background-image: url(/Images/section_3.png);
+  background-image: url(../Images/section_3.png);
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -545,7 +540,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(/Images/section_5_background.png);
+  background-image: url(../Images/section_5_background.png);
 }
 .section-5_top {
   max-width: 966px;
@@ -759,7 +754,7 @@ nav {
   background-color: #fff;
 }
 .section-7_background {
-  background-image: url(/Images/section_7_background.png);
+  background-image: url(../Images/section_7_background.png);
   width: 720px;
   height: 704px;
 }
@@ -816,18 +811,18 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-image: url(/Images/section_9_background.png);
+  background-image: url(../Images/section_9_background.png);
   margin-top: 31px;
   background-repeat: no-repeat;
 }
 .food:first-child {
-  background-image: url(/Images/section_8_juice.png);
+  background-image: url(../Images/section_8_juice.png);
 }
 .food:nth-child(2) {
-  background-image: url(/Images/section_8_food.png);
+  background-image: url(../Images/section_8_food.png);
 }
 .food:last-child {
-  background-image: url(/Images/section_8_cookies.png);
+  background-image: url(../Images/section_8_cookies.png);
 }
 .section-9__text {
   font-family: "Roboto";

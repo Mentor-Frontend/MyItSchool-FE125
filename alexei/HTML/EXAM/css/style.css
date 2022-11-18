@@ -189,7 +189,7 @@ p {
 }
                         /* Section made-whith-nature */
 .whith-nature {
-    background-image: url(/img/main-img/made-whith-nature-bg.png);
+    background-image: url(../img/main-img/made-whith-nature-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -390,7 +390,7 @@ p {
 }
             /* Section testimonial */
 .testimonial {
-    background-image: url(/img/main-img/testimonial.png);
+    background-image: url(../img/main-img/testimonial.png);
     background-repeat: no-repeat;
     background-size: 100% 1248px;
 }

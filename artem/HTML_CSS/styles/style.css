@@ -695,7 +695,7 @@ p {
 }
 
 .eco_content_left {
-    background-image: url(/img/bg/bg-promo3.png);
+    background-image: url(../img/bg/bg-promo3.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left;
@@ -790,7 +790,7 @@ p {
 }
 
 .categ_fruit {
-    background-image: url(/img/bg/bg-cat1.png);
+    background-image: url(../img/bg/bg-cat1.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left;
@@ -810,7 +810,7 @@ p {
 }
 
 .categ_organic {
-    background-image: url(/img/bg/bg-cat2.png);
+    background-image: url(../img/bg/bg-cat2.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left;
@@ -830,7 +830,7 @@ p {
 }
 
 .categ_nuts {
-    background-image: url(/img/bg/bg-cat3.png);
+    background-image: url(../img/bg/bg-cat3.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left;
@@ -854,7 +854,27 @@ p {
 }
 
 .width_height {
-    padding: 245px 115px
+    display: flex;
+}
+
+.width_height > a {
+    width: 281px;
+    height: 95px;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categ {
+    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-rows: max-content;
+    grid-auto-columns: max-content;
+    height: 580px;
 }
 
 .categ_button {

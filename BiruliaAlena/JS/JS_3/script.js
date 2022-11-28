@@ -14,6 +14,7 @@
 //     a--;
 // }
 
+<<<<<<< HEAD
 // // задача 2
 // // где тут нужно применять <br/>
 // let b = 89;
@@ -21,6 +22,14 @@
 //     console.log( b );
 //     b--;
 // }
+=======
+// задача 2
+let b = 89;
+while (b >= 11) {
+    console.log( b );
+    b--;
+}
+>>>>>>> 73d573e60d26f0cd113ccf36f783a02f7258b61b
 
 // //задача 3
 // let sumThree = 0;
@@ -81,6 +90,7 @@
 
 // // задача 8 ....как учесть отрицательные значения??? 
 
+<<<<<<< HEAD
 // let num8;
 // let sum = 0;
 // let i8 = 0;
@@ -96,11 +106,33 @@
 // } while ( num8 === '' || num8 === 0)
 
 // console.log(sum / i8)
+=======
+let num8;
+let sum8 = 0;
+let i8 = 0;
+
+do {
+    num8 = prompt("введите число?"); 
+        if(isNaN (+num8)) {
+            alert(`недопустимое значение`);
+        }
+        else{
+            sum8 += +num8;
+            i8++;
+        }
+    }
+while ( num8 === "" || num8 === 0);
+
+console.log(sum8 / i8)
+
+
+>>>>>>> 73d573e60d26f0cd113ccf36f783a02f7258b61b
 
 //задача 9 
 
 let q = `4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36`;
 
+<<<<<<< HEAD
 // console.log(q);
 // console.log(q, typeof q);
 
@@ -144,6 +176,55 @@ new RegExp('a');
 const regexp = /[A-ZА-Я]/;
 console.log('12345f'.search(regexp));
 //задача 10 ... 
+=======
+const arrSplit = q.split(' ');
+let sum = 0;
+arrSplit.forEach((el, i, array) => {
+    sum = sum + +el;
+});
+console.log(sum);
+
+//задача 10 
+
+let t = 4613246543578906;
+    console.log(t);
+
+t = String(t);
+    console.log(t, typeof t);
+    console.log(t.length);
+
+const arrT = t.split('');
+    console.log(arrT);
+
+let sumArrT = 0;
+arrT.forEach ((el, i, array) => {
+    console.log(el, typeof el);
+    sumArrT = sumArrT + +el;
+});
+    console.log(sumArrT);
+
+let arrTReverse = arrT.reverse();
+    console.log(arrTReverse);
+let newArrTReverse = arrTReverse.join('');
+    console.log(newArrTReverse, typeof newArrTReverse);
+
+let newNumber = Number(newArrTReverse);
+    console.log (newNumber, typeof newNumber)
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+>>>>>>> 73d573e60d26f0cd113ccf36f783a02f7258b61b
 
 console.log('1');
 

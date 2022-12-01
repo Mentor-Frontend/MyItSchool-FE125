@@ -1,14 +1,14 @@
 console.log('------------ 1 задание -----------');
 
-console.log('------------ 2 задание -----------');
-
 function sum_del(a,b) {
-    return (a-b)/2
+  return (a-b)/2
 }
 let result = sum_del(10,6);
 alert(result)
 
-// 2.2
+
+console.log('------------ 2 задание -----------');
+
 let kvadrat = kvadro(10);
 
 function kvadro(a) {

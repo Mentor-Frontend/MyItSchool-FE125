@@ -329,3 +329,108 @@
 // let probel = [5, 9, 21, , , 9, 78, , , , 6];
 // alert(probel.length-1)
 
+
+// 5.1
+// function sum_del(a,b,c) {
+//     return (a-b)/2
+// }
+// let result = sum_del(10,6,2);
+// alert(result)
+
+// 5.2
+// function kvadro(a) {
+//     return a ** 2
+// }
+// function cub(b) {
+//     return b ** 3
+// }
+// let cubik = cub(10);
+// let kvadrat = kvadro(10);
+// console.log(kvadrat)
+// console.log(cubik)
+
+// 5.3
+
+// function min(a, b) {
+//     if (a < b) {
+//       return a;
+//     } else {
+//       return b;
+//     }
+//   }
+// let min_max = min(10,15)
+// alert(min_max)
+
+// function max(a, b) {
+//     if (a > b) {
+//       return a;
+//     } else {
+//       return b;
+//     }
+//   }
+// let max_max = min(20,15)
+// alert( max_max)
+
+// 5.4 
+// function createArray(length) {
+//     length = prompt('Выберите диапазон чисел');
+
+//     var array = [];
+
+//     for(var i = 1; i <= length; i++) {
+//         array.push(i);
+//     }
+
+//     console.log(array);
+// }
+
+// createArray()
+
+// 5.5 
+// function isEven(number) {
+// 	var x
+// 	if (number % 2 == 0) {
+// 		x = true;
+// 	} else {
+// 		x = false;
+// 	}
+// 	return x;
+
+// }
+
+// alert(isEven(12));
+
+// 5.6 
+// const getEven = array => {
+//     return array.filter(number => !(number % 2));
+// };
+// console.log(getEven([2, 5, 0, -5, 20, 80, 17, -32, 4, 6, 8]));
+
+//  5.7 
+// let symbol = prompt('символ');
+// function hefren(n){
+//   for(let i = 1; i <= n; i++){
+//     let m = '';
+//     for(let j = 0; j < i; j++){
+//       m+= symbol == undefined || symbol.length-1 || symbol == ' ' ? i : symbol;
+//     };
+//     console.log(m+'\n')
+//   }
+// };
+// hefren(prompt('число'))
+
+// 5.8
+// function writeTriangle(rows, isReverse) {
+//     const indexes = new Array(rows).fill(0).map((_, i) => i);
+//     if (isReverse) indexes.reverse();
+//     for (let i of indexes) {
+//         const spaces = ' '.repeat(rows - 1 - i);
+//         console.log(spaces + '*'.repeat(1 + i*2) + spaces);
+//     }
+// }
+ 
+// const n = +prompt('Введите число строк:');
+// writeTriangle(n);
+// if (confirm('Вывести перевёрнутый?')) writeTriangle(n, true);
+
+// 5.9

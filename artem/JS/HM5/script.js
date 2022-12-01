@@ -1,4 +1,4 @@
-/* console.log('------------ 1 задание -----------');
+console.log('------------ 1 задание -----------');
 
 console.log('------------ 2 задание -----------');
 
@@ -75,7 +75,7 @@ function isEven(number) {
 }
 
 alert(isEven(12));
- */
+
 console.log('------------ 6 задание -----------');
 
 function arrayarr() {

@@ -5,15 +5,7 @@
     text-align: center;
   }
 .button_range {
-    padding: 20px 70px;
-    background: #FFFFFF;
-    border-radius: 20px;
-    width: 1px;
-    height: 1px;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 35px;
-    transition: 0.9s;
+    
   }
 }
 @media (max-width:1440px) {
@@ -23,7 +15,7 @@
 
   }
 .button_range {
-    padding: 15px 60px;
+    padding: 15px 10px;
    
   }
 }
@@ -32,7 +24,7 @@
     max-width: 1070px;
 }
   .welcom_text {
-    width: 1070px;
+    max-width: 1070px;
   }
   .welcom_text div.text {
     padding-top: 185px;
@@ -48,7 +40,7 @@
   }
   .organic img, 
   .quality img {
-    width: 100px;
+    max-width: 100px;
     height: 100px;
   }
   .organic_products {
@@ -74,14 +66,14 @@
     flex-wrap: nowrap;
   }
   .offer_products .organic_products_footer .org_prod_fon {
-    width: 245px;
+    max-width: 245px;
     height: 345px;
     padding: 45px;
     margin-right: 30px;
   }
   
   .offer_products .organic_products_footer .org_prod_fon img {
-    width: 200px;
+    max-width: 200px;
     height: 200px;
     margin: 10px auto;
   }
@@ -105,11 +97,11 @@
     padding-left: 60px;
   }
   .li_items img {
-    width: 45px;
+    max-width: 45px;
     height: 45px;
   }
   .li_items {
-    width: 115px;
+    max-width: 115px;
     height: 43px;
     border-radius: 33px;
     margin-left: 165px;
@@ -125,11 +117,11 @@
     display: flex;
   }
   .natural_foods {
-    width: 480px;
+    max-width: 480px;
     padding-left: 20px;
   }
   .natural_foods_stonks {
-    width: 480px;
+    max-width: 480px;
     padding-left: 20px;
   }
   .subs {
@@ -144,7 +136,7 @@
 @media (max-width:1024px) {
   
   .welcom_text {
-    width: 875px;
+    max-width: 875px;
   }
   .org_prod_fon {
     margin: 20px auto;
@@ -153,24 +145,22 @@
     max-width: 1000px;
   }
   .button_range {
-    padding: 15px 34px;
+    padding: 15px 15px;
+    font-size: 20px;
   }
   .button_range::first-letter {
     padding: 15px 90px;
   }
   .width_height {
-    width: 30%;
-    margin: 20px auto;
+    margin: 20px 0 20px 0;
     text-align: center;
-    padding: 225px 45px
+    padding: 200px 45px
   }
-  .range {
-    display: inline-block;
-    width: 100%;
-  }
+
   .description{
     max-width: 950px;
     margin: 0 auto;
+    justify-content: space-between;
   }
   .description .border_gree{
     max-width: 953px;
@@ -178,14 +168,25 @@
     justify-content: space-between;
 }
   .description_circle {
-    width: 120px;
-    height: 120px;
+    max-width: 200px;
+    
     background: #F1F1F1;
     border: 5px solid white;
     border-radius: 50%;
+    padding: 0;
+    
+  }
+  .border_green {
+    margin-right: 0;
   }
   .description_circle_text {
     padding-top: 20px;
+  }
+  .description_circle_text_up{
+    font-size: 35px;
+  }
+  .description_circle_text_down{
+    font-size: 15px;
   }
   .natural_foods {
     margin-right: 16px;
@@ -200,14 +201,17 @@
     padding-left: 40px;
   }
   .li_items img {
-    width: 45px;
+    max-width: 45px;
     height: 45px;
   }
+  .menu {
+    text-align: center;
+  }
   .li_items {
-    width: 115px;
+    max-width: 115px;
     height: 43px;
     border-radius: 33px;
-    margin-left: 165px;
+    margin-left: 130px;
     padding: 7px;
   }
   .menu__items h2 {
@@ -220,15 +224,15 @@
     display: flex;
   }
   .natural_foods {
-    width: 450px;
+    max-width: 450px;
     padding-left: 20px;
   }
   .natural_foods_stonks {
-    width: 450px;
+    max-width: 450px;
     padding-left: 20px;
   }
   .eco_friendly_a {
-    width: 455px;
+    max-width: 455px;
     height: 525px;
     padding: 10px 40px 55px 60px;
 }
@@ -256,6 +260,7 @@
     height: 70px;
     padding-top: 30px;
     margin: 0 auto;
+    justify-content: space-between;
   }
   .container_header {
     position: fixed;
@@ -265,15 +270,13 @@
     z-index: 3;
     background: #d2d2d2;
   }
-  .hamburger-menu {
-    margin: 0 0 0 210px;
-  }
+  
   .welcom_text {
     max-width: 700px;
   }
   .natural {
     display: inline-block;
-    width: 720px;
+    max-width: 720px;
     margin: 30px auto;
   }
   .natural_foods {
@@ -345,7 +348,7 @@
     top: 0;
     
 
-    width: 300px;
+    max-width: 300px;
   
 
     margin: 0;
@@ -374,7 +377,7 @@
    padding-top: 55px;
   }
   .strong_health_img img {
-    width: 385px;
+    max-width: 385px;
     height: 380px;
   }
   .strong_health_text_header .text_header1 {
@@ -398,6 +401,8 @@
   }
   .description_circle{
     padding: 15px;
+    max-width: 130px;
+    height: 130px;
   }
   .description_circle_text {
     padding-top: 10px;
@@ -424,11 +429,12 @@
   }
   .eco_friendly_fon_left {
     max-width: 405px;
-    height: 800px;
+    max-height: 800px;
   }
   .eco_friendly_a {
-    width: 285px;
+    max-width: 285px;
     height: 625px;
+    padding: 0px 40px 95px 60px;
   }
   .eco_friendly_a h2 {
     font-size: 20px;
@@ -448,7 +454,7 @@
   }
 
   .email input {
-    width: 250px;
+    max-width: 250px;
   }
   .footer_content_center {
     max-width: 360px;
@@ -497,12 +503,49 @@ margin: 20px 0 0 95px;
 .welcom_text h1 {
   font-size: 50px;
 }
+.button_range {
+  padding: 15px 15px;
+  font-size: 20px;
+}
+.button_range::first-letter {
+  padding: 15px 90px;
+}
+.width_height {
+  margin: 20px 0 20px 0;
+  text-align: center;
+  padding: 200px 45px
+}
 
+.description{
+  max-width: 950px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.border_green{
+  max-width: 140px;
+  max-height: 140px;
+ 
+}
+.description_circle {
+  max-width: 130px;
+  max-height: 130px;
+  padding: 0;
+  
+}
+.border_green {
+  margin-right: 0;
+}
+.description_circle_text_up{
+  font-size: 30px;
+}
+.description_circle_text_down{
+  font-size: 14px;
+}
 
 .width_height {
   text-align: center;
 }
-.range_nuts width_height a.button_range {
+.range_nuts a.button_range {
   font-size: 18px;
   padding: 15px 22px;
 }
@@ -516,7 +559,7 @@ margin: 20px 0 0 95px;
 }
 
 .email input {
-  width: 200px;
+  max-width: 200px;
 }
 .email input::placeholder {
   font-size: 15px;
@@ -525,7 +568,7 @@ margin: 20px 0 0 95px;
   padding: 30px 13px
 }
 .email a img {
-  width: 25px;
+  max-width: 25px;
   height: 25px;
   top: 7px;
   left: 0;
@@ -548,9 +591,7 @@ margin: 20px 0 0 95px;
   .menu {
     max-width: 600px;
   }
-  .hamburger-menu {
-    margin: 0 0 0 95px;
-}
+ 
   .welcom {
     height: 500px;
     margin: 0;
@@ -573,7 +614,7 @@ margin: 20px 0 0 95px;
   }
   .natural a{
     margin: 0 auto;
-    width: 600px;
+    max-width: 600px;
   }
   .natural_foods {
     height: 190px;
@@ -583,20 +624,7 @@ margin: 20px 0 0 95px;
     height: 190px;
     padding: 25px 0 0 55px;
   }
-  .nat_t1{
-    font-size: 25px;
-  }
-  .nat_t2 {
-    font-size: 20px;
-    line-height: 40px;
-  }
-  .nat_s1 {
-    font-size: 25px;
-  }
-  .nat_s2 {
-    font-size: 20px;
-    line-height: 40px;
-  }
+  
   .strong_health {
    padding: 30px 0 50px 0;
   }
@@ -622,17 +650,17 @@ margin: 20px 0 0 95px;
   }
   
   .strong_health_text_body img {
-    width: 55px;
+    max-width: 55px;
     height: 55px;
   }
 
   .org_prod_fon {
     padding: 10px;
-    width: 180px;
+    max-width: 180px;
     height: 400px;
   }
   .org_prod_fon img {
-    width: 180px;
+    max-width: 180px;
     height: 200px;
   }
 
@@ -665,7 +693,7 @@ margin: 20px 0 0 95px;
   }
   .border_green {
     margin: 20px auto;
-    width: 160px;
+    max-width: 160px;
   }
   .border_green:last-child {
     margin: 0 auto
@@ -704,7 +732,7 @@ margin: 20px 0 0 95px;
     font-size: 15px;padding: 22px;
   }
   .View a img {
-    width: 25px;
+    max-width: 25px;
     height: 25px;
     left: 0;
     top: 7px;
@@ -716,7 +744,7 @@ margin: 20px 0 0 95px;
   }
  
   .footer_content_center .logo2 img {
-    width: 150px;
+    max-width: 150px;
     height: 50px;
   }
   
@@ -762,7 +790,7 @@ margin: 20px 0 0 95px;
     gap: 16px;
   }
   .footer_content_icons a img {
-    width: 40px;
+    max-width: 40px;
     height: 40px;
   }
 } 
@@ -777,7 +805,7 @@ margin: 20px 0 0 95px;
   }
   .hamburger-menu {
     margin: 0 ;
-    width: 100px;
+    max-width: 100px;
   }
   .menu__btn {
     margin-left: 140px;
@@ -787,7 +815,7 @@ margin: 20px 0 0 95px;
     margin: 0;
   }
   .welcom_text {
-    width: 300px;
+    max-width: 300px;
     height: 300px;
   }
   .welcom_text div.text {
@@ -901,13 +929,13 @@ margin: 20px 0 0 95px;
   
   
   .footer_content_left {
-    width: 150px;
+    max-width: 150px;
     height: 300px;
     text-align: center;
   }
   
   .footer_content_center {
-    width: 300px;
+    max-width: 300px;
     height: 300px;
     margin: 0 auto;
     border-right: none;
@@ -924,7 +952,7 @@ margin: 20px 0 0 95px;
     gap: 20px;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 300px;
+    max-width: 300px;
     text-align: center;
   }
   

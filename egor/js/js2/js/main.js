@@ -434,3 +434,100 @@
 // if (confirm('Вывести перевёрнутый?')) writeTriangle(n, true);
 
 // 5.9
+// let n = 15;
+// let fibonacci = [0, 1]; 
+
+// for (let i = 2; i <= n; i++) {
+//   fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+// }
+
+// console.log(fibonacci.slice(0,n));
+
+
+//5.10
+// function isSumLess(num) {
+//     let sum = 0;
+//     let arr = String(num).split('');
+//     for (let i =0; i < arr.length; i++) {
+//         sum += parseInt(arr[i]);
+//     }
+
+//     if (sum > 9) {
+//         return isSumLess(sum);
+//     } else {
+//         return sum;
+//     }
+// }
+
+
+// let num = 1591;
+// let final_num = isSumLess(num);
+// console.log('Конечное число = ' + final_num);
+
+
+// 5.11
+// let arr = [34, 56, 12, 3, 7, 96, 36];
+// function func(arr, i) {
+//   if (i == arr.length) {
+//     return;
+//   }
+//   console.log(arr[i]);
+//   func(arr, i + 1);
+// }
+// func(arr, 0);
+
+
+// 5.12 
+// function topBottomRamka(length){
+//     let ramka = "";
+//     for (let i=0; i<length; i++){
+//         ramka += "*";
+//     }
+//     console.log(ramka);
+// }
+
+// let stroki = [];
+// stroki.push("Домашняя работа \"Функции\"");
+
+// let groupN = prompt("Введите номер группы");
+// stroki.push("Выполнил студент гр." + groupN);
+
+// let familia = prompt("Введите фамилию");
+// let imya = prompt("Введите имя");
+// let otchestvo = prompt("Введите отчество");
+// let fio = familia + ' ' + imya + ' ' + otchestvo;
+// stroki.push(fio);
+
+// let dlinaRamki = 0;
+// for (let i=0; i<stroki.length;i++){
+//     if (dlinaRamki < stroki[i].length){
+//         dlinaRamki = stroki[i].length;
+//     }
+// }
+
+// dlinaRamki += 2;
+
+// topBottomRamka(dlinaRamki);
+// for (let i=0; i<stroki.length; i++){
+//     let resultString = "*";
+//     for (let j=0; j<dlinaRamki;j++){
+//         if (stroki[i][j] === undefined){
+//             if (j === dlinaRamki-2){
+//                 resultString += '*';
+//             }
+//             else{
+//                 resultString += ' ';
+//             }
+//         }
+//         else{
+//             resultString += stroki[i][j];
+//         }
+//     }
+//     console.log(resultString);
+// }
+// topBottomRamka(dlinaRamki);
+
+
+// 6.1 
+let a = 'aaa@bbb@ccc';
+

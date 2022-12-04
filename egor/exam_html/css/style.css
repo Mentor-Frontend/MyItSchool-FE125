@@ -62,7 +62,7 @@ ul li {
 }
 .li_items {
   border:2px solid #D4D4D4;
-  width: 140px;
+  max-width: 140px;
   height: 55px;
   border-radius: 33px;
   margin-left: 400px;
@@ -70,7 +70,7 @@ ul li {
   
 }
 .li_items img {
-  width: 55px;
+  max-width: 55px;
   height: 55px;
   transition: 0.9s;
 }
@@ -86,7 +86,7 @@ li.li_items a:hover > img {
   display: none;
 }
 .welcom {
-  background-image: url(/img/img1.png);
+  background-image: url(../img/img1.png);
   background-size: cover;
   background-repeat: no-repeat;
   height: 915px;
@@ -94,7 +94,7 @@ li.li_items a:hover > img {
   margin-top: 40px;
 }
 .welcom_text {
-  width: 1380px;
+  max-width: 1380px;
   margin: 0 auto;
 }
 .welcom_text div.text {
@@ -146,50 +146,21 @@ li.li_items a:hover > img {
   display: flex;
 }
 .natural_foods {
-  background-image: url(/img/img2.png);
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 30px;
-  width: 610px;
+  max-width: 100%;
   height: 275px;
   margin-right: 50px;
-  padding:105px 0 0 55px;
+  
+}
+.natural img {
+  max-width: 100%;
+  max-height: 655px;
 }
 .natural_foods_stonks {
-  
-  background-image: url(/img/img3.png);
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 30px;
-  width: 610px;
-  height: 275px;
-  padding:105px 0 0 55px;
+  max-width: 100%;
 }
-.nat_t1{
-  font-size: 36px;
-  line-height: 65px;
-  letter-spacing: 0.36px;
-  font-family: 'Yellowtail';
-  color: #FFFFFF;  
-}
-.nat_t2 {
-  font-size: 40px;
-  line-height: 52px;
-  letter-spacing: 0.36px;
-  color: #FFFFFF;
-}
-.nat_s1 {
-  font-size: 36px;
-  line-height: 65px;
-  letter-spacing: 0.36px;
-  color: #7EB693;
-  font-family: 'Yellowtail';
-}
-.nat_s2 {
-  font-size: 40px;
-  line-height: 52px;
-  letter-spacing: 0.36px;
-}
+
 .strong_health {
   background: #F9F8F8;
   padding: 130px 0 140px 0;
@@ -252,7 +223,7 @@ li.li_items a:hover > img {
   margin-right: 20px;
 }
 .strong_health_text_footer a {
-  width: 200px;
+  max-width: 200px;
   height: 80px;
   background: #274C5B;
   color: white;
@@ -295,7 +266,7 @@ li.li_items a:hover > img {
   display: flex;
 }
 .org_prod_fon {
-  width: 390px;
+  max-width: 390px;
   height: 530px;
   background: #F9F8F8;
   border-radius: 30px;
@@ -310,7 +281,7 @@ li.li_items a:hover > img {
   background: #274C5B;
   border-radius: 8px;
   padding: 5px 20px;
-  width: 120px;
+  max-width: 120px;
   color: #FFFFFF;
   font-family: 'Open Sans';
   font-style: normal;
@@ -356,7 +327,7 @@ div.organic_products div a div.underline {
 }
 .grade_item{
   position: absolute;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   top: 0;
   left: 0;
@@ -366,7 +337,7 @@ div.organic_products div a div.underline {
 }
 .rating_inp{
   position: absolute;
-  width: 0%;
+  max-width: 0%;
   height: 0%;
   opacity: 0;
   visibility: hidden;
@@ -400,10 +371,10 @@ div.organic_products div a div.underline {
   background-color: #D4D4D4;
 }
 .testimonial{
-  background-image: url(/img/img10.png);
+  background-image: url(../img/img10.png);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
+  max-width: 100%;
   height: 1120px;
   padding-top: 130px;
 }
@@ -462,6 +433,7 @@ div.organic_products div a div.underline {
 }
 .description{
   display: flex;
+  justify-content: space-between;
 }
 .description_circle{
   width: 155px;
@@ -557,19 +529,18 @@ div.underline {
   display: flex;
 }
 .eco_friendly_fon_left {
-  background-image: url(/img/img5E.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: left;
-  background-attachment: scroll;
-  width: 720px;
-  height: 700px;
+  max-width: 700px;
+  max-height: 100%;
   margin-right: 0;
+}
+.eco_friendly_fon_left img{
+  max-width: 710px;
+  max-height: 705px;
 }
 .eco_friendly_a {
   padding: 40px 40px 55px 60px;
   background-color: #FFFFFF;
-  width: 615px;
+  max-width: 615px;
   height: 525px;
   border-radius: 30px 0px 0px 30px;
   position: relative;
@@ -602,28 +573,31 @@ div.underline {
   margin-bottom: 15px;
 }
 .range {
-  max-width: 100%;
-  display: flex;
-  padding: 140px 0;
-  background: #EFF6F1;
-  justify-content: space-between;
-}
+  margin: 100px auto;
+  gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-rows: max-content;
+  grid-auto-columns: max-content;
+  min-height: 300px
+  }
 .range_fruit{
-  background-image: url(/img/img6.png);
+  background-image: url(../img/img6.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
   background-attachment: scroll;
 }
 .range_organic{
-  background-image: url(/img/img7.png);
+  background-image: url(../img/img7.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
   background-attachment: scroll;
 }
 .range_nuts{
-  background-image: url(/img/img8.png);
+  background-image: url(../img/img8.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
@@ -637,11 +611,9 @@ div.underline {
   padding: 245px 115px
 }
 .button_range {
-  padding: 30px 80px;
+  padding: 30px 55px;
   background: #FFFFFF;
   border-radius: 20px;
-  width: 1px;
-  height: 1px;
   font-weight: 700;
   font-size: 25px;
   line-height: 35px;
@@ -650,7 +622,7 @@ div.underline {
 .subs{
   max-width: 1380px;
   margin: 30px auto;
-  background-image: url(/img/img9.png);
+  background-image: url(../img/img9.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
@@ -676,7 +648,7 @@ color: #FFFFFF;
   background: #FFFFFF;
   border: 1px solid #CCCCCC;
   border-radius: 16px;
-  width: 320px;
+  max-width: 320px;
   height: 82px;
   padding-left: 30px;
 }
@@ -708,7 +680,7 @@ color: #FFFFFF;
   left: 10px;
 }
 .vertical {
-  width: 2px;
+  max-width: 2px;
   height: 670px;
   border: none;
   background-color: #274C5B;
@@ -719,7 +691,7 @@ color: #FFFFFF;
 
 
 .footer_content_left {
-  width: 270px;
+  max-width: 270px;
   height: 370px;
   display: flex;
   flex-direction: column;
@@ -727,7 +699,7 @@ color: #FFFFFF;
 }
 
 .footer_content_center {
-  width: 670px;
+  max-width: 670px;
   height: 370px;
   display: flex;
   align-content: center;
@@ -739,7 +711,7 @@ color: #FFFFFF;
 }
 
 .footer_content_right {
-  width: 335px;
+  max-width: 335px;
   height: 370px;
   display: flex;
   flex-direction: column;

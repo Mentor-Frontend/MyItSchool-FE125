@@ -146,6 +146,9 @@ li.li_items a:hover > img {
   display: flex;
 }
 .natural_foods {
+  background-image: url(../img/img2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 30px;
   max-width: 100%;
   height: 275px;
@@ -157,6 +160,10 @@ li.li_items a:hover > img {
   max-height: 655px;
 }
 .natural_foods_stonks {
+  
+  background-image: url(../img/img3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 30px;
   max-width: 100%;
 }

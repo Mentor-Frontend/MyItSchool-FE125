@@ -1,6 +1,6 @@
 // Task #1
 document.writeln ('Task #1', '<br/>');
-var name = prompt('Ваше имя?'),
+let name = prompt('Ваше имя?'),
     age = prompt('Сколько Вам лет?'),
     city = prompt('В каком городе Вы проживаете?'),
     phone = prompt('Ваш номер телефона?'),

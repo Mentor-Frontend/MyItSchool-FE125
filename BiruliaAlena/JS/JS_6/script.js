@@ -67,6 +67,13 @@ console.log(str7.match(/ab+a/g));
 
 //#8 
 
+function isPhone(strPhone) {
+    const regExp = new RegExp(/^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/);
+    return regExp.test(strPhone);
+}
+console.log(isPhone('+375336682696'));
 //#9 
 
 //#10
+let str10 ='https://tech.onliner.by/2018/04/26/smart-do-200/?utm_source=main_tile&utm_medium=smartdo200#zag3';
+// console.log(str10.match(/'https://tech.onliner.by'/))

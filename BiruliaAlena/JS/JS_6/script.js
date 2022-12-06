@@ -33,7 +33,7 @@ console.log(sum);
 console.log(Math.sqrt(sum))
 
 //#5 Сделайте так, чтобы в любом случае в переменную
-// c записалось положительное значение.
+
 let a;
 let b;
 let c;
@@ -42,20 +42,27 @@ function getDifference(a, b) {
     c = a-b;
     return c
 }
-console.log(getDifference(2, 5))
+console.log(Math.abs(getDifference(2, 5)))
 
 //#6 
 
 let dateNow = new Date();
 console.log(dateNow);
-console.log(dateNow.getMonth())
 
-dateNow.setDate()
+let dateLocal = dateNow.toLocaleString('ru');
+console.log(dateLocal);
 
+function addNumber(num) {
+    if (num < 10) return '0' + num;
+    else return num;
+}
+addNumber(dateLocal)
 
 //#7 
 
 let str7 = 'aa aba abba abbba abca abea';
+
+console.log(str7.match(/ab+a/g));
 
 
 //#8 

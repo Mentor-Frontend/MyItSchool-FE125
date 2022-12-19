@@ -111,17 +111,22 @@ style.innerHTML = `
     }
     .section {
         display: flex;
-        justify-content:space-around;
+        justify-content:center;
     }
     .block {
         text-align: center;
     }
+    .block_left {
+        border: 1px solid #9FA3A7;
+    }
     .block_right {
         background: #8F75BE;
+        border: 1px solid #8F75BE;
     }
     .block {
         width: 400px;
         height: 480px;
+
     }
     .block_second {
         width: 210px;

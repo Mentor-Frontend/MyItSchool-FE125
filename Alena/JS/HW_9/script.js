@@ -4,7 +4,7 @@ let list = document.querySelector('.tasks_list');
 let button = document.querySelector('.button_clear')
 
 add.addEventListener('keydown', function (event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode == 13) {
         let task = document.createElement('li');
         list.prepend(task);
         task.className = 'item';
@@ -18,6 +18,17 @@ add.addEventListener('keydown', function (event) {
         checkBox.className = 'checkbox';
         checkBox.setAttribute('type', 'checkbox');
         checkBox.setAttribute('value', this.value);
+
+        checkBox.addEventListener('click', function () {
+            if (checkBox.checked) {
+                task.style.textDecoration = 'line-through';
+                task.style.color = 'rgb(181, 133, 197)';
+            }
+            else {
+                task.style.textDecoration = 'none';
+                task.style.color = 'rgb(101, 26, 125)';
+            }
+        });
 
         this.value = '';
 
@@ -41,11 +52,6 @@ add.addEventListener('keydown', function (event) {
                 }
             })
         });
-        // checkBox.addEventListener('click', function () {
-        //     if (document.getElementsByClassName("checkbox").checked) {
-        //         document.getElementsByClassName("taskInfo").innerHTML = document.getElementsByClassName("taskInfo").innerHTML.strike();
-        //     }
-        // });
     }
 
 });

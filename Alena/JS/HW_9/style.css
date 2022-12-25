@@ -80,13 +80,16 @@ li {
   font-size: 18px;
   font-weight: 700;
   color: rgb(101, 26, 125);
-  text-shadow: 2px 2px 0px rgb(199, 68, 243);
+  text-shadow: 2px 1.5px 0px rgb(199, 68, 243);
 }
 .checkbox {
   width: 25px;
 }
+p {
+  padding-left: 5px;
+}
 .change_task{
-  background-color:  rgb(247, 222, 255);
+  background-color:rgb(247, 222, 255);
   border: none;
   font-size: 18px;
   font-family: "Roboto Mono", monospace;

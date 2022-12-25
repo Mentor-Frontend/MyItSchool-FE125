@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.top_block {
+  width: 450px;
+  background-color: rgb(224, 154, 247);
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+}
+h1 {
+  font-family: "Roboto Mono", monospace;
+  font-size: 25px;
+  color: rgb(101, 26, 125);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-shadow: 2px 2px 0px rgb(199, 68, 243);
+}
+.tasks_block {
+  width: 446px;
+  border: 2px solid rgb(224, 154, 247);
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+}
+.input {
+  width: 446px;
+  text-align: center;
+  border-bottom: 2px solid rgb(249, 230, 255);
+}
+.container .tasks_block .input input {
+  width: 420px;
+  height: 30px;
+  border: none;
+  border-radius: 2px;
+  font-size: 18px;
+  font-family: "Roboto Mono", monospace;
+  color: rgb(101, 26, 125);
+}
+input:focus-visible {
+  outline-width: 0px;
+}
+::placeholder {
+  font-size: 18px;
+  font-family: "Roboto Mono", monospace;
+  color: rgb(201, 172, 211);
+}
+ul {
+  list-style: none;
+}
+li {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.item {
+  padding-left: 15px;
+  font-size: 18px;
+  font-family: "Roboto Mono", monospace;
+  color: rgb(101, 26, 125);
+}
+.button_clear {
+  width: 110px;
+  height: 40px;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(224, 154, 247);
+  margin-top: 5px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(101, 26, 125);
+  text-shadow: 2px 2px 0px rgb(199, 68, 243);
+}
+.checkbox {
+  width: 25px;
+}
+.change_task{
+  background-color:  rgb(247, 222, 255);
+  border: none;
+  font-size: 18px;
+  font-family: "Roboto Mono", monospace;
+  color: rgb(101, 26, 125);
+}

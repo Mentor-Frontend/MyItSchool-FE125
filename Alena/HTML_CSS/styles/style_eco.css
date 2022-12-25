@@ -1,0 +1,71 @@
+.eco {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 1490px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.eco img {
+  width: 720px;
+}
+
+.eco_block {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  background-color: white;
+  transform: translateX(-60px);
+}
+
+.eco_titles {
+  margin-top: 39.89px;
+  margin-left: 60px;
+}
+
+.eco_titles h3 {
+  font-family: Yellowtail;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 65px;
+  letter-spacing: 0.36px;
+  color: #7eb693;
+}
+
+.eco_titles h2 {
+  font-family: Roboto;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 59px;
+  letter-spacing: 0.36px;
+  color: #274c5b;
+  max-width: 301px;
+}
+
+.eco_text {
+  margin-top: 30px;
+  margin-left: 60px;
+  margin-bottom: 55.11px;
+}
+
+.eco_text h4 {
+  font-family: Roboto;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.36px;
+  color: #274c5b;
+  margin-bottom: 4px;
+}
+
+.eco_text p {
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.36px;
+  color: #525c60;
+  max-width: 620px;
+  margin-bottom: 9.89px;
+}

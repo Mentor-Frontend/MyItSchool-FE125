@@ -1,0 +1,146 @@
+.rev_container {
+  background: url(../images/reviews_bg.png) center scroll no-repeat;
+  background-size: 100% 100%;
+  max-width: 1490px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rev_block {
+  padding-top: 130.09px;
+  padding-bottom: 150.22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rev_block h3 {
+  font-family: Yellowtail;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 65px;
+  letter-spacing: 0.36px;
+  text-align: center;
+  color: #7eb693;
+}
+
+.rev_block h2 {
+  font-family: Roboto;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 59px;
+  letter-spacing: 0.36px;
+  text-align: center;
+  color: #274c5b;
+}
+
+.rev_text {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rev_text img {
+  width: 115px;
+  height: 115px;
+}
+
+.stars {
+  margin-top: 18px;
+}
+
+.stars img {
+  width: 123px;
+  height: 27px;
+}
+
+.rev_text p {
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.36px;
+  text-align: center;
+  margin-top: 29.78px;
+}
+
+.rev_text h4 {
+  font-family: Roboto;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0.36px;
+  text-align: center;
+  color: #274c5b;
+  margin-top: 23px;
+}
+
+.rev_text h5 {
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0.36px;
+  text-align: center;
+  color: #525c60;
+}
+
+.rev_line {
+  margin-top: 80.22px;
+  width: 966px;
+  height: 2px;
+  background-color: #e0e0e0;
+}
+
+.rev_circle {
+  display: flex;
+  flex-direction: row;
+  max-width: 1104px;
+  margin-top: 99.78px;
+}
+
+.circle_0 {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #7eb693;
+  margin-left: 13px;
+  margin-right: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle_00 {
+  width: 232px;
+  height: 232px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  border: white 4px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle_text1 {
+  font-family: Roboto;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 55px;
+  letter-spacing: 0.36px;
+  color: #274c5b;
+}
+
+.circle_text2 {
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.36px;
+  color: #274c5b;
+}

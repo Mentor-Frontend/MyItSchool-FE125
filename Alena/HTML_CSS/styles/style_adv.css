@@ -1,0 +1,71 @@
+.advantages {
+  max-width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.adv_block {
+  margin-top: 140px;
+  margin-bottom: 140px;
+  display: flex;
+}
+
+.adv_1,
+.adv_2 {
+  position: relative;
+}
+
+.adv_1 {
+  left: 0.95%;
+}
+
+
+.adv_1 img,
+.adv_2 img {
+  width: 96.378%;
+}
+
+.adv_1_text,
+.adv_2_text {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+}
+
+.adv_1_text p {
+  font-family: Yellowtail;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 65px;
+  letter-spacing: 0.36px;
+  color: white;
+}
+
+.adv_1_text h2 {
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 52px;
+  letter-spacing: 0.36px;
+  color: white;
+  max-width: 217px;
+}
+
+.adv_2_text p {
+  font-family: Yellowtail;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 65px;
+  letter-spacing: 0.36px;
+  color: #7eb693;
+}
+
+.adv_2_text h2 {
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 52px;
+  letter-spacing: 0.36px;
+  color: #274c5b;
+  max-width: 264px;
+}

@@ -1,0 +1,87 @@
+/* левая часть */
+
+.descr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(249,104,147);
+    border-radius: 29px;
+    color: #FFFFFF;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descr > p {
+    line-height: 60px;
+    color: #274C5B;
+    font-size: 70px;
+    line-height: 84px;
+    letter-spacing: 0.36px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+}
+
+.span {
+    position: absolute;
+    width: 615px;
+    height: 378px;
+    top: 0;
+}
+.span:hover .descr {
+    opacity: 1;
+}
+
+.cont_content_left {
+    position: relative;
+}
+
+/* правая часть */
+
+.cont_content_right {
+    position: relative;
+}
+
+.span1 {
+    position: absolute;
+    width: 617px;
+    height: 380px;
+    top: 0;
+}
+.span1:hover .descr1 {
+    opacity: 1;
+}
+
+.descr1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-radius: 29px;
+    color: #FFFFFF;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descr1 > p {
+    line-height: 60px;
+    color: #274C5B;
+    font-size: 70px;
+    line-height: 84px;
+    letter-spacing: 0.36px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+}

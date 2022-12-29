@@ -66,6 +66,7 @@ constructor(data) {
    div.classList.add('contacts')
    document.body.appendChild(div);
    this.app = div;
+   this.localStorage=localStorage;
    this.createdocument();
 }
 
@@ -166,14 +167,17 @@ onAdd() {
     email: document.getElementById('doc_email').value, 
     address: document.getElementById('doc_address').value, 
     phone: document.getElementById('doc_phone').value });
-   console.log(newUser);         
+      
    contactsapp.add(newUser);
    console.log('get', contactsapp.get());         
+   contactsapp.Storage=contactsapp.get();
+   console.log(contactsapp.get());         
 }
 
 onRemove() {
    contactsapp.remove(Number(document.getElementById('doc_id').value));
-   console.log(contactsapp);      
+   console.log(contactsapp);    
+   contactsapp.Storage=contactsapp.get();
 }
 
 onEdit() {
@@ -184,11 +188,47 @@ onEdit() {
     email: document.getElementById('doc_email').value, 
     address: document.getElementById('doc_address').value, 
     phone: document.getElementById('doc_phone').value });
-   console.log(contactsapp.get());  
+   console.log(contactsapp.get()); 
+   contactsapp.Storage=contactsapp.get();
+   
 }    
 }
 
+get Storage() {
+     let contactsStorage = (this.localStorage.getItem('contactsSt'));
+     if (contactsStorage) {
+      contactsStorage = JSON.parse(contactsStorage);
+      
+      if (contactsStorage.length>0) {
+         for (let contactStorage of contactsStorage) {
+            contactsapp.add(contactStorage);
+         }
+      return contactsapp;
+      }
+   }
+}
+
+set Storage(param) {
+   this.localStorage.setItem('contactsSt', JSON.stringify(param));
+   let ageSec = 60*60*24*14;
+   //  60 sec*60 min*24hours*14days
+   let ageMs = ageSec * 1000;
+   //  document.addEventListener('unload', () => {
+   //    if (!localStorage.getItem('expiresContacts')) {
+   //       localStorage.setItem('expiresContacts', new Date().getTime() + ageMs)
+   //    }
+   //  })
+    document.cookie="storageExpiration=true; max-age="+ageSec;
+    console.log( getCookie('storageExpiration'));//I's working!
+ }
+
 };
+
+document.addEventListener('load', () => {
+   !getCookie('storageExpiration') && localStorage.removeItem('contactsSt')
+})
+
+
 
 const contact = new User({id:1, name:"Vasya", email: "11@rwf.yh", address: "Adddddrrrress", phone: "348484" })
 const contact2 = new User({id:2, name:"Petya", email: "23781@rwf.yh", address: "Adddddrrrress", phone: "46457" })
@@ -203,4 +243,21 @@ contactsapp.add(contact);
 contactsapp.add(contact2);
 contactsapp.add(contact3);
 console.log(contactsapp);
+function getCookie(name) {
+   const value = `; ${document.cookie}`;
+   const parts = value.split(`; ${name}=`);
+   if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+contact = new User({id:1, name:"Vasya", email: "11@rwf.yh", address: "Adddddrrrress", phone: "348484" })
+contact2 = new User({id:2, name:"Petya", email: "23781@rwf.yh", address: "Adddddrrrress", phone: "46457" })
+contact3 = new User({id:3, name:"Gena", email: "2342@rwf.yh", address: "Adddddrrrress", phone: "7979" })
+
+contactsapp = new ContactsApp();
+contactsapp.Storage;
+// contactsapp.add(contact);
+// contactsapp.add(contact2);
+// contactsapp.add(contact3);
+console.log(contactsapp.get());
+
 

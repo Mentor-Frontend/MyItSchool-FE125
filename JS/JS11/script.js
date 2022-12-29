@@ -1,4 +1,4 @@
-
+'use strict'
 class Contacts {
     constructor (data) {
        this.data = [];
@@ -10,7 +10,7 @@ class Contacts {
    }
 
    edit(id,obj) {
-       let ObjEdit= this.data.find(x => x.id === Number(id));
+       let ObjEdit= this.data.find(contact => contact.id === Number(id));
        ObjEdit.edit(obj);
    }
    find(id) {
@@ -18,7 +18,7 @@ class Contacts {
   }
 
   remove(id) {
-       let index = this.data.findIndex(n => n.id === id);
+       let index = this.data.findIndex(contact => contact.id === id);
        if (index !== -1) {
        this.data.splice(index, 1);
     }
@@ -33,6 +33,10 @@ class Contacts {
 class User {
 constructor (data) {
    // if (typeof data==='object') this.data=data;
+   // this.data = {
+   //    id: Number(data.id),
+   //    email: data.email,
+   // }
    this.id = Number(data.id),
    this.email = data.email,
    this.name = data.name,
@@ -46,7 +50,6 @@ edit(obj) {
    this.name = obj.name,
    this.address =obj.address,
    this.phone = obj.phone;
-   return this;
 }
 
 get() {
@@ -60,6 +63,7 @@ constructor(data) {
    super(data);
    let div=document.createElement('div');
    div.innerHTML='Your Choose';
+   div.classList.add('contacts')
    document.body.appendChild(div);
    this.app = div;
    this.createdocument();
@@ -164,7 +168,7 @@ onAdd() {
     phone: document.getElementById('doc_phone').value });
    console.log(newUser);         
    contactsapp.add(newUser);
-   console.log(contactsapp.get());         
+   console.log('get', contactsapp.get());         
 }
 
 onRemove() {
@@ -186,16 +190,17 @@ onEdit() {
 
 };
 
-contact = new User({id:1, name:"Vasya", email: "11@rwf.yh", address: "Adddddrrrress", phone: "348484" })
-contact2 = new User({id:2, name:"Petya", email: "23781@rwf.yh", address: "Adddddrrrress", phone: "46457" })
-contact3 = new User({id:3, name:"Gena", email: "2342@rwf.yh", address: "Adddddrrrress", phone: "7979" })
+const contact = new User({id:1, name:"Vasya", email: "11@rwf.yh", address: "Adddddrrrress", phone: "348484" })
+const contact2 = new User({id:2, name:"Petya", email: "23781@rwf.yh", address: "Adddddrrrress", phone: "46457" })
+const contact3 = new User({id:3, name:"Gena", email: "2342@rwf.yh", address: "Adddddrrrress", phone: "7979" })
 
-console.log(contact);
-contacts = new Contacts();
-console.log(contacts);
+console.log('contact1',contact);
+// const contacts = new Contacts();
+// console.log(contacts);
 
-contactsapp = new ContactsApp();
+const contactsapp = new ContactsApp();
 contactsapp.add(contact);
 contactsapp.add(contact2);
 contactsapp.add(contact3);
 console.log(contactsapp);
+

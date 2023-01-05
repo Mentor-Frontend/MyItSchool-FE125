@@ -22,7 +22,7 @@ for (let c = 23; c <= 57; c++) {
 console.log (arr3);
 console.log (sumArr3);
 
-//four .includes(num.toString()[0]) ???
+//four 
 let arr4 = ['10', '20', '30', '50', '235', '3000'];
 console.log(arr4.filter(num => ['1','2','5'].includes(num.toString()[0])))
 

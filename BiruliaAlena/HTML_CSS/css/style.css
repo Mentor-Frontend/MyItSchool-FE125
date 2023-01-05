@@ -405,14 +405,17 @@ hr {
 .customer__statistics {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .customer__statistic__item {
     background-color: #F1F1F1;
-    padding: 80px 50px;
+    /* padding: 80px 50px; */
     border-radius: 50%;
     border: 6px solid #7EB693;
-    width: 18vw;
+    width: 23%;
+    padding-top: 7%;
+    padding-bottom: 7%;
 }
 
 .customer__statistic__item .one{

@@ -1,4 +1,5 @@
 
+
 * {
     padding: 0;
     margin: 0;
@@ -13,7 +14,6 @@ body {
 }
 
 .container {
-    padding: 0 20px;
     max-width: 1440px;
     margin: auto;
 }
@@ -169,12 +169,13 @@ button p{
 }
 
 .promo {
-    padding: 140px 0;
+    padding: 90px 0 140px 0;
 }
 
 .promo__items {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 .promo__item {
     position: relative;
@@ -405,14 +406,17 @@ hr {
 .customer__statistics {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .customer__statistic__item {
     background-color: #F1F1F1;
-    padding: 80px 50px;
+    /* padding: 80px 50px; */
     border-radius: 50%;
     border: 6px solid #7EB693;
-    width: 18vw;
+    width: 23%;
+    padding-top: 7%;
+    padding-bottom: 7%;
 }
 
 .customer__statistic__item .one{
@@ -510,6 +514,8 @@ hr {
     padding: 140px 0;
     display: flex;
     justify-content: space-between;
+    gap: 30px;
+
 }
 .catalog__item img {
     width: 100%;
@@ -526,7 +532,7 @@ hr {
     background-color: #FFFFFF;
     border-radius: 15px;
     padding: 30px;
-    width: 50%;
+    width: 60%;
 }
 .catalog__name__text {
     font-family: 'Roboto';
@@ -538,7 +544,7 @@ hr {
 }
 .letter__background {
     background: url(../images/img/footer_img.png) center center/cover no-repeat;
-    min-height: 320px;
+    min-height: 120px;
     margin-top: 20px;
     border-radius: 20px;
     padding: 100px 70px;
@@ -581,6 +587,7 @@ footer {
 .footer {
     display: flex;
     justify-content: space-around;
+    padding-bottom: 85px;
 }
 .footer__contacts,
 .footer__media,

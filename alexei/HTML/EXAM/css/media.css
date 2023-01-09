@@ -1,0 +1,457 @@
+@media (max-width: 1350px) {
+    .container {
+        max-width: 1150px;
+    }
+    .whith-nature__container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .offer__container {
+        column-gap: 1em;
+    }
+    .product-card-bottom_price {
+        flex-direction: column;
+    }
+    .testimonial__text, .testimonial__head, .testimonial__head, .testimonial__name, .testimonial__profession, .customer {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    .form {
+        width: 30%;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: revert;
+    }
+    .about-us__image img {
+        max-width: 100%;
+    }
+}
+@media (max-width: 1250px){
+    .container {
+        max-width: 1050px;
+    }
+    .offer__text {
+        top: 20%;
+        left: 8%;
+        max-width: 53%;
+    }
+    .about-us__container {
+        grid-template-columns: 1fr;
+    }
+    .about-us__image {
+        display: none;
+    }
+    .about-us__text {
+        text-align: center;
+    }
+    .testimonial__container {
+        grid-template-rows: 0.5fr 8fr 0.5fr;
+    }
+    .testimonial__container hr {
+            margin: 22px auto;
+    }
+    .testimonial__circles {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        justify-items: center;
+    }
+    .testimonial__circle-first {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-self: end;
+    }
+    .testimonial__circle-second {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        justify-self: start;
+    }
+    .testimonial__circle-third {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        justify-self: end;
+    }
+    .testimonial__circle-forth {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        justify-self: start;
+    }
+    .eco-friendly__wrapper {
+        grid-column: 15/41;
+    }
+    .menu__home {
+        margin-left: 20px;
+    }
+    .menu__about-us, .menu__pages {
+        margin: 0 20px;
+    }
+    .offer-products__container {
+        grid-template-rows: 0.5fr 1fr 3fr 0.5fr;
+    }
+    .offer-products__text h2 {
+        font-size: 40px;
+    }
+    
+}
+@media (max-width: 1024px) {
+    .container {
+        max-width: 800px;
+    }
+    .whith-nature__container {
+        grid-template-columns: 1fr;
+    }
+    .offer__fresh-fruits h2, .offer__vegitables h2 {
+        font-size: 30px;
+    }
+    .whith-nature__wrapper {
+        text-align: center;
+        justify-self: center;
+    }
+    .whith-nature__button button {
+        margin: 0 auto;
+    }
+    .header {
+        margin: 10px 0;
+    }
+    .header__menu {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+    #menu__toggle {
+        opacity: 0;
+      }
+    #menu__toggle:checked ~ .menu__btn > span {
+      transform: rotate(45deg);
+    }
+    #menu__toggle:checked ~ .menu__btn > span::before {
+      top: 0;
+      transform: rotate(0);
+    }
+    #menu__toggle:checked ~ .menu__btn > span::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    #menu__toggle:checked ~ .menu__box {
+      visibility: visible;
+      left: 0;
+    }
+    
+    .menu__btn {
+      display: flex;
+      align-items: center;
+      position: fixed;
+      width: 26px;
+      height: 26px;   
+      cursor: pointer;
+      z-index: 1;
+    }   
+    .menu__btn > span,
+    .menu__btn > span::before,
+    .menu__btn > span::after {
+      display: block;
+      position: absolute;   
+      width: 100%;
+      height: 2px;   
+      background-color: #616161;   
+      transition-duration: .25s;
+    }
+    .menu__btn > span::before {
+      content: '';
+      top: -8px;
+    }
+    .menu__btn > span::after {
+      content: '';
+      top: 8px;
+    }     
+      .menu__box {
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        top: 0;
+        left: -100%;     
+        width: 300px;
+        height: 100%;      
+        margin: 0;
+        padding: 80px 0;      
+        list-style: none;      
+        background-color: #ECEFF1;
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);      
+        transition-duration: .25s;
+      }     
+      .menu__item {
+        display: block;
+        padding: 12px 24px;      
+        color: #333;      
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        font-weight: 600;      
+        text-decoration: none;      
+        transition-duration: .25s;
+      }
+      .menu__item:hover {
+        background-color: #CFD8DC;
+      }
+      .eco-friendly__container {
+        grid-template-columns: 1fr;
+      }
+      .eco-friendly__images {
+        display: none;
+      }
+      .eco-friendly__wrapper {
+        grid-column: 1/2;
+        text-align: center;
+    }
+    .categories__container {
+        grid-template-rows: 1fr 12fr 1fr;
+        justify-items: center;
+    }
+    .categories__wrapper {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+    }
+    .categories__fruit-juise, .categories__organic-food, .categories__nuts-coocies {
+        grid-column: 2/3;
+    }
+    .categories__fruit-juise {
+        grid-row: 1/2;
+    }
+    .categories__organic-food {
+        grid-row: 2/3;
+    }
+    .categories__nuts-coocies {
+        grid-row: 3/4;
+    }
+}
+@media (max-width: 800px) {
+    .container {
+        max-width: 600px;
+    }
+    .offer__container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 2fr 2fr 0.5fr;
+        row-gap: 1em;
+    }
+    .offer__fresh-fruits  {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .offer__vegitables {
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+    .organic__container {   
+    grid-template-rows: 0.3fr 0.3fr 7fr 0.3fr;
+    }
+    .organic__products {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+    }
+    .offer-products__container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.3fr 0.3fr 3fr 0.3fr;
+    }
+    .offer-products__wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+    .offer-products__button {
+        margin: 0 auto;
+    }
+    .offer-products__text {
+        text-align: center;
+    }
+    .offer-products__button {
+        text-align: -webkit-center;
+    }
+    .offer-products__products {
+        grid-template-columns: 1fr;
+    }
+    .subscribe {
+        background-color: #a7a7a7;
+    }
+    .subscribe__container {
+        flex-direction: column;
+        max-height: max-content;
+        margin: 0 auto;
+    }
+    .subscribe__images {
+        display: none;
+    }
+    .subscribe__content {
+        position: relative;
+        top: none;
+        left: none;
+        transform: none;
+        flex-direction: column;
+        padding: 50px 0;
+    }
+    .subscribe__content h2 {
+        text-align: center;
+    }
+    .footer__wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+    }
+    .left-line, .right-line  {
+        display: none;
+    }
+    .footer__wrapper-center {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    .footer__wrapper-left {
+        grid-row: 2/3;
+        grid-column: 1/2;
+        text-align: center;
+        position: relative;
+        padding-right: 0;
+    }
+    .footer__wrapper-right {
+        text-align: center;
+        position: relative;
+        padding-left: 0;
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+    .text__form {
+        padding-bottom: 50px;
+    }
+    .footer__container {
+        margin-top: 50px;
+    }
+}
+@media (max-width: 545px) {
+    .container {
+        max-width: 400px;
+    }
+    .testimonial {
+        background-image: none;
+    }
+    .testimonial__circles {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        justify-items: center;
+    }
+    .testimonial__circle-first {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-self: center;
+    }
+    .testimonial__circle-second {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        justify-self: center;
+    }
+    .testimonial__circle-third {
+        grid-column: 1/2;
+        grid-row: 3/4;
+        justify-self: center;
+    }
+    .testimonial__circle-forth {
+        grid-column: 1/2;
+        grid-row: 4/5;
+        justify-self: center;
+    }
+}
+@media (max-width: 425px) {
+    .container {
+        max-width: 300px;
+    }
+    h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .header__logo {
+        display: none;
+    }
+    .header__logo-mobile {
+        display: block;
+    }
+    .offer__fresh-fruits h2, .offer__vegitables h2 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .offer__text {
+        top: 5%;
+        left: 3%;
+    }
+    .about-us__container {
+        grid-template-rows: 0.5fr 6fr 1fr 0.5fr;
+    }
+    .about-us__box-text_first, .about-us__box-text_second {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .about-us__button {
+        text-align: -webkit-center;
+    }
+    .organic__container {
+        grid-template-rows: 0.3fr 0.3fr 7fr;
+    }
+    .organic__container {
+        grid-template-rows: 0.3fr 0.3fr 7fr;
+    }
+    .offer-products__button {
+        width: 100%;
+    }
+    .offer-products__text h2 {
+        font-size: 30px;
+        margin: 0 20px;
+    }
+    .eco-friendly__wrapper{
+        padding-left: 0;
+    }
+}
+@media (max-width: 320px) {
+    .container {
+        max-width: 200px;
+    }
+    .header__cart p {
+        display: none;
+    }
+    .product-card-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    p {
+        font-size: 14px;
+    }
+    h6 {
+        font-size: 16px;
+    }
+    .whith-nature__container {
+        grid-template-rows: 0.3fr 2fr 0.5fr;
+    }
+    .button__text {
+        white-space: normal;
+    }
+    .categories__button-text {
+        margin: 0;
+        white-space: normal;
+    }
+    .testimonial__circle {
+        width: 150px;
+        height: 150px;
+    }
+    .form {
+        width: auto;
+    }
+    .footer__social {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .footer__social-twitter, .footer__social-instagramm {
+        margin: 0;
+    }
+    
+}
+
+    

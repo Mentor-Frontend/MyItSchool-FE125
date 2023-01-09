@@ -29,6 +29,7 @@ class Contacts {
    }
 
 };
+contacts = new Contacts();
 
 class User {
 constructor (data) {
@@ -64,6 +65,7 @@ constructor(data) {
    this.app = div;
    this.localStorage=localStorage;
    this.createdocument();
+   this.getData();
 }
 
 createdocument() {
@@ -193,25 +195,51 @@ get Storage() {
      let contactsStorage = (this.localStorage.getItem('contactsSt'));
      if (contactsStorage) {
       contactsStorage = JSON.parse(contactsStorage);
-      
-      if (contactsStorage.length>0) {
-         for (let contactStorage of contactsStorage) {
-            contactsapp.add(contactStorage);
-         }
-      return contactsapp;
-      }
+      return contactsStorage;
+      // if (contactsStorage.length>0) {
+      //    for (let contactStorage of contactsStorage) {
+      //       contactsapp.add(contactStorage);
+      //    }
+      // return contactsapp;
+      // }
    }
 }
 
 set Storage(param) {
-    this.localStorage.setItem('contactsSt', JSON.stringify(param));
-    let age = 60*60*24*14;
-   //  60 sec*60 min*24hours*14days
+    localStorage.setItem('contactsSt', JSON.stringify(param));
+    let age = 10;
     document.cookie="storageExpiration=true; max-age="+age;
-    console.log( getCookie('storageExpiration'));//I's working!
  }
 
+
+ getData() {
+   let contactsStorage = this.Storage;
+   console.log('contactsStorage from localStorage',contactsStorage);
+   if (contactsStorage) return console.log('Not empty localStorage');
+
+   (async function() {
+  
+      let response = await fetch('https://jsonplaceholder.typicode.com/users');
+      if (!response.ok) return
+
+      let data = response.json();
+      // data - тип promise, поэтому:
+         data.then(function(users) {
+            users.forEach(function(user,index,users){
+            contacts.add(user);
+          })
+         //почему через сеттер не удалось установить? вызывается же не стрелочная функция
+         //  this.Storage=users;
+         localStorage.setItem('contactsSt', JSON.stringify(users));
+          console.log('contacts after fetch ',contacts.get());            
+      });
+      })();
+   }     
 };
+
+document.addEventListener('load', ()=>{
+   !getCookie('storageExpiration') && localStorage.removeItem('contactsSt')
+})
 
 function getCookie(name) {
    const value = `; ${document.cookie}`;
@@ -228,6 +256,9 @@ contactsapp.Storage;
 // contactsapp.add(contact);
 // contactsapp.add(contact2);
 // contactsapp.add(contact3);
-console.log(contactsapp.get());
+// console.log(contactsapp.get());
 
 
+// console.log("contactsapp: ",contactsapp.get());
+console.log("local storage : ",contactsapp.Storage);
+console.log('contacts ',contacts.get());         

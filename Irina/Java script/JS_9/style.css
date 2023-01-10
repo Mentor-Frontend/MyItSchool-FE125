@@ -1,0 +1,53 @@
+.container {
+  position: relative;
+}
+.task-list {
+  position: absolute;
+  left: 30%;
+  top: 150px;
+  min-width: 400px;
+  border: 4px dotted rgba(85, 5, 69, 0.976);
+  background-color: rgba(247, 201, 186, 0.992);
+  padding-bottom: 20px;
+}
+.header h2 {
+  text-align: center;
+  font-size: 32px;
+  color: rgb(84, 3, 3);
+}
+.main {
+  padding: 0 45px;
+}
+.main input {
+  height: 24px;
+  border: none;
+}
+#add {
+  height: 26px;
+  background-color: rgb(238, 75, 105);
+  border-radius: 10px;
+  border-width: 1px;
+  cursor: pointer;
+}
+.list-item {
+  padding: 0 15px;
+  margin: 0;
+}
+.item {
+  padding-left: 20px;
+  font-size: 22px;
+}
+.list {
+  display: flex;
+  padding: 10px 30px;
+  margin: 0;
+  list-style: none;
+  border-bottom: 2px solid rgb(213, 55, 55);
+}
+.clear {
+  margin: 20px 0 0 30px;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}

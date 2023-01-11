@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.contacts{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px solid black;
+    max-width: 300px;
+    margin-left: 10px;
+}
+.contacts button{
+    background-color: aqua;
+    border-radius: 5px;
+    border: 1px solid;
+    width: 80px ;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.contacts button:hover {
+    scale: 1.2;
+    transition: 1s;
+}
+.containerContacts {
+    display: grid;
+    max-width: 300px;
+    margin-top: 10px;
+}
+input{
+    border-radius: 3px;
+    background-color: aquamarine;
+    margin-top: 10px;
+}
+.getContainer {
+    margin-top: 30px;
+}
+.getContainer p {
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: blanchedalmond;
+    margin-top: 10px;
+}
+.editField div{
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+.removeField div {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+.removeField input {
+    max-width: 300px;
+}

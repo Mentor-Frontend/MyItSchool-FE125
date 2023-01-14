@@ -77,7 +77,7 @@
 
 // функция - конструктор подсчета нормы выработки 
 
-let Worker = function(name) {
+let Workers = function(name) {
   this.todayDate = new Date().toLocaleDateString();
   this.name = name;
   this.personalNumber = + prompt('введите личный номер, 0000');
@@ -94,10 +94,10 @@ let Worker = function(name) {
 }
 }
 
-let workerAlex = new Worker("Alex");
+let workerAlex = new Workers("Alex");
 console.log(workerAlex);
 workerAlex.workerNorm();
 
-let workerSanta = new Worker("Santa");
+let workerSanta = new Workers("Santa");
 console.log(workerSanta);
 workerSanta.workerNorm();

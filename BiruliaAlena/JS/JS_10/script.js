@@ -64,6 +64,7 @@ let doc = new Doc();
 doc.create("div")
 doc.create("h1")
 doc.create("img")
+doc.create("img2")
 console.log(doc)
 
 

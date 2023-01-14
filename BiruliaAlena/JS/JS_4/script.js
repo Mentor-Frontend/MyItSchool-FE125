@@ -7,8 +7,8 @@ for (let i = 0; i < arr1.length; i++) {
 
 //two
 let arr2 = [-2, -1, -3, 15, 0, -4, 2, -5, 9, -15, 0, 4, 5, -6, 10, 7];
-let resultArr2 = arr2.filter (item => item < -3 && item > -10);
-resultArr2 = resultArr2.join (",");
+let resultArr2 = arr2.filter(item => item < -3 && item > -10);
+resultArr2 = resultArr2.join(",");
     console.log (resultArr2);
 
 // three
@@ -36,19 +36,22 @@ arr6.push('JS');
     console.log(arr6);
     console.log(arr6[2]);
 
-/*seven
+//seven
 const arr7 = [];
-let arrAnsver = +prompt('ваше любимое число?');
+let arrAnswer = +prompt('ваше любимое число?');
 
-for (let i = 0; i < arrAnsver; i++) {
-    arrAnsver = +prompt('ваше любимое число?');
-    arr7.push(arrAnsver);
+for (let i = 0; i < arrAnswer; i++) {
+    arrAnswer = prompt('ваше любимое число?');
+    if (arrAnswer === '') {
+        break;
     }
+    arr7.push(+arrAnswer);
+}
 console.log(arr7);
 arr7.sort(function(a, b) {
     return a - b
 });
-console.log(arr7);*/
+console.log(arr7);
 
 //eight
 let arr8 = [12, false, 'Текст', 4, 2, -5, 0];
@@ -57,9 +60,17 @@ let arr8Reverse = arr8.reverse();
 
 
 // nine 
-const arr9 = [5, 9, 21, , , 9, 78, , , , 6];
+const arr9 = [5, 9, 21, empty , undefined , 9, 78,  , , , 6];
+let count = 0;
+arr9.forEach(el => {
+    if (!el) {
+        count = count + 1;
+    }
+})
+console.log(count);
 
 //ten 
+
 
 //eleven
 

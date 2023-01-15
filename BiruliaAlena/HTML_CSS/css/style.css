@@ -405,18 +405,17 @@ hr {
 }
 .customer__statistics {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
 }
 
 .customer__statistic__item {
     background-color: #F1F1F1;
-    /* padding: 80px 50px; */
     border-radius: 50%;
     border: 6px solid #7EB693;
-    width: 23%;
-    padding-top: 7%;
-    padding-bottom: 7%;
+    width: 240px;
+    padding-top: 65px;
+    padding-bottom: 65px;
 }
 
 .customer__statistic__item .one{

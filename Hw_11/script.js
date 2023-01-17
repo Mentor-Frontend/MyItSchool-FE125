@@ -40,16 +40,18 @@ class Contacts {
       getContainer.append(email);
       getContainer.append(adress);
       getContainer.append(phone);
-      id.innerHTML = 'id is: ' + this.data[i].id;
-      name.innerHTML = 'name is: ' + this.data[i].name;
-      email.innerHTML = 'email is: ' + this.data[i].email;
-      adress.innerHTML = 'adress is: ' + this.data[i].adress;
-      phone.innerHTML = 'phone is: ' + this.data[i].phone;
-        
-      
+      id.innerHTML = "id is: " + this.data[i].id;
+      name.innerHTML = "name is: " + this.data[i].name;
+      email.innerHTML = "email is: " + this.data[i].email;
+      adress.innerHTML = "adress is: " + this.data[i].adress;
+      phone.innerHTML = "phone is: " + this.data[i].phone;
     }
   }
 }
+let matches = document.cookie.match(new RegExp(
+  "(?:^|; )" + 'StorageExpiration'.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+));
+if(!matches) localStorage.clear();
 class User {
   constructor(userData) {
     this.id = userData.id;
@@ -156,6 +158,7 @@ class ContactsApp extends Contacts {
     let editFieldinput = document.createElement("input");
     let editFieldsSection = document.createElement("div");
     editField.classList.add("editField");
+
     this.app.append(editField);
     editField.append(editFieldsSection);
     editFieldsSection.append(editFieldinput);
@@ -167,13 +170,12 @@ class ContactsApp extends Contacts {
       if (event.keyCode == 13) {
         let saveButton = document.createElement("button");
         saveButton.innerHTML = "Save";
-        
+
         let inputEditName = document.createElement("input");
         let inputEditEmail = document.createElement("input");
         let inputEditPhone = document.createElement("input");
         let inputEditAdress = document.createElement("input");
 
-        
         editFieldsSection.append(inputEditName);
         editFieldsSection.append(inputEditEmail);
         editFieldsSection.append(inputEditPhone);
@@ -194,7 +196,13 @@ class ContactsApp extends Contacts {
                 phone: inputEditPhone.value,
               };
               thisObj.edit(editFieldinput.value, obj);
-              editFieldsSection.remove();
+              localStorage.setItem("contacts", JSON.stringify(thisObj.data));
+              sessionStorage.setItem("contacts", JSON.stringify(thisObj.data));
+              inputEditName.remove();
+              inputEditEmail.remove();
+              inputEditPhone.remove();
+              inputEditAdress.remove();
+              saveButton.remove();
             });
           }
         }
@@ -202,13 +210,12 @@ class ContactsApp extends Contacts {
       thisObj.editButton.addEventListener("click", function () {
         let saveButton = document.createElement("button");
         saveButton.innerHTML = "Save";
-        
+
         let inputEditName = document.createElement("input");
         let inputEditEmail = document.createElement("input");
         let inputEditPhone = document.createElement("input");
         let inputEditAdress = document.createElement("input");
 
-        
         editFieldsSection.append(inputEditName);
         editFieldsSection.append(inputEditEmail);
         editFieldsSection.append(inputEditPhone);
@@ -241,24 +248,27 @@ class ContactsApp extends Contacts {
     let removeFieldinput = document.createElement("input");
     let fieldsdiv = document.createElement("div");
     removeFieldinput.setAttribute("placeholder", "Enter Id Element");
+    removeFieldinput.setAttribute("id", "remove");
     removeField.classList.add("removeField");
     this.app.append(removeField);
     removeField.append(removeFieldinput);
     const thisObj = this;
     removeField.append(fieldsdiv);
+    this.removeButton.addEventListener("click", function () {
+      if (!document.querySelector("#remove"))
+        removeField.append(removeFieldinput);
+    });
     removeFieldinput.addEventListener("keydown", function (event) {
       if (event.keyCode == 13) {
         let deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
         removeField.append(deleteButton);
 
-        
         let removeEditName = document.createElement("input");
         let removeEditEmail = document.createElement("input");
         let removeEditPhone = document.createElement("input");
         let removeEditAdress = document.createElement("input");
 
-        
         fieldsdiv.append(removeEditName);
         fieldsdiv.append(removeEditEmail);
         fieldsdiv.append(removeEditPhone);
@@ -272,12 +282,8 @@ class ContactsApp extends Contacts {
             removeEditPhone.value = thisObj.data[i].phone;
             deleteButton.addEventListener("click", function () {
               thisObj.remove(removeFieldinput.value);
-              removeEditName.value = "";
-              removeEditEmail.value = "";
-              removeEditAdress.value = "";
-              removeEditPhone.value = "";
-              fieldsdiv.remove();
-              removeFieldinput.value = '';
+
+              removeField.remove();
             });
           }
         }
@@ -288,9 +294,28 @@ class ContactsApp extends Contacts {
     let getContainer = document.createElement("div");
     getContainer.classList.add("getContainer");
     this.app.append(getContainer);
-  
+
     this.get(getContainer);
-   
+  }
+  set storage(data) {
+    const thisObj = this;
+
+    this.addButton.addEventListener("click", function () {
+      length = data.length;
+      localStorage.setItem(
+        data[length - 1].id,
+        JSON.stringify(data[length - 1])
+      );
+      
+      document.cookie = "StorageExpiration = true; max-age = 864000"; 
+
+    });
+  }
+  get storage(){
+    for(let i=0; i<localStorage.length; i++) {
+      let key = localStorage.key(i);
+      console.log(`${key}: ${localStorage.getItem(key)}`);
+    }
   }
 }
 
@@ -309,4 +334,10 @@ contactsApp.removeButton.addEventListener("click", function () {
 });
 contactsApp.showContacts.addEventListener("click", function () {
   contactsApp.onGet();
+});
+contactsApp.showListButton.addEventListener("click", function () {
+  contactsApp.storage = contactsApp.data;
+});
+contactsApp.showListButton.addEventListener("click", function () {
+  contactsApp.storage;
 });

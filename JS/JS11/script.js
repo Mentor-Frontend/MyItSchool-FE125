@@ -231,12 +231,11 @@ set Storage(param) {
          data.then(function(users) {
             users.forEach(function(user,index,users){
             contacts.add(user);
-            this.Storage = users;
-            localStorage.setItem('contactsSt', JSON.stringify(users));
-         })
-         //почему через сеттер не удалось установить? вызывается же не стрелочная функция
-          
-          console.log('contacts after fetch ',contacts.get());            
+            this.Storage=users;
+   //  localStorage.setItem('contactsSt', JSON.stringify(users));
+            console.log('contacts after fetch ',contacts.get());  
+          })
+               
       });
       })();
    }     
@@ -252,9 +251,10 @@ function getCookie(name) {
    if (parts.length === 2) return parts.pop().split(';').shift();
  }
 
-const contact = new User({id:1, name:"Vasya", email: "11@rwf.yh", address: "Adddddrrrress", phone: "348484" }),
-contact2 = new User({id:2, name:"Petya", email: "23781@rwf.yh", address: "Adddddrrrress", phone: "46457" }),
-contact3 = new User({id:3, name:"Gena", email: "2342@rwf.yh", address: "Adddddrrrress", phone: "7979" }),
+contact = new User({id:1, name:"Vasya", email: "11@rwf.yh", address: "Adddddrrrress", phone: "348484" })
+contact2 = new User({id:2, name:"Petya", email: "23781@rwf.yh", address: "Adddddrrrress", phone: "46457" })
+contact3 = new User({id:3, name:"Gena", email: "2342@rwf.yh", address: "Adddddrrrress", phone: "7979" })
+
 contactsapp = new ContactsApp();
 contactsapp.Storage;
 // contactsapp.add(contact);

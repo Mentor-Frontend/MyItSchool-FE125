@@ -227,11 +227,11 @@ set Storage(param) {
          data.then(function(users) {
             users.forEach(function(user,index,users){
             contacts.add(user);
+            this.Storage=users;
+   //  localStorage.setItem('contactsSt', JSON.stringify(users));
+            console.log('contacts after fetch ',contacts.get());  
           })
-         //почему через сеттер не удалось установить? вызывается же не стрелочная функция
-         //  this.Storage=users;
-         localStorage.setItem('contactsSt', JSON.stringify(users));
-          console.log('contacts after fetch ',contacts.get());            
+               
       });
       })();
    }     

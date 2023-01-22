@@ -29,6 +29,7 @@ class Contacts {
    }
 
 };
+const contacts = new Contacts();
 
 class User {
 constructor (data) {
@@ -68,6 +69,7 @@ constructor(data) {
    this.app = div;
    this.localStorage=localStorage;
    this.createdocument();
+   this.getData();
 }
 
 createdocument() {
@@ -169,7 +171,6 @@ onAdd() {
     phone: document.getElementById('doc_phone').value });
       
    contactsapp.add(newUser);
-   console.log('get', contactsapp.get());         
    contactsapp.Storage=contactsapp.get();
    console.log(contactsapp.get());         
 }
@@ -198,66 +199,70 @@ get Storage() {
      let contactsStorage = (this.localStorage.getItem('contactsSt'));
      if (contactsStorage) {
       contactsStorage = JSON.parse(contactsStorage);
-      
-      if (contactsStorage.length>0) {
-         for (let contactStorage of contactsStorage) {
-            contactsapp.add(contactStorage);
-         }
-      return contactsapp;
-      }
+      return contactsStorage;
+      // if (contactsStorage.length>0) {
+      //    for (let contactStorage of contactsStorage) {
+      //       contactsapp.add(contactStorage);
+      //    }
+      // return contactsapp;
+      // }
    }
 }
 
 set Storage(param) {
-   this.localStorage.setItem('contactsSt', JSON.stringify(param));
-   let ageSec = 60*60*24*14;
-   //  60 sec*60 min*24hours*14days
-   let ageMs = ageSec * 1000;
-   //  document.addEventListener('unload', () => {
-   //    if (!localStorage.getItem('expiresContacts')) {
-   //       localStorage.setItem('expiresContacts', new Date().getTime() + ageMs)
-   //    }
-   //  })
-    document.cookie="storageExpiration=true; max-age="+ageSec;
-    console.log( getCookie('storageExpiration'));//I's working!
+    localStorage.setItem('contactsSt', JSON.stringify(param));
+    let age = 10;
+    document.cookie="storageExpiration=true; max-age="+age;
  }
 
+
+ getData() {
+   let contactsStorage = this.Storage;
+   console.log('contactsStorage from localStorage',contactsStorage);
+   if (contactsStorage) return console.log('Not empty localStorage');
+
+   (async function() {
+  
+      let response = await fetch('https://jsonplaceholder.typicode.com/users');
+      if (!response.ok) return
+
+      let data = response.json();
+      // data - тип promise, поэтому:
+         data.then(function(users) {
+            users.forEach(function(user,index,users){
+            contacts.add(user);
+            this.Storage = users;
+            localStorage.setItem('contactsSt', JSON.stringify(users));
+         })
+         //почему через сеттер не удалось установить? вызывается же не стрелочная функция
+          
+          console.log('contacts after fetch ',contacts.get());            
+      });
+      })();
+   }     
 };
 
-document.addEventListener('load', () => {
+document.addEventListener('load', ()=>{
    !getCookie('storageExpiration') && localStorage.removeItem('contactsSt')
 })
 
-
-
-const contact = new User({id:1, name:"Vasya", email: "11@rwf.yh", address: "Adddddrrrress", phone: "348484" })
-const contact2 = new User({id:2, name:"Petya", email: "23781@rwf.yh", address: "Adddddrrrress", phone: "46457" })
-const contact3 = new User({id:3, name:"Gena", email: "2342@rwf.yh", address: "Adddddrrrress", phone: "7979" })
-
-console.log('contact1',contact);
-// const contacts = new Contacts();
-// console.log(contacts);
-
-const contactsapp = new ContactsApp();
-contactsapp.add(contact);
-contactsapp.add(contact2);
-contactsapp.add(contact3);
-console.log(contactsapp);
 function getCookie(name) {
    const value = `; ${document.cookie}`;
    const parts = value.split(`; ${name}=`);
    if (parts.length === 2) return parts.pop().split(';').shift();
-}
+ }
 
-contact = new User({id:1, name:"Vasya", email: "11@rwf.yh", address: "Adddddrrrress", phone: "348484" })
-contact2 = new User({id:2, name:"Petya", email: "23781@rwf.yh", address: "Adddddrrrress", phone: "46457" })
-contact3 = new User({id:3, name:"Gena", email: "2342@rwf.yh", address: "Adddddrrrress", phone: "7979" })
-
+const contact = new User({id:1, name:"Vasya", email: "11@rwf.yh", address: "Adddddrrrress", phone: "348484" }),
+contact2 = new User({id:2, name:"Petya", email: "23781@rwf.yh", address: "Adddddrrrress", phone: "46457" }),
+contact3 = new User({id:3, name:"Gena", email: "2342@rwf.yh", address: "Adddddrrrress", phone: "7979" }),
 contactsapp = new ContactsApp();
 contactsapp.Storage;
 // contactsapp.add(contact);
 // contactsapp.add(contact2);
 // contactsapp.add(contact3);
-console.log(contactsapp.get());
+// console.log(contactsapp.get());
 
 
+// console.log("contactsapp: ",contactsapp.get());
+console.log("local storage : ",contactsapp.Storage);
+console.log('contacts ',contacts.get());         

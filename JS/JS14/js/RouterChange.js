@@ -1,5 +1,6 @@
 import { addToCart,getCartData,setCartData,SetCookie } from "./index.js";
 
+
 export default function changeLocation(location, idProduct) {
     switch (location) {
         case '/product/':

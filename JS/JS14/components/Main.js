@@ -9,7 +9,6 @@ export class mHeader {
         elem.setAttribute("class", "header");
         this.element=elem;  
      }
-
      init() {
         this.create();
         return this.element;
@@ -25,7 +24,6 @@ export class mNav {
         elem.setAttribute("class", "nav");
         this.element=elem;
      }
-
      init() {
         this.create();
         return this.element;

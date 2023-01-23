@@ -21,15 +21,13 @@ class App {
         mainScript.defer= true;  
         mainScript.type = 'module';
         mainScript.src='./components/Main.js';
-        document.body.appendChild(mainScript);   
-    
+        document.body.appendChild(mainScript);       
         this.create();
         // this.render();  
         this.getDatafunc();
         document.head.innerHTML='<mta http-equiv="Content-Type" content="text/html;charset=UTF-8"><link rel="stylesheet" href="./css/style.css"><title>Shopping</title>'
         return this;
     }
-
 
     getDatafunc() {
         let products = localStorage.getItem('products');
@@ -52,6 +50,4 @@ class App {
         }     
      };
 
-
-     
 export default new App().init();

@@ -118,15 +118,6 @@ function addToCart(e){
       itemTitle = parentBox.querySelector('.title_box').innerHTML,
       itemPrice = Number(parentBox.querySelector('.price_box').innerHTML),
       itemSum = 0;
-  
-  // if(cartData.hasOwnProperty(itemId)){ 
-  //   cartData[itemId][2] += 1;
-  //   cartData[itemId][3] = Number((cartData[itemId][2]*cartData[itemId][1]).toFixed(2)) ;
-  //  } else { 
-  //   if (!this.parentNode || null) return false;
-  //   cartData[itemId] = [itemTitle, itemPrice, 1, itemPrice, itemId];
-  // }
-
       let isId=false;
        if(cartData !== null){
        for(let items in cartData){
@@ -144,12 +135,10 @@ function addToCart(e){
           cartData.push([itemTitle, itemPrice, 1, itemPrice, itemId])
         }
 
-
-  if(!setCartData(cartData)){ 
-    this.disabled = false; 
-    SetCookie(cartData);
- 
-  }
+        if(!setCartData(cartData)){ 
+          this.disabled = false; 
+          SetCookie(cartData);
+         }
  return false;
 }
 
@@ -166,10 +155,7 @@ window.addEventListener('load', ()=>{
     let count =Number(getCookie('cart_sum'));
     let cart_sum = document.querySelector('.cart_sum');
     cart_sum.innerHTML=count;  
-
   }
-
-
 })
 
 function getCookie(name) {

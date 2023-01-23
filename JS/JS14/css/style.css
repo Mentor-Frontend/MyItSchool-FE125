@@ -16,12 +16,12 @@
 
 header, footer {
     padding-top: 30px;
-    height: 50px;
+    height: 100px;
   
 }
 
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     max-width: 1280px;
     z-index: 10;
@@ -33,11 +33,10 @@ header, footer {
     
 .category {
     max-width: 1280px;
-    width: 90%;
-    margin-bottom: 10px;
+    width: 100%;
     background-color: #f8d9de;
-    height: 50px;
-    margin-top: 90px;
+    height: 60px;
+    margin-top: 20px;
     text-align: center;
     border-radius: 10px;
   } 
@@ -50,7 +49,8 @@ header, footer {
   max-width: 1280px;
   display: flex;
   justify-content: space-evenly;
-
+  padding-top: 20px;
+  
 }
 
 .wrapper {
@@ -58,15 +58,22 @@ header, footer {
     max-width: 90%;
 }
 
+.logo img {
+    width: 150px;
+    height: 100px;
+
+}
+
 .nav {
    margin-left: auto;
    overflow: hidden;
-   position: fixed;
-   top: 10px;
-   width: 80%;
+   position: relative;
+   top: 0;
+   max-width: 1280px;
+   width: 100%;
    display: flex;
-   justify-content: space-between;
- }
+   justify-content: space-evenly;
+}
 
 .nav ul {
    display: flex;
@@ -106,7 +113,7 @@ ul a:hover {
 
 .cart a > img {
     width: 50px;
-    height: 50px;
+    height: 40px;
 }
 
 .cart_count, .cart_sum {
@@ -120,15 +127,15 @@ ul a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: gray 1px solid;
+    border: brown 1px solid;
 }
 .cart_count {
-    top: 0;
+    top: 15px;
     right: 30px;
 
 }
 .cart_sum {
-    bottom: 0;
+    bottom: 15px;
     right: 30px;
 }
 
@@ -146,6 +153,7 @@ ul a:hover {
     margin-bottom: 10px;
     padding: 10px;
     width: 280px;
+    height: max-content;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between; 
@@ -182,12 +190,98 @@ ul a:hover {
 }
 .text_box p {
     padding: 5px;
-   
+    color: red;
 }
 .item_box:hover .add_item {
     display: block;
 }
 .item_box:hover{
     box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
-    transform: translateY(-5px);
+    
   }
+
+  .wrapperProduct {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+  }
+
+  .wrapperProduct > img {
+    text-align: center;
+  }
+
+  .text_boxProduct {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+  
+  .Product_img {
+    display: block;
+    width: 300px;
+  }
+
+  .table {
+	width: 100%;
+	border: none;
+	margin-bottom: 20px;
+}
+.table thead th {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	background: #ebe9e9;
+	font-size: 16px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.table tbody td {
+	text-align: left;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	padding: 10px 15px;
+	font-size: 12px;
+	vertical-align: middle;
+}
+.table tbody tr {
+height: 30px;
+}
+
+.table tbody tr th:first-child {
+    text-align: left; 
+}
+
+.table thead tr th:first-child, .table tbody tr td:first-child {
+	border-left: none;
+}
+.table thead tr th:last-child, .table tbody tr td:last-child {
+	border-right: none;
+}
+.table tbody tr:nth-child(even){
+	background: #f3f3f3;
+}
+.buttonCartDelProduct {
+    width: 30px;
+    height: 20px;
+}
+
+.wrapperFooter {
+    max-width: 1280px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #f8d9de;
+    height: 150px;
+    margin-top: 90px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+
+  } 
+
+.wrapperFooter span {
+    font-size: 25px;
+}

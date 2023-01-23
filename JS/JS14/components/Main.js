@@ -1,3 +1,5 @@
+import changeLocation from "../js/RouterChange.js";
+
 export class mHeader {
     constructor(){
         this.element="";
@@ -71,6 +73,18 @@ let nav=  new mNav().init();
 let main=  new mMain().init();
 let footer=  new mFooter().init();
 
+let logo = document.createElement('div'); 
+logo.classList.add('logo');
+let logo_img = document.createElement('img'); 
+logo_img.src='./img/logo.png';
+logo.appendChild(logo_img);
+let logo2 = document.createElement('div'); 
+logo2.classList.add('logo');
+let logo_img2 = document.createElement('img'); 
+logo_img2.src='./img/logo.png';
+logo2.appendChild(logo_img2);
+
+
 let ul=document.createElement('ul');
 ul.classList.add('ul');
 
@@ -90,8 +104,10 @@ let cart = document.createElement('div');
 cart.classList.add('cart');
 let cart_a = document.createElement('a');
     
-cart_a.setAttribute('href', (`/#cart`)   );
-cart_a.setAttribute('href','#cart');
+cart_a.setAttribute('href', (`#cart/`)   );
+// cart_a.setAttribute('href','#cart');
+cart_a.onclick = changeLocation.bind(this, '#cart/')
+
 let cart_img = document.createElement('img'); 
 cart_img.src='./img/cart.png';
 let cart_count = document.createElement('div'); 
@@ -103,14 +119,25 @@ cart_sum.innerHTML='0';
 
 cart_a.appendChild(cart_img);
 cart.appendChild(cart_a);
-cart.appendChild(cart_count);
-cart.appendChild(cart_sum);
+cart_a.appendChild(cart_count);
+cart_a.appendChild(cart_sum);
 ul.appendChild(li_home);
 ul.appendChild(li_shop);
 ul.appendChild(li_contacts);
+nav.appendChild(logo)
 nav.appendChild(ul);
 nav.appendChild(cart);
+
 header.appendChild(nav);       
 document.body.appendChild(header);
+
+let wrapperFooter = document.createElement('div');
+wrapperFooter.classList.add('wrapperFooter')
+let text_wrapperFooter = document.createElement("span");
+text_wrapperFooter.classList.add('text_wrapperFooter');
+text_wrapperFooter.innerHTML='This is footer';
+wrapperFooter.appendChild(logo2);
+footer.appendChild(wrapperFooter);
+wrapperFooter.appendChild(text_wrapperFooter);
 
 export { header,nav,main,footer }

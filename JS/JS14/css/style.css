@@ -116,17 +116,19 @@ ul a:hover {
 }
 
 .cart_count, .cart_sum {
-    width: auto;
-    height: 20px;
+    max-width: auto;
+    min-height: 20px;
     background-color: red;
     color: white;
     font-size: 14px;
-    border-radius: 99em;
+    border-radius: 50px;
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: brown 1px solid;
+    border: white 1px solid;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .cart_count {
     top: 15px;

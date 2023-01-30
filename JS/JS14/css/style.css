@@ -115,7 +115,7 @@ ul a:hover {
     height: 40px;
 }
 
-.cart_count, .cart_sum {
+.cart_count{
     max-width: auto;
     min-height: 20px;
     background-color: red;
@@ -136,8 +136,15 @@ ul a:hover {
 
 }
 .cart_sum {
-    bottom: 15px;
-    right: 30px;
+    max-width: auto;
+    min-height: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    right: 40px;
 }
 
 .wrapper {

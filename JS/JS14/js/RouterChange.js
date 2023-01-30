@@ -88,7 +88,7 @@ function SetCart() {
         totalCount=0,
         totalSum=0;
           if(cartData !== null){
-              totalItems = '<table class="table"><thead><th>Наименование</th><th>Цена</th><th>Кол-во</th><th>Сумма</th><th>Удалить</th></thead>';
+              totalItems = '<table class="table"><thead><th>Наименование</th><th>Цена ($)</th><th>Кол-во</th><th>Сумма ($)</th><th>Удалить</th></thead>';
               for(let items in cartData){
       
                if (cartData[items]!==null) {  

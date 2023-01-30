@@ -33,7 +33,7 @@ function div_AddProduct(obj) {
     let p = document.createElement('p');
     p.innerHTML="Price: ";
     let span = document.createElement('span');
-    span.innerHTML=obj.price;
+    span.innerHTML=obj.price+' $';
     span.classList.add('price_box');
     p.appendChild(span);
 
@@ -94,9 +94,10 @@ function SetCookie(cartData) {
    document.cookie=`cart_count=${totalCount}; max-age=`+age;
   let cart_count = document.querySelector('.cart_count');
   cart_count.innerHTML=totalCount;  
+
   document.cookie=`cart_sum=${totalSum}; max-age=`+age; 
   let cart_sum = document.querySelector('.cart_sum');
-  cart_sum.innerHTML=totalSum;   
+  cart_sum.innerHTML=totalSum+' $';   
   
 }
 
@@ -116,7 +117,7 @@ function addToCart(e){
       parentBox = this.parentNode, 
       itemId = this.getAttribute('data-id'),
       itemTitle = parentBox.querySelector('.title_box').innerHTML,
-      itemPrice = Number(parentBox.querySelector('.price_box').innerHTML),
+      itemPrice = Number(parentBox.querySelector('.price_box').innerHTML.replace(' $',"")),
       itemSum = 0;
       let isId=false;
        if(cartData !== null){
@@ -154,7 +155,7 @@ window.addEventListener('load', ()=>{
   if (getCookie('cart_sum')) {
     let count =Number(getCookie('cart_sum'));
     let cart_sum = document.querySelector('.cart_sum');
-    cart_sum.innerHTML=count;  
+    cart_sum.innerHTML=count +' $';  
   }
 })
 

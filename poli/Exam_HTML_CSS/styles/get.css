@@ -1,0 +1,48 @@
+.get_block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin: 140px 0;
+}
+
+.get_bg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about_textBlock{
+  max-width: 264px;
+}
+
+.get_block1_text,
+.get_block2_text {
+  padding: 105px 0 105px 55px;
+  border-radius: 30px;
+}
+
+.block1_name {
+  font-family: "Yellowtail";
+  font-weight: inherit;
+  font-size: 36px;
+  line-height: 65px;
+  letter-spacing: 0.36px;
+  color: #ffffff;
+}
+
+.block1_text,
+.block2_text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: 0.36px;
+}
+
+.block1_text{
+  color: #ffffff;
+}
+.block2_text{
+  color: #274C5B;
+}

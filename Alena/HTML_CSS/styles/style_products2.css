@@ -1,0 +1,144 @@
+.products_2 {
+  background-color: #274c5b;
+  display: flow-root;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.prod2_block1 {
+  margin-top: 139.78px;
+  margin-bottom: 47.78px;
+  max-width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prod2_block1 a {
+  text-decoration: none;
+}
+
+.prod2_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.prod2_text h3 {
+  font-family: Yellowtail;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 65px;
+  letter-spacing: 0.36px;
+  text-align: left;
+  color: #7eb693;
+}
+
+.prod2_text h2 {
+  font-family: Roboto;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 59px;
+  letter-spacing: 0.36000001430511475px;
+  text-align: left;
+  color: white;
+}
+
+.prod2_button {
+  width: 267px;
+  height: 82px;
+  background-color: #efd372;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 10px;
+}
+
+.prod2_button p {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.36px;
+  text-align: left;
+  color: #274c5b;
+}
+
+.prod2_circle {
+  border-radius: 50%;
+  background-color: #335b6b;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prod2_circle img {
+  width: 15px;
+  height: 9px;
+}
+
+.prod2_block2 {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 160px;
+  justify-items: center;
+  justify-content: center;
+}
+
+.prod2_1 img,
+.prod2_2 img,
+.prod2_3 img {
+  width: 387px;
+  height: 378px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.prod2_1:hover,
+.prod2_2:hover,
+.prod2_3:hover {
+    cursor: pointer;
+}
+
+.prod2_1 {
+  background-color: #f9f8f8;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  border-radius: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.prod2_2 {
+  background-color: #f9f8f8;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  border-radius: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.prod2_3 {
+  background-color: #f9f8f8;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  border-radius: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.prod_text_down img {
+  width: 85px;
+  height: 18px;
+  margin-left: 0;
+  margin-right: 30px;
+}

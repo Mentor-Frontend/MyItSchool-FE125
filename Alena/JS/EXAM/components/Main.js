@@ -1,0 +1,350 @@
+import { getData } from "../index.js";
+import { getCookie } from "../index.js";
+import { age } from "../index.js";
+import { editCart } from "./Cart.js";
+import { deleteAll } from "./Cart.js";
+
+class Main {
+    constructor() {
+        this.element = '';
+    }
+    create() {
+        let app = document.querySelector('.app');
+        let main = document.createElement('main');
+        main.className = 'main';
+        app.append(main);
+        this.element = main;
+    }
+    createMain() {
+        let main = this.element;
+        let mainContainer = document.createElement('div');
+        main.append(mainContainer);
+        mainContainer.className = 'main_container';
+
+        let firstBlock = document.createElement('div');
+        mainContainer.append(firstBlock);
+        firstBlock.className = 'first_block';
+
+        let firstBlockCont = document.createElement('div');
+        firstBlock.append(firstBlockCont);
+        firstBlockCont.className = 'first-block_container';
+
+        let leftBlock = document.createElement('div');
+        firstBlockCont.append(leftBlock);
+        leftBlock.className = 'left_block';
+
+        let h1 = document.createElement('h1');
+        leftBlock.append(h1);
+        h1.innerHTML = 'Flowers,' + String.fromCodePoint(0x1F33F) + 'what the world needs!';
+
+        let h2Main = document.createElement('h2');
+        leftBlock.append(h2Main);
+        h2Main.innerHTML = 'The largest online store of seedlings, flowers, garden tools and everything that will help make our Earth greener.'
+        h2Main.className = 'h2_main';
+
+        let button = document.createElement('button');
+        leftBlock.append(button);
+        button.innerHTML = 'Shop Now!';
+        button.classList = 'button_shop';
+        button.addEventListener('click', () => {
+            location.hash = '#shop';
+        })
+
+        let tile = document.createElement('div');
+        firstBlockCont.append(tile);
+        tile.className = 'tile';
+        let img1 = document.createElement('img');
+        tile.append(img1);
+        img1.setAttribute('src', '/img/tile1.png');
+        let img2 = document.createElement('img');
+        tile.append(img2);
+        img2.setAttribute('src', '/img/tile2.png');
+        let img3 = document.createElement('img');
+        tile.append(img3);
+        img3.setAttribute('src', '/img/tile6.png');
+        let img4 = document.createElement('img');
+        tile.append(img4);
+        img4.setAttribute('src', '/img/tile4.png');
+        let img5 = document.createElement('img');
+        tile.append(img5);
+        img5.setAttribute('src', '/img/tile5.png');
+        let img6 = document.createElement('img');
+        tile.append(img6);
+        img6.setAttribute('src', '/img/tile3.png');
+
+        //---------slider---------//
+
+        let secondBlock = document.createElement('div');
+        mainContainer.append(secondBlock);
+        secondBlock.className = 'second_block';
+
+        let slider = document.createElement('div');
+        secondBlock.append(slider);
+        slider.className = 'slider';
+
+        let sale1 = getData()[2],
+            sale2 = getData()[5],
+            sale3 = getData()[11],
+            sale4 = getData()[17];
+        let arrSale = [sale1, sale2, sale3, sale4];
+
+        for (let i = 1; i < 5; i++) {
+
+            let slide = document.createElement('div');
+            slider.append(slide);
+            slide.className = 'slide';
+
+            let imgSlide = document.createElement('img');
+            slide.append(imgSlide);
+            imgSlide.setAttribute('src', `${arrSale[i - 1].image}`);
+
+            let info = document.createElement('div');
+            slide.append(info);
+            info.className = 'info';
+
+            let title = document.createElement('h2');
+            info.append(title);
+            title.innerHTML = arrSale[i - 1].title;
+
+            let description = document.createElement('h3');
+            info.append(description);
+            description.innerHTML = arrSale[i - 1].description;
+            description.className = 'description';
+
+            let saleText = document.createElement('h3');
+            info.append(saleText);
+            saleText.innerHTML = 'SALE 20%!!!';
+            saleText.className = 'sale_text';
+
+            let priceBlock = document.createElement('div');
+            info.append(priceBlock);
+            priceBlock.className = 'price_block';
+
+            let price = document.createElement('h3');
+            priceBlock.append(price);
+            price.innerHTML = `${arrSale[i - 1].price}$`;
+            price.className = 'price';
+
+            let priceSale = document.createElement('h3');
+            priceBlock.append(priceSale);
+            priceSale.innerHTML = (arrSale[i - 1].price * 0.8).toFixed(2) + '$';
+            priceSale.className = 'price_sale';
+
+            let buttonAdd = document.createElement('button');
+            info.append(buttonAdd);
+            buttonAdd.innerHTML = 'Add to cart';
+            buttonAdd.className = 'button_add';
+
+            buttonAdd.addEventListener('click', () => {
+                let data ={
+                    id: arrSale[i-1].id,
+                    max: arrSale[i-1].rating.count,
+                    count: 1
+                }
+                let name = 'product' + data.id;
+                let cookie = getCookie(name);
+                if(cookie){
+                    if(cookie.count < cookie.max){
+                        data.count += cookie.count; 
+                    }
+                    else {
+                        alert('В корзину добавлено максимальное количество товара!'); //изменить потом!!!
+                    }
+                }
+               document.cookie = 'product'+ data.id + '=' + JSON.stringify(data) + '; max-age=' + age;
+               editCart();
+            })
+        }
+
+        let arrow = document.createElement('div');
+        secondBlock.append(arrow);
+        arrow.className = 'arrow';
+
+        let arrowLeft = document.createElement('div');
+        arrow.append(arrowLeft);
+        arrowLeft.className = 'arrow_left';
+        arrowLeft.innerHTML = String.fromCodePoint(0x2039);
+
+        let arrowRight = document.createElement('div');
+        arrow.append(arrowRight);
+        arrowRight.className = 'arrow_right';
+        arrowRight.innerHTML = String.fromCodePoint(0x203A);
+
+        let index = 0;
+
+        arrowLeft.addEventListener('click', function () {
+            let windowSize = (document.querySelector('.second_block').offsetWidth);
+            if (index > 0) {
+                index--;
+            }
+            else {
+                index = 3;
+            }
+            slider.style.left = -index * windowSize + 'px';
+
+        })
+
+        arrowRight.addEventListener('click', function () {
+            let windowSize = document.querySelector('.second_block').offsetWidth;
+            if (index < 3) {
+                index++;
+            }
+            else {
+                index = 0;
+            }
+            slider.style.left = -index * windowSize + 'px';
+
+        })
+
+    }
+    createShop() {
+        let main = this.element;
+        let mainContainer = document.createElement('div');
+        main.append(mainContainer);
+        mainContainer.className = 'main_container';
+
+        let shop = document.createElement('div');
+        mainContainer.append(shop);
+        shop.className = 'shop';
+
+        let shopCont = document.createElement('div');
+        shop.append(shopCont);
+        shopCont.className = 'shop_container';
+
+        let products = getData();
+
+        for(let i = 0; i < 20; i++){
+            let card = document.createElement('div');
+            shopCont.append(card);
+            card.className = 'card';
+
+            let category = document.createElement('h3');
+            card.append(category);
+            category.innerHTML = products[i].category;
+
+            let img = document.createElement('img');
+            card.append(img);
+            img.setAttribute('src', `${products[i].image}`);
+
+            let name = document.createElement('h2');
+            card.append(name);
+            name.innerHTML = products[i].title;
+
+            let priceCont = document.createElement('div');
+            card.append(priceCont);
+            priceCont.className = 'price_container';
+
+            let price = document.createElement('h4');
+            priceCont.append(price);
+
+            if(products[i].id === 3 || products[i].id === 6 || products[i].id === 12 || products[i].id === 18){
+                let oldPrice = document.createElement('h4');
+                priceCont.append(oldPrice);
+                oldPrice.setAttribute('id', 'old_price');
+                oldPrice.innerHTML = products[i].price + '$';
+                price.innerHTML = (products[i].price * 0.8).toFixed(2) + '$';
+                
+            }
+            else price.innerHTML = products[i].price + '$';
+
+            let addCont = document.createElement('div');
+            card.append(addCont);
+            addCont.className = 'add_container';
+            
+            let countEdit = document.createElement('div');
+            addCont.append(countEdit);
+            countEdit.className = 'count_edit';
+            
+            let minus = document.createElement('img');
+            countEdit.append(minus);
+            minus.setAttribute('src', '../img/minus.png');
+
+            let number = document.createElement('h5');
+            countEdit.append(number);
+            number.innerHTML = '1';
+
+            let plus = document.createElement('img');
+            countEdit.append(plus);
+            plus.setAttribute('src', '../img/plus.png');
+            
+            let count = 1;
+
+            minus.addEventListener('click', () => {
+                if(count > 1){
+                    count -= 1;
+                    number.innerHTML = count;
+                }
+            });
+
+            plus.addEventListener('click', () => {
+                if(count < products[i].rating.count){
+                    count += 1;
+                    number.innerHTML = count;
+                }
+            });
+
+            let buttonAdd = document.createElement('button');
+            addCont.append(buttonAdd);
+            buttonAdd.className = 'button_add';
+            buttonAdd.innerHTML = 'Add to cart';
+
+            buttonAdd.addEventListener('click', () => {
+                let data ={
+                    id: products[i].id,
+                    max: products[i].rating.count,
+                    count: count
+                }
+                let name = 'product' + data.id;
+                let cookie = getCookie(name);
+                if(cookie){
+                    if(cookie.count < cookie.max){
+                        data.count += cookie.count; 
+                    }
+                    else {
+                        alert('В корзину добавлено максимальное количество товара!'); //изменить потом!!!
+                    }
+                }
+               document.cookie = 'product'+ products[i].id + '=' + JSON.stringify(data) + '; max-age=' + age;
+               editCart();
+            })
+
+        }
+
+    }
+    createCart() {
+        let main = this.element;
+        let mainContainer = document.createElement('div');
+        main.append(mainContainer);
+        mainContainer.className = 'main_container';
+
+        let cardCont = document.createElement('div');
+        mainContainer.append(cardCont);
+        cardCont.className = 'card_container';
+
+        let cardCont2 = document.createElement('div');
+        cardCont.append(cardCont2);
+        cardCont2.className = 'card_container2';
+
+        if(!document.cookie){
+            let empty = document.createElement('h2');
+            cardCont2.append(empty);
+            empty.innerHTML = 'The card is empty :(';
+            empty.setAttribute('id', 'empty');
+
+            let buttonShop = document.createElement('button');
+            cardCont2.append(buttonShop);
+            buttonShop.innerHTML = 'Go to shop';
+            buttonShop.className = 'button_go';
+            buttonShop.addEventListener('click', () => {
+                location.hash = '#shop';
+            })
+        }
+
+    }
+    init() {
+        this.create();
+        return this.element;
+    }
+}
+const main = new Main();
+export { main };

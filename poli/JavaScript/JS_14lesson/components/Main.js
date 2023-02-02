@@ -101,7 +101,7 @@ export default class Main {
         return block;
 }
     // products
-    products = async (data) => {
+    products = (data) => {
         mainContainer.innerHTML = '';
         mainContainer.insertAdjacentHTML('afterbegin', `
             <h1> PRODUCTS </h1>
@@ -112,13 +112,13 @@ export default class Main {
         if(localStorage.getItem('products')) {
             products = JSON.parse(localStorage.getItem('products'));
         } else {
-            const response = await fetch('https://fakestoreapi.com/products');
-            products = await response.json();
+            const response = fetch('https://fakestoreapi.com/products');
+            products = response.json();
     
             localStorage.setItem('products', JSON.stringify(products));
         }
     
-        await products.map((item) => {
+        products.map((item) => {
             const cardItem = document.createElement('div');
             cardItem.classList.add('card');
 

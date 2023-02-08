@@ -20,47 +20,85 @@ class Header {
         headerContainer.append(logo);
         let imgLogo = document.createElement('img');
         logo.append(imgLogo);
-        imgLogo.setAttribute('src', '/img/logo.png');
+        imgLogo.setAttribute('src', './img/logo.png');
         imgLogo.addEventListener('click', () => {
             location.hash = '#home';
+            window.scrollTo(0, 0);
         })
+
+        let navAndCart = document.createElement('div');
+        headerContainer.append(navAndCart);
+        navAndCart.className = 'nav_and_cart';
+
+        let hambMenu = document.createElement('div');
+        navAndCart.append(hambMenu);
+        hambMenu.className = 'hamb_menu';
+
+        hambMenu.addEventListener('click', () => {
+            let popup = document.querySelector('.popup');
+            if (popup.style.left === "-100%" || popup.style.left === "") {
+                hambMenu.classList.toggle('active');
+                popup.style.left = "0";
+                document.body.style.overflow = "hidden";
+            }
+            else {
+                hambMenu.classList.toggle('active');
+                popup.style.left = "-100%";
+                document.body.style.overflow = "";
+            }
+        });
+
+        for (let i = 0; i <= 2; i++) {
+            let lineIcon = document.createElement('div');
+            hambMenu.append(lineIcon);
+            lineIcon.className = 'icon_line';
+        }
 
         let nav = document.createElement('nav');
         nav.className = 'nav';
-        headerContainer.append(nav);
+        navAndCart.append(nav);
         let ulNav = document.createElement('ul');
         nav.append(ulNav);
 
         let liFirst = document.createElement('li');
         ulNav.append(liFirst);
-        liFirst.innerHTML = 'Home'; 
+        liFirst.innerHTML = 'Home';
         liFirst.addEventListener('click', () => {
             location.hash = '#home';
+            window.scrollTo(0, 0);
         })
 
         let liSecond = document.createElement('li');
         ulNav.append(liSecond);
-        liSecond.innerHTML = 'Shop'; 
+        liSecond.innerHTML = 'Shop';
         liSecond.addEventListener('click', () => {
             location.hash = '#shop';
+            window.scrollTo(0, 0);
         })
 
         let liThird = document.createElement('li');
         ulNav.append(liThird);
-        liThird.innerHTML = 'Contacts'; 
+        liThird.innerHTML = 'Contacts';
         liThird.addEventListener('click', () => {
-            window.scrollTo(0,document.body.scrollHeight);
+            window.scrollTo(0, document.body.scrollHeight);
         })
 
         let cart = document.createElement('div');
-        headerContainer.append(cart);
+        navAndCart.append(cart);
         cart.className = 'cart';
 
         let imgCart = document.createElement('img');
         cart.append(imgCart);
-        imgCart.setAttribute('src', '/img/cart.png');
+        imgCart.setAttribute('src', './img/cart.png');
         cart.addEventListener('click', () => {
             location.hash = '#cart';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = "";
+            let popup = document.querySelector('.popup');
+            if (popup.style.left === "0px") {
+                hambMenu.classList.toggle('active');
+                popup.style.left = "-100%";
+            }
         })
 
         let cartInfo = document.createElement('div');
@@ -77,15 +115,15 @@ class Header {
         count.innerHTML = "0";
         count.className = 'count_cart';
 
-        if(document.cookie){
+        if (document.cookie) {
             editCart();
         }
 
     }
-    init(){
+    init() {
         this.create();
         return this.element;
     }
 }
 const header = new Header().init();
-export {header};
+export { header };

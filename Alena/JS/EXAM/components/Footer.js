@@ -20,9 +20,10 @@ class Footer {
 
         let logoImg = document.createElement('img');
         logoFooter.append(logoImg);
-        logoImg.setAttribute('src', '../img/logo_white.png');
+        logoImg.setAttribute('src', './img/logo_white.png');
         logoImg.addEventListener('click', () => {
             location.hash = '#home';
+            window.scrollTo(0,0);
         })
 
         let logoText = document.createElement('h2');
@@ -36,11 +37,11 @@ class Footer {
 
         let google = document.createElement('img');
         links.append(google);
-        google.setAttribute('src', '../img/google-play.png');
+        google.setAttribute('src', './img/google-play.png');
 
         let apple = document.createElement('img');
         links.append(apple);
-        apple.setAttribute('src', '../img/app-store.png');
+        apple.setAttribute('src', './img/app-store.png');
 
         let contacts = document.createElement('div');
         footerCont.append(contacts);
@@ -56,7 +57,7 @@ class Footer {
 
         let imgCont1 = document.createElement('img');
         cont1.append(imgCont1);
-        imgCont1.setAttribute('src', '../img/location.png');
+        imgCont1.setAttribute('src', './img/location.png');
         imgCont1.setAttribute('id', 'img_loc')
 
         let textCont1 = document.createElement('h3');
@@ -69,7 +70,7 @@ class Footer {
 
         let imgCont2 = document.createElement('img');
         cont2.append(imgCont2);
-        imgCont2.setAttribute('src', '../img/email.png');
+        imgCont2.setAttribute('src', './img/email.png');
 
         let textCont2 = document.createElement('h3');
         cont2.append(textCont2);
@@ -81,7 +82,7 @@ class Footer {
 
         let imgCont3 = document.createElement('img');
         cont3.append(imgCont3);
-        imgCont3.setAttribute('src', '../img/phone.png');
+        imgCont3.setAttribute('src', './img/phone.png');
 
         let textCont3 = document.createElement('h3');
         cont3.append(textCont3);

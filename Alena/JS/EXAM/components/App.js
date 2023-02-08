@@ -43,10 +43,21 @@ class App {
         style.setAttribute('rel', 'stylesheet');
         style.setAttribute('href', './css/style.css');
 
+        let styleMedia = document.createElement('link');
+        document.head.append(styleMedia);
+        styleMedia.setAttribute('rel', 'stylesheet');
+        styleMedia.setAttribute('href', './css/media.css');
+
+        let styleMediaSlider = document.createElement('link');
+        document.head.append(styleMediaSlider);
+        styleMediaSlider.setAttribute('rel', 'stylesheet');
+        styleMediaSlider.setAttribute('href', './css/media_slider.css');
+
+
         let ico = document.createElement('link');
         document.head.append(ico);
         ico.setAttribute('rel', 'icon');
-        ico.setAttribute('href', '../img/favicon.png');
+        ico.setAttribute('href', './img/favicon.png');
         ico.setAttribute('type', 'image/x-icon');
 
     }
@@ -54,7 +65,7 @@ class App {
     getData() {
         let products = localStorage.getItem('products');
         if (products) {
-            console.log('Not empty localStorage');
+            console.log('Not empty local storage');
             return 0;
         }
         (async function () {

@@ -1,8 +1,8 @@
 "use strict";
-import App from '../components/App.js';
-import { header } from '../components/Header.js';
-import { main } from '../components/Main.js';
-import { footer } from '../components/Footer.js';
+import App from './components/App.js';
+import { header } from './components/Header.js';
+import { main } from './components/Main.js';
+import { footer } from './components/Footer.js';
 
 main.init();
 footer.init();
@@ -40,15 +40,9 @@ export function getData() {
 
 export function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
     return matches ? JSON.parse(matches[1]) : undefined;
-  }
+}
 
-// export function deleteCookie(name) {
-//     setCookie(name, "", {
-//       'max-age': -1
-//     })
-//   }
-
-export let age = 10*24*60*60;
+export let age = 10 * 24 * 60 * 60;

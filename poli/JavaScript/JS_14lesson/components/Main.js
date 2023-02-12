@@ -24,9 +24,9 @@ export default class Main {
         </div>
         <div class = 'mainBlock'>
             <div class = 'girlImg'>
-              <img class = 'mainPic' src='../img/main_pic.jpg' alt='girl'>
-              <img class = 'mainPic2' src = '../img/main_pic2.jpg' alt='girl'>
-              <img class = 'mainPic3' src = '../img/main_pic3.jpg' alt='girl'>
+              <img class = 'mainPic' src='./img/main_pic.jpg' alt='girl'>
+              <img class = 'mainPic2' src = './img/main_pic2.jpg' alt='girl'>
+              <img class = 'mainPic3' src = './img/main_pic3.jpg' alt='girl'>
             </div>
 
             <div class = 'mainText'>

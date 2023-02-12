@@ -13,7 +13,7 @@ export default class Header {
         slogan.classList.add("slogan");
     
         const donutSlogan = document.createElement("p");
-        donutSlogan.innerText = "FIND YOUR DUNKIN";
+        donutSlogan.innerText = "BE YOURSELF.";
         slogan.appendChild(donutSlogan);
         header.appendChild(slogan);
     
@@ -21,8 +21,8 @@ export default class Header {
         logoWrapper.classList.add("logoWrapper");
         header.appendChild(logoWrapper);
     
-        const logoImg = new Image(250, 100);
-        logoImg.src = "img/header_logo.png";
+        const logoImg = new Image(130);
+        logoImg.src = "img/pilla_logo.png";
         logoWrapper.appendChild(logoImg);
     
         const addressInfo = document.createElement("div");

@@ -25,7 +25,7 @@ export default class Nav {
     data() {
         return this.data;
     }
-    
+
     create() {
         const nav = document.createElement('nav');
         nav.classList.add('nav');

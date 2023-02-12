@@ -22,7 +22,7 @@ link2.setAttribute("href", "media.css");
 document.head.appendChild(link2);
 
 let title = document.createElement("title");
-title.innerHTML = "DUNKIN DONUTS";
+title.innerHTML = "P I L L A";
 document.head.appendChild(title);
 
 export const mainContainer = document.createElement("main");
@@ -76,15 +76,15 @@ export function checkHash() {
 window.addEventListener("hashchange", checkHash);
 
 export function getCookie(cname) {
-  let name = cname + "=";
+  let cookieName = cname + "=";
   let ca = document.cookie.split(";");
   for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
     while (c.charAt(0) == " ") {
       c = c.substring(1);
     }
-    if (c.indexOf(name) == 0) {
-      const value = c.substring(name.length, c.length);
+    if (c.indexOf(cookieName) == 0) {
+      const value = c.substring(cookieName.length, c.length);
       return JSON.parse(value);
     }
   }

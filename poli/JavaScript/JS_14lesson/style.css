@@ -1,11 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap");
 
 body {
   margin: 0;
   padding: 0;
   font-family: "Fredoka One", cursive;
   font-weight: normal;
-  background: #f5f5f5;
+  background: #fff;
+  overflow-x: hidden;
 }
 
 .app {
@@ -22,13 +26,13 @@ body {
 .slogan {
   font-size: 25px;
   letter-spacing: 2px;
-  color: #ec519d;
+  color: #6675b7;
 }
 
 .addressInfo {
   font-size: 25px;
   letter-spacing: 3px;
-  color: #f58026;
+  color: #6675b7;
 }
 
 .nav {
@@ -36,6 +40,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 3;
 }
 
 menu {
@@ -43,7 +48,7 @@ menu {
   justify-content: space-evenly;
   padding: 20px 0;
   margin: 0;
-  background: #ec519d;
+  background: #23293c;
   color: #f5f5f5;
 }
 
@@ -54,68 +59,188 @@ menu {
 }
 
 .nav li:active {
-  color: #ec519d;
+  color: #a1b3b8;
 }
 
 .container {
-  max-width: 80%;
+  padding-bottom: 40px;
+  width: 90%;
   margin: 0 auto;
-  padding-bottom: 80px;
 }
 
 .container h1 {
   text-align: center;
-  color: #fff;
+  color: #23293c;
   letter-spacing: 5px;
-  text-shadow: 2px 0px 8px #ec519d, 0px 2px 8px #ec519d, -2px 0px 8px #f58026,
-    0px -2px 8px #f58026;
 }
 
-.gomer {
-  float: right;
-  padding-right: 50px;
+.pageName {
+  margin-bottom: 40px;
 }
 
-.gomerMedia {
+.mainText {
+  padding-right: 100px;
+  margin-left: 20px;
+}
+
+.girlImg {
+  float: left;
+}
+
+.mainPic {
+  width: 700px;
+}
+
+.mainPic2 {
   display: none;
 }
 
-.mainSlogan {
-  max-width: 350px;
-  padding-left: 100px;
-  font-size: 50px;
-  letter-spacing: 2px;
-  color: #f58026;
+.mainPic3{
+  display: none;
 }
 
-.work {
-  color: #ec519d;
-  font-size: 30px;
-  margin-bottom: 0;
-  padding-left: 60px;
+.mainText {
+  max-width: 500px;
+  font-family: "Poppins", sans-serif;
 }
 
-.mainUl {
-  color: #210e00;
-  font-size: 28px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  padding-left: 100px;
+.mainBlock {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
 
-.adressMain {
-  color: #ec519d;
-  font-size: 30px;
-  margin-bottom: 0;
-  padding-left: 60px;
+.main_h2 {
+  text-align: left;
+  font-size: 100px;
+  color: #23293c;
+  font-weight: 800;
+  letter-spacing: 10px;
+  margin: 0;
 }
 
-.adressSt {
-  color: #210e00;
-  font-size: 28px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  padding-left: 100px;
+.main_p {
+  text-align: left;
+  color: #969696;
+  font-size: 15px;
+}
+
+.hr {
+  width: 80%;
+  margin: 0 auto;
+  background: #2c2c29;
+  height: 2px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.choose_h4 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 55px;
+  color: #2c2c29;
+  font-weight: 800;
+  letter-spacing: 10px;
+}
+
+.streetCarousel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #23293c;
+  padding: 50px 0;
+  margin: 50px 0;
+}
+
+.carouselWrapper {
+  position: relative;
+  display: flex;
+  max-width: 1200px;
+}
+
+.carouselWrapper p {
+  position: absolute;
+  text-align: center;
+  line-height: 45px;
+  
+  background: #fff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+  box-shadow: 0px 0px 5px #a3adb2;
+
+  top: 50%;
+  width: 45px;
+  color: #343f4f;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.carouselWrapper p:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+.carouselWrapper p:hover {
+  background: #f2f2f2;
+}
+
+.carouselWrapper p:first-child {
+  left: -22px;
+  display: none;
+}
+
+.carouselWrapper p:last-child {
+  right: -22px;
+}
+
+.carouselWrapper .carousel {
+  font-size: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.carousel.dragging {
+  cursor: grab;
+  scroll-behavior: auto;
+}
+
+.carousel img {
+  margin-left: 14px;
+  width: calc(100% / 3);
+}
+.carousel img:first-child {
+  margin-left: 0px;
+}
+
+.textCol_block {
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  font-size: 55px;
+  color: #ffffff;
+  font-weight: 800;
+  max-width: 500px;
+  border-radius: 15px;
+  padding: 20px 20px;
+  background: #23293c;
+  margin-bottom: 30px;
+}
+
+.textCol_block p {
+  margin: 0;
+}
+
+.s_p {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.p_text {
+  font-family: "Covered By Your Grace", cursive;
+  letter-spacing: 8px;
 }
 
 .footer {
@@ -124,6 +249,8 @@ menu {
   align-items: center;
   background: #fff;
   padding: 15px 0px;
+  width: 100%;
+  box-shadow: 1px 0px 5px #8f8f8f;
 }
 
 .download {
@@ -132,6 +259,17 @@ menu {
 }
 
 .download img {
+  cursor: pointer;
+}
+
+.contacts {
+  display: flex;
+  gap: 10px;
+}
+
+.insta,
+.twitter,
+.facebook {
   cursor: pointer;
 }
 
@@ -147,9 +285,9 @@ menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background: rgb(255, 255, 255);
-  box-shadow: -5px -5px 20px #ffffff, 5px 5px 20px rgba(181, 181, 197, 0.5);
+  box-shadow: -5px -5px 20px #f5f4f4, 5px 5px 20px rgba(99, 99, 107, 0.5);
   color: #210e00;
   border-radius: 10px;
   padding: 30px;
@@ -172,6 +310,7 @@ menu {
   left: 0;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 }
 
 .cardView {
@@ -196,7 +335,7 @@ menu {
   padding: 10px 15px;
 
   color: #ffffff;
-  background: #ec519d;
+  background: #23293c;
   text-align: center;
   font-family: "Fredoka One", cursive;
   font-size: 20px;
@@ -206,13 +345,23 @@ menu {
   cursor: pointer;
 }
 
+.productCartBlock{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #a1b3b8;
+}
+
 .title {
-  color: #281202;
+  font-family: "Poppins", sans-serif;
+  color: #23293c;
   font-size: 30px;
+  text-align: center;
 }
 
 .selected {
-  color: #281202;
+  color: #23293c;
   font-size: 30px;
 }
 
@@ -246,9 +395,6 @@ menu {
   font-size: 24px;
   width: 150px;
   cursor: pointer;
-
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 
 .counter-block span {
@@ -287,10 +433,12 @@ menu {
 
 .addToCart {
   display: block;
+  font-size: 20px;
+  border-radius: 8px;
   width: 150px;
   padding: 10px 10px;
   color: #ffffff;
-  background: #ec519d;
+  background: #23293c;
   text-align: center;
   margin: 0 auto;
   font-family: "Fredoka One", cursive;
@@ -309,18 +457,33 @@ menu {
   margin-top: 10px;
   margin-bottom: 15px;
   font-size: 20px;
-  color: #281202;
+  color: #23293c;
+}
+
+.textCounterRemove{
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .desc {
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
-  color: #281202;
+  color: #23293c;
+}
+
+.counterRemove{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .total-price {
+  font-family: "Poppins", sans-serif;
   margin-top: 20px;
-  font-size: 28px;
-  color: #281202;
+  font-size: 34px;
+  color: #23293c;
+  font-weight: 800;
+  margin: 30px 40px;
 }
 
 .remove {
@@ -328,12 +491,41 @@ menu {
   width: 200px;
   padding: 10px 10px;
   color: #ffffff;
-  background: #ec519d;
+  background: #6675b7;
+
   font-size: 20px;
   text-align: center;
-  font-family: "Fredoka One", cursive;
+  font-family: "Poppins";
+  font-weight: 700;
   border: none;
   cursor: pointer;
+  border-radius: 8px;
+
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.buyBlock{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.buyButton{
+  display: block;
+  width: 200px;
+  padding: 10px 10px;
+  color: #ffffff;
+  background: #23293c;
+
+  font-size: 38px;
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
 
   margin-top: 15px;
   margin-bottom: 20px;

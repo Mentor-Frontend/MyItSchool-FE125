@@ -125,5 +125,5 @@ class Header {
         return this.element;
     }
 }
-const header = new Header().init();
+const header = new Header();
 export { header };

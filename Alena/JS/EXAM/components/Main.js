@@ -4,14 +4,15 @@ import { age } from "../index.js";
 import { editCart } from "./Cart.js";
 import { deleteAll } from "./Cart.js";
 
-let products = getData();
-if (!products) {
-    alert('The data is not loaded, reload the page!');
-} //я не решила свою проблемы с загрузкой данных, поэтому сделала костыль 
+// let this.products = getData();
+// if (!this.products) {
+//     alert('The data is not loaded, reload the page!');
+// } //я не решила свою проблемы с загрузкой данных, поэтому сделала костыль 
 
 class Main {
     constructor() {
         this.element = '';
+        this.products = ''
     }
     create() {
         let app = document.querySelector('.app');
@@ -134,10 +135,10 @@ class Main {
         secondBlock.append(slider);
         slider.className = 'slider';
 
-        let sale1 = products[2],
-            sale2 = products[5],
-            sale3 = products[11],
-            sale4 = products[17];
+        let sale1 = this.products[2],
+            sale2 = this.products[5],
+            sale3 = this.products[11],
+            sale4 = this.products[17];
 
         let arrSale = [sale1, sale2, sale3, sale4];
 
@@ -152,7 +153,7 @@ class Main {
 
             let imgSlide = document.createElement('img');
             slide.append(imgSlide);
-            imgSlide.setAttribute('src', `${arrSale[i].image}`);
+            imgSlide.setAttribute('src', `${arrSale[i]?.image}`);
 
             let info = document.createElement('div');
             slide.append(info);
@@ -326,15 +327,15 @@ class Main {
 
             let category = document.createElement('h3');
             card.append(category);
-            category.innerHTML = products[i].category;
+            category.innerHTML = this.products[i].category;
 
             let img = document.createElement('img');
             card.append(img);
-            img.setAttribute('src', `${products[i].image}`);
+            img.setAttribute('src', `${this.products[i].image}`);
 
             let name = document.createElement('h2');
             card.append(name);
-            name.innerHTML = products[i].title;
+            name.innerHTML = this.products[i].title;
 
             let priceCont = document.createElement('div');
             card.append(priceCont);
@@ -343,15 +344,15 @@ class Main {
             let price = document.createElement('h4');
             priceCont.append(price);
 
-            if (products[i].id === 3 || products[i].id === 6 || products[i].id === 12 || products[i].id === 18) {
+            if (this.products[i].id === 3 || this.products[i].id === 6 || this.products[i].id === 12 || this.products[i].id === 18) {
                 let oldPrice = document.createElement('h4');
                 priceCont.append(oldPrice);
                 oldPrice.setAttribute('id', 'old_price');
-                oldPrice.innerHTML = products[i].price + '$';
-                price.innerHTML = (products[i].price * 0.8).toFixed(2) + '$';
+                oldPrice.innerHTML = this.products[i].price + '$';
+                price.innerHTML = (this.products[i].price * 0.8).toFixed(2) + '$';
 
             }
-            else price.innerHTML = products[i].price + '$';
+            else price.innerHTML = this.products[i].price + '$';
 
             let addCont = document.createElement('div');
             card.append(addCont);
@@ -383,7 +384,7 @@ class Main {
             });
 
             plus.addEventListener('click', () => {
-                if (count < products[i].rating.count) {
+                if (count < this.products[i].rating.count) {
                     count += 1;
                     number.innerHTML = count;
                 }
@@ -396,8 +397,8 @@ class Main {
 
             buttonAdd.addEventListener('click', () => {
                 let data = {
-                    id: products[i].id,
-                    max: products[i].rating.count,
+                    id: this.products[i].id,
+                    max: this.products[i].rating.count,
                     count: count
                 }
                 let name = 'product' + data.id;
@@ -407,7 +408,7 @@ class Main {
                         data.count += cookie.count;
                     }
                 }
-                document.cookie = 'product' + products[i].id + '=' + JSON.stringify(data) + '; max-age=' + age;
+                document.cookie = 'product' + this.products[i].id + '=' + JSON.stringify(data) + '; max-age=' + age;
                 editCart();
             })
 
@@ -532,9 +533,9 @@ class Main {
                     arrId.push(data.id);
                     index += 1;
                     if (data.id === 3 || data.id === 6 || data.id === 12 || data.id === 18) {
-                        totalPrice += products[i].price * 0.8 * data.count;
+                        totalPrice += this.products[i].price * 0.8 * data.count;
                     }
-                    else totalPrice += products[i].price * data.count;
+                    else totalPrice += this.products[i].price * data.count;
                 }
             }
 
@@ -545,7 +546,7 @@ class Main {
 
                 let img = document.createElement('img');
                 card.append(img);
-                img.setAttribute('src', `${products[arrId[i] - 1].image}`)
+                img.setAttribute('src', `${this.products[arrId[i] - 1].image}`)
 
                 let infoCard = document.createElement('div');
                 card.append(infoCard);
@@ -557,7 +558,7 @@ class Main {
 
                 let name = document.createElement('h2');
                 nameWithDelete.append(name);
-                name.innerHTML = products[arrId[i] - 1].title;
+                name.innerHTML = this.products[arrId[i] - 1].title;
                 name.className = 'name_in_card';
 
                 let trash = document.createElement('img');
@@ -568,9 +569,9 @@ class Main {
                     index -= 1;
                     let data = getCookie(nameCookie);
                     if (arrId[i] === 3 || arrId[i] === 6 || arrId[i] === 12 || arrId[i] === 18) {
-                        totalPrice -= products[arrId[i] - 1].price * 0.8 * data.count;
+                        totalPrice -= this.products[arrId[i] - 1].price * 0.8 * data.count;
                     }
-                    else totalPrice -= products[arrId[i] - 1].price * data.count;
+                    else totalPrice -= this.products[arrId[i] - 1].price * data.count;
                     document.cookie = nameCookie + '= ' + '' + '; max-age=' + -1;
                     editCart();
                     card.remove();
@@ -603,7 +604,7 @@ class Main {
 
                 let description = document.createElement('p');
                 infoCard.append(description);
-                description.innerHTML = products[arrId[i] - 1].description;
+                description.innerHTML = this.products[arrId[i] - 1].description;
                 description.className = 'description_card';
 
                 let priceCont = document.createElement('div');
@@ -617,11 +618,11 @@ class Main {
                     let oldPrice = document.createElement('h4');
                     priceCont.append(oldPrice);
                     oldPrice.setAttribute('id', 'old_price');
-                    oldPrice.innerHTML = products[arrId[i] - 1].price + '$';
-                    price.innerHTML = (products[arrId[i] - 1].price * 0.8).toFixed(2) + '$';
+                    oldPrice.innerHTML = this.products[arrId[i] - 1].price + '$';
+                    price.innerHTML = (this.products[arrId[i] - 1].price * 0.8).toFixed(2) + '$';
 
                 }
-                else price.innerHTML = products[arrId[i] - 1].price + '$';
+                else price.innerHTML = this.products[arrId[i] - 1].price + '$';
 
                 let editWithPrice = document.createElement('div');
                 infoCard.append(editWithPrice);
@@ -650,9 +651,9 @@ class Main {
                 let sumPrice = 0;
 
                 if (arrId[i] === 3 || arrId[i] === 6 || arrId[i] === 12 || arrId[i] === 18) {
-                    sumPrice = products[arrId[i] - 1].price * 0.8 * count;
+                    sumPrice = this.products[arrId[i] - 1].price * 0.8 * count;
                 }
-                else sumPrice = products[arrId[i] - 1].price * count;
+                else sumPrice = this.products[arrId[i] - 1].price * count;
 
                 let total = document.createElement('p');
                 editWithPrice.append(total);
@@ -665,19 +666,19 @@ class Main {
                         number.innerHTML = count;
                         let subtotal = document.querySelector('.subtotal');
                         if (arrId[i] === 3 || arrId[i] === 6 || arrId[i] === 12 || arrId[i] === 18) {
-                            totalPrice -= products[arrId[i] - 1].price * 0.8;
-                            sumPrice = products[arrId[i] - 1].price * 0.8 * count;
+                            totalPrice -= this.products[arrId[i] - 1].price * 0.8;
+                            sumPrice = this.products[arrId[i] - 1].price * 0.8 * count;
                         }
                         else {
-                            totalPrice -= products[arrId[i] - 1].price;
-                            sumPrice = products[arrId[i] - 1].price * count;
+                            totalPrice -= this.products[arrId[i] - 1].price;
+                            sumPrice = this.products[arrId[i] - 1].price * count;
                         }
                         subtotal.innerHTML = 'Subtotal for ' + index + ' items: ' + totalPrice.toFixed(2) + ' $';
                         total.innerHTML = 'Total: ' + sumPrice.toFixed(2) + ' $';
                     }
                     let data = {
                         id: arrId[i],
-                        max: products[arrId[i] - 1].rating.count,
+                        max: this.products[arrId[i] - 1].rating.count,
                         count: count
                     }
                     document.cookie = nameCookie + '=' + JSON.stringify(data) + '; max-age=' + age;
@@ -686,24 +687,24 @@ class Main {
                 });
 
                 plus.addEventListener('click', () => {
-                    if (count < products[arrId[i] - 1].rating.count) {
+                    if (count < this.products[arrId[i] - 1].rating.count) {
                         count += 1;
                         number.innerHTML = count;
                         let subtotal = document.querySelector('.subtotal');
                         if (arrId[i] === 3 || arrId[i] === 6 || arrId[i] === 12 || arrId[i] === 18) {
-                            totalPrice += products[arrId[i] - 1].price * 0.8;
-                            sumPrice = products[arrId[i] - 1].price * 0.8 * count;
+                            totalPrice += this.products[arrId[i] - 1].price * 0.8;
+                            sumPrice = this.products[arrId[i] - 1].price * 0.8 * count;
                         }
                         else {
-                            totalPrice += products[arrId[i] - 1].price;
-                            sumPrice = products[arrId[i] - 1].price * count;
+                            totalPrice += this.products[arrId[i] - 1].price;
+                            sumPrice = this.products[arrId[i] - 1].price * count;
                         }
                         subtotal.innerHTML = 'Subtotal for ' + index + ' items: ' + totalPrice.toFixed(2) + ' $';
                         total.innerHTML = 'Total: ' + sumPrice.toFixed(2) + ' $';
                     }
                     let data = {
                         id: arrId[i],
-                        max: products[arrId[i] - 1].rating.count,
+                        max: this.products[arrId[i] - 1].rating.count,
                         count: count
                     }
                     document.cookie = nameCookie + '=' + JSON.stringify(data) + '; max-age=' + age;
@@ -758,6 +759,8 @@ class Main {
 
     }
     init() {
+        console.log('main init')
+        this.products = getData()
         this.create();
         return this.element;
     }

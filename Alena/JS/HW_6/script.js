@@ -1,3 +1,4 @@
+
 "use strict"
 //Task #1
 let str1 = 'aaa@bbb@ccc';
@@ -36,3 +37,4 @@ console.log('Task #6: ',date6.getHours() + ':' + date6.getMinutes() + ':' + date
 //Task #7
 let str7 = 'aa aba abba abbba abca abea';
 console.log('Task #7: ', str7.match(/ab+a/g));
+

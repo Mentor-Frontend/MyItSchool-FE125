@@ -27,25 +27,24 @@ class App {
 
         return this.element
     }
-    getData() {
+    async getData() {
         let products = localStorage.getItem('products');
         if (products) {
             console.log('Not empty localStorage');
             return 0;
         }
-        (async function () {
+        
             let response = await fetch('https://fakestoreapi.com/products');
             if(!response.ok) {
                 console.error('ERROR!'); 
                 return 0;
             } 
             let data = response.json();
-            data.then(function(items) {
+            await data.then(function(items) {
                 localStorage.setItem('products', JSON.stringify(items));
                 return items;
             });
-        })();
     } 
      };
 
-export default new App().init()
+export default new App()

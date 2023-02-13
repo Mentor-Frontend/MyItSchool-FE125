@@ -94,16 +94,16 @@ body {
   background-size: cover;
 }
 .main .slider-wrapper .slider-container .first_slide {
-  background-image: url(/img/slider1.jpg);
+  background-image: url(../img/slider1.jpg);
 }
 .main .slider-wrapper .slider-container .second_slide {
-  background-image: url(/img/slider2.jpg);
+  background-image: url(../img/slider2.jpg);
 }
 .main .slider-wrapper .slider-container .third_slide {
-  background-image: url(/img/slider3.jpg);
+  background-image: url(../img/slider3.jpg);
 }
 .main .slider-wrapper .slider-container .forth_slide {
-  background-image: url(/img/slider4.jpg);
+  background-image: url(../img/slider4.jpg);
 }
 .main .slider-wrapper .slider-container::-webkit-scrollbar {
   width: 0;

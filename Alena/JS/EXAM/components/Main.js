@@ -4,6 +4,11 @@ import { age } from "../index.js";
 import { editCart } from "./Cart.js";
 import { deleteAll } from "./Cart.js";
 
+let products = getData();
+if (!products) {
+    alert('The data is not loaded, reload the page!');
+} //я не решила свою проблемы с загрузкой данных, поэтому сделала костыль 
+
 class Main {
     constructor() {
         this.element = '';
@@ -20,6 +25,52 @@ class Main {
         let mainContainer = document.createElement('div');
         main.append(mainContainer);
         mainContainer.className = 'main_container';
+        main.style.backgroundColor = 'white';
+
+        let hambMenu = document.querySelector('.hamb_menu');
+
+        let popup = document.createElement('div');
+        mainContainer.prepend(popup);
+        popup.className = 'popup';
+
+        let navHamb = document.createElement('div');
+        navHamb.className = 'nav_hamb';
+        popup.append(navHamb);
+
+        let ulNavHamb = document.createElement('ul');
+        navHamb.append(ulNavHamb);
+
+        let liFirst = document.createElement('li');
+        ulNavHamb.append(liFirst);
+        liFirst.innerHTML = 'Home';
+        liFirst.addEventListener('click', () => {
+            hambMenu.classList.toggle('active');
+            location.hash = '#home';
+            popup.style.left = '-100%';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = "";
+        })
+
+        let liSecond = document.createElement('li');
+        ulNavHamb.append(liSecond);
+        liSecond.innerHTML = 'Shop';
+        liSecond.addEventListener('click', () => {
+            hambMenu.classList.toggle('active');
+            location.hash = '#shop';
+            popup.style.left = '-100%';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = "";
+        })
+
+        let liThird = document.createElement('li');
+        ulNavHamb.append(liThird);
+        liThird.innerHTML = 'Contacts';
+        liThird.addEventListener('click', () => {
+            hambMenu.classList.toggle('active');
+            popup.style.left = '-100%';
+            window.scrollTo(0, document.body.scrollHeight);
+            document.body.style.overflow = "";
+        })
 
         let firstBlock = document.createElement('div');
         mainContainer.append(firstBlock);
@@ -48,6 +99,7 @@ class Main {
         button.classList = 'button_shop';
         button.addEventListener('click', () => {
             location.hash = '#shop';
+            window.scrollTo(0, 0);
         })
 
         let tile = document.createElement('div');
@@ -55,22 +107,22 @@ class Main {
         tile.className = 'tile';
         let img1 = document.createElement('img');
         tile.append(img1);
-        img1.setAttribute('src', '/img/tile1.png');
+        img1.setAttribute('src', './img/tile1.png');
         let img2 = document.createElement('img');
         tile.append(img2);
-        img2.setAttribute('src', '/img/tile2.png');
+        img2.setAttribute('src', './img/tile2.png');
         let img3 = document.createElement('img');
         tile.append(img3);
-        img3.setAttribute('src', '/img/tile6.png');
+        img3.setAttribute('src', './img/tile6.png');
         let img4 = document.createElement('img');
         tile.append(img4);
-        img4.setAttribute('src', '/img/tile4.png');
+        img4.setAttribute('src', './img/tile4.png');
         let img5 = document.createElement('img');
         tile.append(img5);
-        img5.setAttribute('src', '/img/tile5.png');
+        img5.setAttribute('src', './img/tile5.png');
         let img6 = document.createElement('img');
         tile.append(img6);
-        img6.setAttribute('src', '/img/tile3.png');
+        img6.setAttribute('src', './img/tile3.png');
 
         //---------slider---------//
 
@@ -82,21 +134,25 @@ class Main {
         secondBlock.append(slider);
         slider.className = 'slider';
 
-        let sale1 = getData()[2],
-            sale2 = getData()[5],
-            sale3 = getData()[11],
-            sale4 = getData()[17];
+        let sale1 = products[2],
+            sale2 = products[5],
+            sale3 = products[11],
+            sale4 = products[17];
+
         let arrSale = [sale1, sale2, sale3, sale4];
 
-        for (let i = 1; i < 5; i++) {
-
+        for (let i = 0; i < 4; i++) {
             let slide = document.createElement('div');
+            let sizeWindow = document.querySelector('.second_block').offsetWidth;
             slider.append(slide);
             slide.className = 'slide';
+            if (sizeWindow < 1440) {
+                slide.style.width = sizeWindow + 'px';
+            }
 
             let imgSlide = document.createElement('img');
             slide.append(imgSlide);
-            imgSlide.setAttribute('src', `${arrSale[i - 1].image}`);
+            imgSlide.setAttribute('src', `${arrSale[i].image}`);
 
             let info = document.createElement('div');
             slide.append(info);
@@ -104,11 +160,11 @@ class Main {
 
             let title = document.createElement('h2');
             info.append(title);
-            title.innerHTML = arrSale[i - 1].title;
+            title.innerHTML = arrSale[i].title;
 
             let description = document.createElement('h3');
             info.append(description);
-            description.innerHTML = arrSale[i - 1].description;
+            description.innerHTML = arrSale[i].description;
             description.className = 'description';
 
             let saleText = document.createElement('h3');
@@ -122,12 +178,12 @@ class Main {
 
             let price = document.createElement('h3');
             priceBlock.append(price);
-            price.innerHTML = `${arrSale[i - 1].price}$`;
+            price.innerHTML = `${arrSale[i].price}$`;
             price.className = 'price';
 
             let priceSale = document.createElement('h3');
             priceBlock.append(priceSale);
-            priceSale.innerHTML = (arrSale[i - 1].price * 0.8).toFixed(2) + '$';
+            priceSale.innerHTML = (arrSale[i].price * 0.8).toFixed(2) + '$';
             priceSale.className = 'price_sale';
 
             let buttonAdd = document.createElement('button');
@@ -136,23 +192,20 @@ class Main {
             buttonAdd.className = 'button_add';
 
             buttonAdd.addEventListener('click', () => {
-                let data ={
-                    id: arrSale[i-1].id,
-                    max: arrSale[i-1].rating.count,
+                let data = {
+                    id: arrSale[i].id,
+                    max: arrSale[i].rating.count,
                     count: 1
                 }
                 let name = 'product' + data.id;
                 let cookie = getCookie(name);
-                if(cookie){
-                    if(cookie.count < cookie.max){
-                        data.count += cookie.count; 
-                    }
-                    else {
-                        alert('В корзину добавлено максимальное количество товара!'); //изменить потом!!!
+                if (cookie) {
+                    if (cookie.count < cookie.max) {
+                        data.count += cookie.count;
                     }
                 }
-               document.cookie = 'product'+ data.id + '=' + JSON.stringify(data) + '; max-age=' + age;
-               editCart();
+                document.cookie = 'product' + data.id + '=' + JSON.stringify(data) + '; max-age=' + age;
+                editCart();
             })
         }
 
@@ -182,7 +235,7 @@ class Main {
             }
             slider.style.left = -index * windowSize + 'px';
 
-        })
+        });
 
         arrowRight.addEventListener('click', function () {
             let windowSize = document.querySelector('.second_block').offsetWidth;
@@ -194,6 +247,16 @@ class Main {
             }
             slider.style.left = -index * windowSize + 'px';
 
+        });
+
+        window.addEventListener('resize', () => {
+            let sizeMediaBefore = document.querySelector('.second_block').offsetWidth;
+            if (sizeMediaBefore < 1440) {
+                let slide = document.querySelectorAll('.slide');
+                for (let elem of slide) {
+                    elem.style.width = sizeMediaBefore + 'px';
+                }
+            }
         })
 
     }
@@ -203,6 +266,51 @@ class Main {
         main.append(mainContainer);
         mainContainer.className = 'main_container';
 
+        let hambMenu = document.querySelector('.hamb_menu');
+
+        let popup = document.createElement('div');
+        mainContainer.prepend(popup);
+        popup.className = 'popup';
+
+        let navHamb = document.createElement('div');
+        navHamb.className = 'nav_hamb';
+        popup.append(navHamb);
+
+        let ulNavHamb = document.createElement('ul');
+        navHamb.append(ulNavHamb);
+
+        let liFirst = document.createElement('li');
+        ulNavHamb.append(liFirst);
+        liFirst.innerHTML = 'Home';
+        liFirst.addEventListener('click', () => {
+            hambMenu.classList.toggle('active');
+            location.hash = '#home';
+            popup.style.left = '-100%';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = "";
+        })
+
+        let liSecond = document.createElement('li');
+        ulNavHamb.append(liSecond);
+        liSecond.innerHTML = 'Shop';
+        liSecond.addEventListener('click', () => {
+            hambMenu.classList.toggle('active');
+            location.hash = '#shop';
+            popup.style.left = '-100%';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = "";
+        })
+
+        let liThird = document.createElement('li');
+        ulNavHamb.append(liThird);
+        liThird.innerHTML = 'Contacts';
+        liThird.addEventListener('click', () => {
+            hambMenu.classList.toggle('active');
+            popup.style.left = '-100%';
+            window.scrollTo(0, document.body.scrollHeight);
+            document.body.style.overflow = "";
+        })
+
         let shop = document.createElement('div');
         mainContainer.append(shop);
         shop.className = 'shop';
@@ -211,9 +319,7 @@ class Main {
         shop.append(shopCont);
         shopCont.className = 'shop_container';
 
-        let products = getData();
-
-        for(let i = 0; i < 20; i++){
+        for (let i = 0; i < 20; i++) {
             let card = document.createElement('div');
             shopCont.append(card);
             card.className = 'card';
@@ -237,27 +343,27 @@ class Main {
             let price = document.createElement('h4');
             priceCont.append(price);
 
-            if(products[i].id === 3 || products[i].id === 6 || products[i].id === 12 || products[i].id === 18){
+            if (products[i].id === 3 || products[i].id === 6 || products[i].id === 12 || products[i].id === 18) {
                 let oldPrice = document.createElement('h4');
                 priceCont.append(oldPrice);
                 oldPrice.setAttribute('id', 'old_price');
                 oldPrice.innerHTML = products[i].price + '$';
                 price.innerHTML = (products[i].price * 0.8).toFixed(2) + '$';
-                
+
             }
             else price.innerHTML = products[i].price + '$';
 
             let addCont = document.createElement('div');
             card.append(addCont);
             addCont.className = 'add_container';
-            
+
             let countEdit = document.createElement('div');
             addCont.append(countEdit);
             countEdit.className = 'count_edit';
-            
+
             let minus = document.createElement('img');
             countEdit.append(minus);
-            minus.setAttribute('src', '../img/minus.png');
+            minus.setAttribute('src', './img/minus.png');
 
             let number = document.createElement('h5');
             countEdit.append(number);
@@ -265,19 +371,19 @@ class Main {
 
             let plus = document.createElement('img');
             countEdit.append(plus);
-            plus.setAttribute('src', '../img/plus.png');
-            
+            plus.setAttribute('src', './img/plus.png');
+
             let count = 1;
 
             minus.addEventListener('click', () => {
-                if(count > 1){
+                if (count > 1) {
                     count -= 1;
                     number.innerHTML = count;
                 }
             });
 
             plus.addEventListener('click', () => {
-                if(count < products[i].rating.count){
+                if (count < products[i].rating.count) {
                     count += 1;
                     number.innerHTML = count;
                 }
@@ -289,23 +395,20 @@ class Main {
             buttonAdd.innerHTML = 'Add to cart';
 
             buttonAdd.addEventListener('click', () => {
-                let data ={
+                let data = {
                     id: products[i].id,
                     max: products[i].rating.count,
                     count: count
                 }
                 let name = 'product' + data.id;
                 let cookie = getCookie(name);
-                if(cookie){
-                    if(cookie.count < cookie.max){
-                        data.count += cookie.count; 
-                    }
-                    else {
-                        alert('В корзину добавлено максимальное количество товара!'); //изменить потом!!!
+                if (cookie) {
+                    if (cookie.count < cookie.max) {
+                        data.count += cookie.count;
                     }
                 }
-               document.cookie = 'product'+ products[i].id + '=' + JSON.stringify(data) + '; max-age=' + age;
-               editCart();
+                document.cookie = 'product' + products[i].id + '=' + JSON.stringify(data) + '; max-age=' + age;
+                editCart();
             })
 
         }
@@ -317,27 +420,340 @@ class Main {
         main.append(mainContainer);
         mainContainer.className = 'main_container';
 
-        let cardCont = document.createElement('div');
-        mainContainer.append(cardCont);
-        cardCont.className = 'card_container';
+        let hambMenu = document.querySelector('.hamb_menu');
 
-        let cardCont2 = document.createElement('div');
-        cardCont.append(cardCont2);
-        cardCont2.className = 'card_container2';
+        let popup = document.createElement('div');
+        mainContainer.prepend(popup);
+        popup.className = 'popup';
 
-        if(!document.cookie){
+        let navHamb = document.createElement('div');
+        navHamb.className = 'nav_hamb';
+        popup.append(navHamb);
+
+        let ulNavHamb = document.createElement('ul');
+        navHamb.append(ulNavHamb);
+
+        let liFirst = document.createElement('li');
+        ulNavHamb.append(liFirst);
+        liFirst.innerHTML = 'Home';
+        liFirst.addEventListener('click', () => {
+            hambMenu.classList.toggle('active');
+            location.hash = '#home';
+            popup.style.left = '-100%';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = "";
+        })
+
+        let liSecond = document.createElement('li');
+        ulNavHamb.append(liSecond);
+        liSecond.innerHTML = 'Shop';
+        liSecond.addEventListener('click', () => {
+            hambMenu.classList.toggle('active');
+            location.hash = '#shop';
+            popup.style.left = '-100%';
+            window.scrollTo(0, 0);
+            document.body.style.overflow = "";
+        })
+
+        let liThird = document.createElement('li');
+        ulNavHamb.append(liThird);
+        liThird.innerHTML = 'Contacts';
+        liThird.addEventListener('click', () => {
+            hambMenu.classList.toggle('active');
+            popup.style.left = '-100%';
+            window.scrollTo(0, document.body.scrollHeight);
+            document.body.style.overflow = "";
+        })
+
+        let cartCont = document.createElement('div');
+        mainContainer.append(cartCont);
+        cartCont.className = 'cart_container';
+
+        let cartCont2 = document.createElement('div');
+        cartCont.append(cartCont2);
+        cartCont2.className = 'cart_container2';
+
+        if (!document.cookie) {
+            let main = document.querySelector('.main');
+            main.style.backgroundColor = '#ebebeb';
+
             let empty = document.createElement('h2');
-            cardCont2.append(empty);
-            empty.innerHTML = 'The card is empty :(';
+            cartCont2.append(empty);
+            empty.innerHTML = 'The cart is empty :(';
             empty.setAttribute('id', 'empty');
 
             let buttonShop = document.createElement('button');
-            cardCont2.append(buttonShop);
+            cartCont2.append(buttonShop);
             buttonShop.innerHTML = 'Go to shop';
             buttonShop.className = 'button_go';
             buttonShop.addEventListener('click', () => {
                 location.hash = '#shop';
             })
+        }
+        else {
+            if (cartCont2.offsetWidth < 700 || document.querySelector('#empty')) {
+                cartCont2.style.flexDirection = 'column';
+                cartCont2.style.alignItems = 'center';
+            }
+            else {
+                cartCont2.style.flexDirection = 'row';
+                cartCont2.style.alignItems = 'flex-start';
+            }
+
+            window.addEventListener('resize', () => {
+                if (cartCont2.offsetWidth < 700) {
+                    cartCont2.style.flexDirection = 'column';
+                    cartCont2.style.alignItems = 'center';
+                }
+                else {
+                    cartCont2.style.flexDirection = 'row';
+                    cartCont2.style.alignItems = 'flex-start';
+                }
+            })
+            main.style.backgroundColor = '#ebebeb';
+
+            let yourCart = document.createElement('div');
+            cartCont2.append(yourCart);
+            yourCart.className = 'left_block_cart';
+
+            let titleCart = document.createElement('h2');
+            yourCart.append(titleCart);
+            titleCart.innerHTML = 'Your Cart';
+            titleCart.className = 'title_cart'
+
+            let totalPrice = 0;
+            let index = 0;
+            let arrId = [];
+
+            for (let i = 0; i < 20; i++) {
+                let name = 'product' + (i + 1);
+                let data = getCookie(name);
+                if (data) {
+                    arrId.push(data.id);
+                    index += 1;
+                    if (data.id === 3 || data.id === 6 || data.id === 12 || data.id === 18) {
+                        totalPrice += products[i].price * 0.8 * data.count;
+                    }
+                    else totalPrice += products[i].price * data.count;
+                }
+            }
+
+            for (let i = 0; i < index; i++) {
+                let card = document.createElement('div');
+                yourCart.append(card);
+                card.className = 'card_cart';
+
+                let img = document.createElement('img');
+                card.append(img);
+                img.setAttribute('src', `${products[arrId[i] - 1].image}`)
+
+                let infoCard = document.createElement('div');
+                card.append(infoCard);
+                infoCard.className = 'info_card';
+
+                let nameWithDelete = document.createElement('div');
+                infoCard.append(nameWithDelete);
+                nameWithDelete.className = 'name_with_delete';
+
+                let name = document.createElement('h2');
+                nameWithDelete.append(name);
+                name.innerHTML = products[arrId[i] - 1].title;
+                name.className = 'name_in_card';
+
+                let trash = document.createElement('img');
+                nameWithDelete.append(trash);
+                trash.setAttribute('src', './img/trash.png');
+                trash.addEventListener('click', () => {
+                    let nameCookie = 'product' + arrId[i];
+                    index -= 1;
+                    let data = getCookie(nameCookie);
+                    if (arrId[i] === 3 || arrId[i] === 6 || arrId[i] === 12 || arrId[i] === 18) {
+                        totalPrice -= products[arrId[i] - 1].price * 0.8 * data.count;
+                    }
+                    else totalPrice -= products[arrId[i] - 1].price * data.count;
+                    document.cookie = nameCookie + '= ' + '' + '; max-age=' + -1;
+                    editCart();
+                    card.remove();
+                    let subtotal = document.querySelector('.subtotal');
+                    subtotal.innerHTML = 'Subtotal for ' + index + ' items: ' + totalPrice.toFixed(2) + ' $';
+
+                    if (!document.cookie) {
+                        main.style.backgroundColor = '#ebebeb';
+                        yourCart.remove();
+                        infoCart.remove();
+
+                        cartCont2.style.flexDirection = 'column';
+                        cartCont2.style.alignItems = 'center';
+
+                        let empty = document.createElement('h2');
+                        cartCont2.append(empty);
+                        empty.innerHTML = 'The cart is empty :(';
+                        empty.setAttribute('id', 'empty');
+
+                        let buttonShop = document.createElement('button');
+                        cartCont2.append(buttonShop);
+                        buttonShop.innerHTML = 'Go to shop';
+                        buttonShop.className = 'button_go';
+                        buttonShop.addEventListener('click', () => {
+                            location.hash = '#shop';
+                        });
+                    }
+
+                });
+
+                let description = document.createElement('p');
+                infoCard.append(description);
+                description.innerHTML = products[arrId[i] - 1].description;
+                description.className = 'description_card';
+
+                let priceCont = document.createElement('div');
+                infoCard.append(priceCont);
+                priceCont.className = 'price_container';
+
+                let price = document.createElement('h4');
+                priceCont.append(price);
+
+                if (arrId[i] === 3 || arrId[i] === 6 || arrId[i] === 12 || arrId[i] === 18) {
+                    let oldPrice = document.createElement('h4');
+                    priceCont.append(oldPrice);
+                    oldPrice.setAttribute('id', 'old_price');
+                    oldPrice.innerHTML = products[arrId[i] - 1].price + '$';
+                    price.innerHTML = (products[arrId[i] - 1].price * 0.8).toFixed(2) + '$';
+
+                }
+                else price.innerHTML = products[arrId[i] - 1].price + '$';
+
+                let editWithPrice = document.createElement('div');
+                infoCard.append(editWithPrice);
+                editWithPrice.className = 'edit_with_price';
+
+                let countEdit = document.createElement('div');
+                editWithPrice.append(countEdit);
+                countEdit.className = 'count_edit';
+
+                let minus = document.createElement('img');
+                countEdit.append(minus);
+                minus.setAttribute('src', './img/minus.png');
+
+                let nameCookie = 'product' + arrId[i];
+                let cookie = getCookie(nameCookie);
+                let count = cookie.count;
+
+                let number = document.createElement('h5');
+                countEdit.append(number);
+                number.innerHTML = count;
+
+                let plus = document.createElement('img');
+                countEdit.append(plus);
+                plus.setAttribute('src', './img/plus.png');
+
+                let sumPrice = 0;
+
+                if (arrId[i] === 3 || arrId[i] === 6 || arrId[i] === 12 || arrId[i] === 18) {
+                    sumPrice = products[arrId[i] - 1].price * 0.8 * count;
+                }
+                else sumPrice = products[arrId[i] - 1].price * count;
+
+                let total = document.createElement('p');
+                editWithPrice.append(total);
+                total.className = 'total';
+                total.innerHTML = 'Total: ' + sumPrice.toFixed(2) + ' $';
+
+                minus.addEventListener('click', () => {
+                    if (count > 1) {
+                        count -= 1;
+                        number.innerHTML = count;
+                        let subtotal = document.querySelector('.subtotal');
+                        if (arrId[i] === 3 || arrId[i] === 6 || arrId[i] === 12 || arrId[i] === 18) {
+                            totalPrice -= products[arrId[i] - 1].price * 0.8;
+                            sumPrice = products[arrId[i] - 1].price * 0.8 * count;
+                        }
+                        else {
+                            totalPrice -= products[arrId[i] - 1].price;
+                            sumPrice = products[arrId[i] - 1].price * count;
+                        }
+                        subtotal.innerHTML = 'Subtotal for ' + index + ' items: ' + totalPrice.toFixed(2) + ' $';
+                        total.innerHTML = 'Total: ' + sumPrice.toFixed(2) + ' $';
+                    }
+                    let data = {
+                        id: arrId[i],
+                        max: products[arrId[i] - 1].rating.count,
+                        count: count
+                    }
+                    document.cookie = nameCookie + '=' + JSON.stringify(data) + '; max-age=' + age;
+                    editCart();
+
+                });
+
+                plus.addEventListener('click', () => {
+                    if (count < products[arrId[i] - 1].rating.count) {
+                        count += 1;
+                        number.innerHTML = count;
+                        let subtotal = document.querySelector('.subtotal');
+                        if (arrId[i] === 3 || arrId[i] === 6 || arrId[i] === 12 || arrId[i] === 18) {
+                            totalPrice += products[arrId[i] - 1].price * 0.8;
+                            sumPrice = products[arrId[i] - 1].price * 0.8 * count;
+                        }
+                        else {
+                            totalPrice += products[arrId[i] - 1].price;
+                            sumPrice = products[arrId[i] - 1].price * count;
+                        }
+                        subtotal.innerHTML = 'Subtotal for ' + index + ' items: ' + totalPrice.toFixed(2) + ' $';
+                        total.innerHTML = 'Total: ' + sumPrice.toFixed(2) + ' $';
+                    }
+                    let data = {
+                        id: arrId[i],
+                        max: products[arrId[i] - 1].rating.count,
+                        count: count
+                    }
+                    document.cookie = nameCookie + '=' + JSON.stringify(data) + '; max-age=' + age;
+                    editCart();
+                });
+
+
+            }
+
+            let infoCart = document.createElement('div');
+            cartCont2.append(infoCart);
+            infoCart.className = 'right_block_cart';
+
+            let subtotal = document.createElement('p');
+            infoCart.append(subtotal);
+            subtotal.innerHTML = 'Subtotal for ' + index + ' items: ' + totalPrice.toFixed(2) + ' $';
+            subtotal.className = 'subtotal';
+
+            let buttonClear = document.createElement('button');
+            infoCart.append(buttonClear);
+            buttonClear.innerHTML = 'Clear cart';
+            buttonClear.className = 'button_clear';
+            buttonClear.addEventListener('click', () => {
+                main.style.backgroundColor = '#ebebeb';
+                deleteAll();
+                yourCart.remove();
+                infoCart.remove();
+                let empty = document.createElement('h2');
+                cartCont2.append(empty);
+                empty.innerHTML = 'The cart is empty :(';
+                empty.setAttribute('id', 'empty');
+
+                cartCont2.style.flexDirection = 'column';
+                cartCont2.style.alignItems = 'center';
+
+                let buttonShop = document.createElement('button');
+                cartCont2.append(buttonShop);
+                buttonShop.innerHTML = 'Go to shop';
+                buttonShop.className = 'button_go';
+                buttonShop.addEventListener('click', () => {
+                    location.hash = '#shop';
+                })
+
+                let countCart = document.querySelector('.count_cart');
+                countCart.style.display = 'none';
+                let priceCart = document.querySelector('.price_cart');
+                priceCart.style.display = 'none';
+
+            });
+
         }
 
     }

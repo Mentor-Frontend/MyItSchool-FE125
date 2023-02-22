@@ -1,3 +1,4 @@
+/* 1250 */
 @media (max-width: 1250px) {
   .container {
     max-width: 85%;
@@ -18,11 +19,13 @@
   .addToCart {
     font-size: 20px;
   }
+  
   .desc {
     font-size: 20px;
   }
 }
 
+/* 1024*/
 @media (max-width: 1024px) {
   .container {
     padding-bottom: 0;
@@ -36,42 +39,13 @@
     justify-content: space-around;
   }
 
-  .nav li {
-    font-size: 28px;
+  .main_h2 {
+    font-size: 80px;
+    letter-spacing: 6px;
   }
 
-  .mainSlogan {
-    margin: 0 auto;
-    padding-left: 0;
-    font-size: 60px;
-    max-width: 500px;
-    text-align: center;
-  }
-
-  .mainUl {
-    margin-bottom: 0px;
-  }
-
-  .adressMain {
-    text-align: end;
-    padding-right: 40px;
-  }
-
-  .adressSt {
-    margin-bottom: 0;
-    float: right;
-    padding-right: 50px;
-    padding-left: 0px;
-  }
-
-  .gomer {
-    display: none;
-  }
-
-  .gomerMedia {
-    display: block;
-    max-width: 350px;
-    padding-left: 100px;
+  .mainPic {
+    width: 500px;
   }
 
   .imgOnCard {
@@ -85,15 +59,34 @@
   .cards-wrapper {
     padding-bottom: 50px;
   }
-
-  .total-price {
-    padding-bottom: 50px;
-  }
 }
 
-@media (max-width: 900px) {
+/* 912 */
+@media (max-width: 912px) {
   .header p {
     font-size: 25px;
+  }
+
+  .mainBlock {
+    justify-content: normal;
+  }
+
+  .mainText {
+    margin-left: 20px;
+    padding-right: 0;
+  }
+
+  .mainPic {
+    display: none;
+  }
+
+  .mainPic2 {
+    display: block;
+    width: 300px;
+  }
+
+  .carousel img {
+    width: 50%;
   }
 
   .cards-wrapper {
@@ -105,69 +98,162 @@
   }
 }
 
+/* 820 */
+@media (max-width: 820px) {
+  .mainPic {
+    display: none;
+  }
+
+  .mainPic2 {
+    display: block;
+    width: 300px;
+  }
+
+  .mainText {
+    margin-left: 10px;
+    padding-right: 0;
+  }
+}
+
+/* 768 */
 @media (max-width: 768px) {
+  .header img {
+    width: 100px;
+  }
+
+  .mainText {
+    padding-right: 0;
+  }
+
+  .footer {
+    display: flex;
+  }
+
+  .logoImg {
+    width: 100px;
+  }
+
+  .google,
+  .apple {
+    width: 130px;
+    height: 45px;
+  }
+
+  .contacts img {
+    width: 30px;
+  }
+}
+
+/* 625 */
+@media (max-width: 625px) {
+  .header p {
+    font-size: 18px;
+  }
+  
+  .mainBlock {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mainPic2 {
+    display: none;
+  }
+
+  .mainPic3 {
+    display: block;
+    width: 500px;
+  }
+
+  .mainText {
+    margin: 0;
+  }
+
+  .main_h2 {
+    text-align: center;
+  }
+
+  .textCol_block {
+    max-width: 400px;
+    font-size: 45px;
+  }
+  
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+
+  .download {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .mainPic3{
+    width: 460px;
+  }
+
+  .main_p{
+    font-size: 20px;
+    color: #2f2f2f;
+  }
+
+  .carousel img {
+    width: 100%;
+  }
+
+  .textCol_block{
+    max-width: 300px;
+  }
+
+  .counterRemove{
+    flex-direction: column;
+  }
+
+  .total-price{
+    font-size: 28px;
+  }
+
+  .download{
+    display: none;
+  }
+
+  .contacts img{
+    width: 50px;
+  }
+}
+
+/* 426 */
+@media (max-width: 426px) {
   .header {
-    flex-direction: column-reverse;
+    flex-direction: row-reverse;
   }
 
   .addressInfo {
     display: none;
   }
 
-  .footer {
-    flex-direction: column;
-    padding: 0;
-  }
-
-  .contact {
-    font-size: 20px;
-    color: rgb(32, 3, 16);
-  }
-}
-
-@media (max-width: 625px) {
-  .cards-wrapper {
-    grid-template-columns: 1fr;
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 426px) {
   .nav li {
     font-size: 20px;
   }
 
-  .mainSlogan {
-    font-size: 40px;
-    max-width: 300px;
+  .mainPic3 {
+    width: 380px;
   }
 
+  .textCol_block{
+    max-width: 240px;
+    font-size: 25px;
+  }
+  
+  .nav li {
+    font-size: 20px;
+  }
+  
   .work {
     padding: 0;
     text-align: center;
   }
-
-  .mainUl {
-    text-align: center;
-    padding-left: 0;
-    font-size: 20px;
-    list-style: none;
-  }
-
-  .adressMain {
-    text-align: center;
-    padding: 0px;
-  }
-
-  .adressSt {
-    font-size: 22px;
-    text-align: center;
-  }
-
-  .gomerMedia {
-    max-width: 200px;
-  }
-
+  
   .close {
     padding: 5px 10px;
     font-size: 15px;
@@ -185,15 +271,92 @@
     max-width: 150px;
   }
 
+  .imgItemCart{
+    max-width: 60%;
+  }
+
   .title {
-    font-weight: normal;
+    font-weight: bold;
+  }
+
+  .buyBlock{
+    flex-direction: column;
+    align-items: center;
   }
 
   .desc {
     color: rgb(78, 78, 78);
+    font-size: 18px;
   }
 
   .footer {
     gap: 8px;
+    flex-direction: column;
+  }
+
+  .download {
+    flex-direction: initial;
+  }
+
+  .contacts{
+    margin-top: 15px;
+    gap: 30px;
   }
 }
+
+@media (max-width: 391px){
+  .mainPic3{
+    width: 350px;
+  }
+
+  .main_h2{
+    font-size: 60px;
+  }
+
+  .main_p{
+    font-size: 17px;
+  }
+
+  .logoImg{
+    display: none;
+  }
+
+  .total-price{
+    font-size: 24px;
+  }
+
+  .contacts img{
+    margin: 0;
+  }
+}
+
+@media (max-width: 281px) {
+  .mainPic3{
+    display: none;
+  }
+
+  .main_p{
+    font-size: 12px;
+  }
+
+  .choose_h4{
+    font-size: 28px;
+  }
+
+  .carouselWrapper p:first-child{
+    left: 0;
+  }
+
+  .carouselWrapper p:last-child{
+    right: 0;
+  }
+
+  .cardIns{
+    padding: 16px;
+  }
+
+  .total-price{
+    text-align: center;
+  }
+}
+

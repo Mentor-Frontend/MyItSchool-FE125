@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+
+  "dependencies": {
+    "mathjs": "^11.5.1"
+  }
+}

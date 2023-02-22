@@ -285,9 +285,11 @@ menu {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
   justify-content: space-around;
   background: rgb(255, 255, 255);
   box-shadow: -5px -5px 20px #f5f4f4, 5px 5px 20px rgba(99, 99, 107, 0.5);
+
   color: #210e00;
   border-radius: 10px;
   padding: 30px;
@@ -361,7 +363,7 @@ menu {
 }
 
 .selected {
-  color: #23293c;
+  color: #281202;
   font-size: 30px;
 }
 

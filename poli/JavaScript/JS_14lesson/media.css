@@ -19,7 +19,7 @@
   .addToCart {
     font-size: 20px;
   }
-
+  
   .desc {
     font-size: 20px;
   }
@@ -149,6 +149,7 @@
   .header p {
     font-size: 18px;
   }
+  
   .mainBlock {
     flex-direction: column;
     align-items: center;
@@ -175,7 +176,7 @@
     max-width: 400px;
     font-size: 45px;
   }
-
+  
   .cards-wrapper {
     grid-template-columns: 1fr;
     max-width: 300px;
@@ -243,7 +244,16 @@
     max-width: 240px;
     font-size: 25px;
   }
-
+  
+  .nav li {
+    font-size: 20px;
+  }
+  
+  .work {
+    padding: 0;
+    text-align: center;
+  }
+  
   .close {
     padding: 5px 10px;
     font-size: 15px;
@@ -349,3 +359,4 @@
     text-align: center;
   }
 }
+

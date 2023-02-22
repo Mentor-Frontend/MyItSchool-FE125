@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./js/hamburgerMenu.js"></script>
+    <script defer src="./js/basket_favorites_number.js"></script>
+    <script defer src="./js/search.js"></script>
+    <title>YANKI</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header header2">
+            <div class="container">
+                <div class="header_body">
+                    <div class="header__burger">
+                        <span></span>
+                    </div>
+                    <nav class="header__menu">
+                        <ul class="header_list">
+                            <li>
+                                <div class="header_link search right_block">
+                                    <input class="input_search" id="search-input" type="text" oninput="viewElements(this.value)" >
+                                    <button class="button_search" id="search-button">
+                                        
+                                    </button>
+                                    <ul class="list-holder">
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+                            <hr class="hr_link">
+                            <li>
+                                <a href="#" class="header_link link_profile"><img src="./img/icons/profile2.png" alt="" srcset=""> Личный кабинет</a>
+                            </li>
+                            <hr class="hr_link">
+                            <li>
+                                <a href="#" class="header_link">NEW</a>
+                            </li>
+                            <hr class="hr_link">
+                            <li>
+                                <a href="catalog.html" class="header_link">Каталог</a>
+                            </li>
+                            <hr class="hr_link">
+                            <li>
+                                <a href="#" class="header_link">О НАС</a>
+                            </li>
+                            <hr class="hr_link">
+                            <li>
+                                <a href="#" class="header_link link_return_conditions">Условия возврата</a>
+                            </li>
+                            <hr class="hr_link">
+                            <li>
+                                <a href="#" class="header_link link_contacts">Контакты</a>
+                            </li>
+                            <hr class="hr_link">
+                            <li>
+                                <div class="society_links">
+                                    <div class="society">
+                                        <a href="" class="links inst">
+                                            <img src="./img/icons/inst.png" alt="">
+                                        </a>
+                                        <a href="" class="links">
+                                            <img src="./img/icons/telegram.png" alt="">
+                                        </a>
+                                        
+                                    </div>
+                                    <a href="tel:+38(073) 096 36 44" class="links">+38(073) 096 36 44</a>
+                                    <a href="mailto:info@yanki.com" class="links">info@yanki.com</a>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </nav>
+                    <div class="container_right_block">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/icons/logo2.png" alt="">
+                            </a>
+                        </div>
+                        <div class="header_right_block">
+                            <div class="search right_block">
+                                <input class="input_search" id="search-input" type="text" oninput="viewElements(this.value)" >
+                                <button class="button_search" id="search-button">
+                                    
+                                </button>
+                                <ul class="list-holder">
+                                    
+                                </ul>
+                            </div>
+                            <div class="profile right_block">
+                                <a href="">
+                                    <img src="./img/icons/profile2.png" alt="">
+                                </a>
+                            </div>
+                            <div class="favorites right_block">
+                                <a href="favorites.html">
+                                    <div class="number_favorites"></div>
+                                    <img src="./img/icons/favorites2.png" alt="">
+                                </a>
+                                
+                            </div>
+                            <div class="basket right_block">
+                                <a href="busket.html">
+                                    <div class="number_thing"><p>0</p></div>
+                                    <img src="./img/icons/basket2.png" alt="">
+                                    
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> 
+            </div>
+        </header>
+        <main>
+            <div class="payment_delivery">
+                <div class="way_link"><span>Главная <img src="./img/icons/arrow2.png" alt=""> Контакты</span></div>
+                <h1 class="h1_contact">Оплата и доставка</h1>
+                <div class="payment_delivery_container">
+                    <div class="payment_delivery_container_header">
+                        <div class="payment_delivery_container_header_left">
+                            <h2 class="h2_payment"> Вы можете оплатить покупку одним из ниже перечисленных способов:</h2>
+                            <ul class="ul_payment">
+                                <li>
+                                    <p>
+                                        • наложенным платежом в отделении Новой Почты  
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        • денежным переводом  Visa/MasterCard
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        • полная предоплата через Приват 24 
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="payment_delivery_container_header_right">
+                            <h2 class="h2_payment"> Мы готовы предложить несколько вариантов доставки:</h2>
+                            <ul class="ul_payment">
+                                <li>
+                                    <p>
+                                        • отправка по всей Украине в отделение Новой Почты(1-2 дня)
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        • международные сервисы доставки для жителей зарубежья: Укрпочта( 1-3 недели ,DHL(3-7 дней)
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        • Срок доставки: 1–2 дня с момента  заказа 
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="payment_delivery_container_footer">
+                        <h2 class="h2_payment"> Мы готовы предложить несколько вариантов доставки:</h2>
+                        <div class="step">
+                            <div class="step_div">
+                                <img src="./img/icons/step1.png" alt="">
+                                <h2 class="h2_payment"> Выбрать в корзине способ оплаты "LIQPAY";</h2>
+                            </div>
+                            <div class="step_div">
+                                <img src="./img/icons/step2.png" alt="">
+                                <h2 class="h2_payment"> Подтвердить заказ;</h2>
+                            </div>
+                            <div class="step_div">
+                                <img src="./img/icons/step3.png" alt="">
+                                <h2 class="h2_payment"> После этого Вас перенаправит на сайт LIQPAY, где вы выбираете удобный для вас способ оплаты: через Приват24, или с помощью карты Mastercard/VISA со всего мира. </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer_container">
+                <div class="company width_contant">
+                    <div class="buttons_footer button_company">
+                        <a href="contacts.html">КОМПАНИЯ</a>
+                        <button class="button_footer"><img src="./img/icons/arrow.png" alt="" class="arrow"></button>
+                    </div>
+                    <div class="footer_links company_links" t>
+                        <a href="" class="links">О нас</a>
+                        <a href="" class="links">Контакты</a>
+                    </div>
+                </div>
+                <hr class="footer_hr">
+                <div class="useful width_contant">
+                    <div class="buttons_footer button_useful">
+                        <a href="contacts.html">ПОЛЕЗНОЕ</a>
+                        <button class="button_footer"><img src="./img/icons/arrow.png" alt="" class="arrow"></button>
+                    </div>
+                    <div class="footer_links useful_links">
+                        <a href="payment_delivery.html" class="links">Оплата и доставка</a>
+                        <a href="exchange_return.html" class="links">Условия возврата</a>
+                        <a href="" class="links">Бонусная система</a>
+                    </div>
+                </div>
+                <hr class="footer_hr">
+                <div class="buyer width_contant">
+                    <div class="buttons_footer button_buyer">
+                        <a href="contacts.html">ПОКУПАТЕЛЮ</a>
+                        <button class="button_footer"><img src="./img/icons/arrow.png" alt="" class="arrow"></button>
+                    </div>
+                    <div class="footer_links buyer_links">
+                        <a href="" class="links">Избранное</a>
+                        <a href="" class="links">Публичная оферта</a>
+                        <a href="" class="links">Политика конфиденциальности</a>
+                    </div>
+                </div>
+                <hr class="footer_hr">
+                <div class="contacts width_contant">
+                    <div class="buttons_footer">
+                        <a href="contacts.html" class="contacts_a">КОНТАКТЫ</a> 
+                    </div>
+                    <div class="footer_links_soc">
+                        <div class="society">
+                            <a href="" class="links inst">
+                                <img src="./img/icons/inst.png" alt="">
+                            </a>
+                            <a href="" class="links">
+                                <img src="./img/icons/telegram.png" alt="">
+                            </a>
+                            
+                        </div>
+                        <a href="tel:+38(073) 096 36 44" class="links">+38(073) 096 36 44</a>
+                        <a href="mailto:info@yanki.com" class="links">info@yanki.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_text">
+                <h3>©️ 2021 Yanki. All rights reserved</h3>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

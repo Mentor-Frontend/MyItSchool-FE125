@@ -56,7 +56,6 @@ export default class Footer {
         facebook.classList.add('facebook');
         contacts.appendChild(facebook);
 
-
         footer.appendChild(contacts);
     }
 

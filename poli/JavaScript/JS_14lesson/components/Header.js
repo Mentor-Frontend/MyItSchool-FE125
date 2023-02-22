@@ -23,6 +23,7 @@ export default class Header {
     
         const logoImg = new Image(130);
         logoImg.src = "img/pilla_logo.png";
+
         logoWrapper.appendChild(logoImg);
     
         const addressInfo = document.createElement("div");

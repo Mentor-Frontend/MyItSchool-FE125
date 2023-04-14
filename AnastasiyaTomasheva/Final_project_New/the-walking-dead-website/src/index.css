@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,800;1,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fffff0;
+  color: #222;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+}
+
+.wrapper {
+  width: 1230px;
+  margin: 0 auto 50px auto;
+}
+
+header {
+  position: relative;
+}
+
+header .logo {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+header nav.menu {
+  background: rgb(217,213,197);
+  background: linear-gradient(90deg, rgba(217,213,197,1) 0%, rgba(218,205,162,1) 31%, rgba(3,30,49,1) 100%);
+}
+
+header nav.menu ul li {
+  display: inline-block;
+  padding: 1% 2%;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+header nav.menu ul li:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(192 114 83);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+header nav.menu ul li:hover, header nav.menu ul li:focus, .header nav.menu ul li:active {
+  color: white;
+}
+header nav.menu ul li:hover:before, .hvr-shutter-out-horizontal:focus:before, header nav.menu ul li:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+header .shopCartButton {
+  float: right;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+  color: #efebdf;
+  padding: .7% 2% 0 0;
+  font-size: 1.5rem;
+}
+
+header .shopCartButton:hover,
+header .shopCartButton.active {
+  color: rgb(226, 108, 61);
+  transform: scale(1.5);
+}
+
+header .shopCart {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 450px;
+  background: #efebdfa1;
+  -webkit-box-shadow: 0px 7px 11px 3px rgba(226, 108, 61, 0.2);
+  -moz-box-shadow: 0px 7px 11px 3px rgba(226, 108, 61, 0.2);
+  box-shadow: 0px 7px 11px 3px rgba(226, 108, 61, 0.2);
+  z-index: 1000;
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+header .shopCart .empty h2 {
+
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+header .shopCart .item {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+header .shopCart .item img {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+header .shopCart .item h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+header .shopCart .item .price b {
+  color: rgb(156, 84, 56);
+  font-weight: 600;
+}
+
+header .shopCart .item .deleteIcon {
+  color: rgb(237, 92, 35);
+  float: right;
+  position: relative;
+  top: -35px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+}
+
+header .shopCart .item .deleteIcon:hover {
+  color: #810e0e;
+  transform: scale(1.5);
+}
+
+header .shopCart .sum {
+  float: left;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+header .banner {
+  background: url('../public/img/banner.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 600px;
+  -webkit-box-shadow: 7px 20px 20px 7px rgba(34, 60, 80, 0.2), -7px 20px 20px 7px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 7px 20px 20px 7px rgba(34, 60, 80, 0.2), -7px 20px 20px 7px rgba(34, 60, 80, 0.2);
+  box-shadow: 7px 20px 20px 7px rgba(34, 60, 80, 0.2), -7px 20px 20px 7px rgba(34, 60, 80, 0.2);
+}
+
+.repo-text img {
+  width: 100%;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+main .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  margin-bottom: 50px;
+  background: rgb(217,213,197);
+background: linear-gradient(180deg, rgb(233 233 233) 60%, rgba(239,235,223,1) 70%);
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+main .item img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  transition: transform 500ms ease;
+}
+
+main .item img:hover {
+  transform: scale(1.05);
+}
+
+main h2, main p, main b, main .addToCart {
+  margin: 10px 20px;
+  color: #333;
+}
+
+main b {
+  color: rgb(192 114 83);
+}
+
+main .price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3%;
+  padding-bottom: 2%;
+}
+
+main .addToCart {
+  background: #810e0e;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 34px;
+  color: #efebdf;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: transform 500ms ease;
+}
+
+main .addToCart:hover {
+  transform: scale(1.2) translateY(-5px);
+}
+
+footer {
+  text-align: center;
+  margin-top: 100px; 
+}

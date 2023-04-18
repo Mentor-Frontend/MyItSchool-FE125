@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BsShop } from "react-icons/bs";
 import Order from './Order';
+import { Link } from 'react-router-dom';
 
 const showBasket = (props) => {
     let sum = 0
@@ -31,10 +32,11 @@ export default function Header(props) {
             <div className='banner'></div>
             <nav className='menu'>
                 <ul>
-                    <li>Сериал</li>
-                    <li>Комикс</li>
-                    <li>Видео</li>
-                    <li>Магазин</li>
+                    <li><Link to='/'>Главная</Link></li>
+                    <li><Link to='/series'>Сериал</Link></li>
+                    <li><Link to='/comics'>Комикс</Link></li>
+                    <li><Link to='/video'>Видео</Link></li>
+                    <li onClick={() => props.chooseCat('all')} ><Link to='/store'>Магазин</Link></li>
                     <BsShop onClick={() => setCartOpen(cartOpen = !cartOpen)} className={`shopCartButton ${cartOpen && 'active'}`}/>
                 </ul>
 

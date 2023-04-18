@@ -45,6 +45,12 @@ header nav.menu ul li {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
+
+header nav.menu ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
 header nav.menu ul li:before {
   content: "";
   position: absolute;
@@ -65,7 +71,7 @@ header nav.menu ul li:before {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-header nav.menu ul li:hover, header nav.menu ul li:focus, .header nav.menu ul li:active {
+header nav.menu ul li a:hover, header nav.menu ul li a:focus, .header nav.menu ul li a:active {
   color: white;
 }
 header nav.menu ul li:hover:before, .hvr-shutter-out-horizontal:focus:before, header nav.menu ul li:active:before {
@@ -168,6 +174,59 @@ header .banner {
   width: 100%;
 }
 
+.mainDescription {
+  margin: 2% 3%;
+}
+
+.mainDescription p:nth-child(odd) {
+  text-align: left;
+  padding-bottom: 2%;
+}
+
+.mainDescription p:nth-child(even) {
+  text-align: right;
+  padding-bottom: 2%;
+}
+
+.categories div {
+  display: inline-block;
+  background: rgb(242, 241, 236);
+  border-radius: 50px;
+  padding: 1% 2%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  margin-right: 1.5%;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 500ms ease;
+}
+
+.categories div:hover {
+  border-color: silver;
+  transform: scale(1.1);
+}
+
+.fullItem {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #333333cb;
+  z-index: 9999;
+  overflow: auto;
+  color: #efebdf;
+}
+
+.fullItem > div {
+  width: 600px;
+  position: relative;
+  margin: 10% auto;
+  padding: 40px 30px;
+  background: #fffff0;
+  border-radius: 9px;
+}
+
 main {
   display: flex;
   width: 100%;
@@ -188,22 +247,27 @@ background: linear-gradient(180deg, rgb(233 233 233) 60%, rgba(239,235,223,1) 70
   position: relative;
 }
 
-main .item img {
+main .item img,
+.fullItem img {
   width: 100%;
   border-radius: 10px 10px 0 0;
   transition: transform 500ms ease;
+  cursor: pointer;
 }
 
-main .item img:hover {
+main .item img:hover,
+.fullItem img:hover {
   transform: scale(1.05);
 }
 
-main h2, main p, main b, main .addToCart {
+main h2, main p, main b, main .addToCart,
+.fullItem b, .fullItem h2, .fullItem p, .fullItem .addToCart {
   margin: 10px 20px;
   color: #333;
 }
 
-main b {
+main b,
+.fullItem b {
   color: rgb(192 114 83);
 }
 
@@ -215,7 +279,8 @@ main .price {
   padding-bottom: 2%;
 }
 
-main .addToCart {
+main .addToCart,
+.fullItem .addToCart {
   background: #810e0e;
   width: 35px;
   height: 35px;
@@ -229,7 +294,8 @@ main .addToCart {
   transition: transform 500ms ease;
 }
 
-main .addToCart:hover {
+main .addToCart:hover,
+.fullItem .addToCart:hover {
   transform: scale(1.2) translateY(-5px);
 }
 

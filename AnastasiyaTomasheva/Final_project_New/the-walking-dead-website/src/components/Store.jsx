@@ -2,7 +2,7 @@ import Item from './Item';
 
 const Store = (props) => {
     const { items } = props;
-    // console.log(items)
+    console.log(props)
     if (!items || items.length === 0) return <p>Информация не найдена</p>;
     return (
         
@@ -10,7 +10,7 @@ const Store = (props) => {
         {items.map((data) => (
             // return (
             <>
-                <Item item={data} onAdd={props.onAdd}/>
+                <Item onShowItem={props.onShowItem} item={data} onAdd={props.onAdd} storeState={props.storeState} />
             </>
             // );
         ))}

@@ -90,17 +90,41 @@ header .bsHouses {
   cursor: pointer;
   transition: color, transform 500ms ease;
   color: #efebdf;
-  padding: .7% 2% 0 0;
+  padding: .8% 2% 0 0;
   font-size: 1.5rem;
 }
 
-header .shopCartButton:hover,
-header .shopCartButton.active,
+/* header .shopCartButton:hover, */
 header .bsHouses:hover,
 header .bsHouses.active {
   color: rgb(226, 108, 61);
-  transform: scale(1.5);
+  transform: scale(1.3);
 }
+
+header .shopCartButton:hover + .num,
+header .shopCartButton.active + .num {
+  color: rgb(226, 108, 61);
+  transform: scale(1.3);
+  
+}
+
+header .shopCartButton:hover,
+header .shopCartButton.active {
+  color: rgb(226, 108, 61);
+  transform: scale(1.3);
+  
+}
+
+/* header .wrapperForNum:hover,
+header .wrapperForNum.active {
+  transform: scale(1.3);
+  color: rgb(226, 108, 61);
+} */
+
+/* header .shopCartButton:hover + .num,
+header .shopCartButton.active + .num{
+  transform: scale(1.5);
+} */
 
 header .shopCart {
   position: absolute;
@@ -115,6 +139,30 @@ header .shopCart {
   z-index: 1000;
   padding: 20px;
   padding-bottom: 0;
+}
+
+.num {
+  width: 15px;
+  height: 15px;
+  background-color: #f1d9cf;
+  position: relative;
+  right: 13%;
+  border-radius: 30px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: .7rem;
+  font-weight: 600;
+  transition: transform 500ms ease;
+}
+
+.wrapperForNum {
+  display: flex;
+  width: auto;
+  flex-direction: row;
+  float: right;
+  margin-top: .6%;
+  margin-right: 2%;
+  transition: color, transform 500ms ease;
 }
 
 header .shopCart .empty h2 {

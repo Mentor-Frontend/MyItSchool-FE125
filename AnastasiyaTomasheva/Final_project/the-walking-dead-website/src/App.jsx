@@ -67,7 +67,7 @@ const [errorStore, setErrorStore] = useState(null);
   }, [])
 
   let [currentItems, setCurrentItems] = useState();
-  
+  let [num, setNum] = useState(0);
   console.log(currentItems)
 
   const [basket, setBasket] = useState([]);
@@ -84,6 +84,7 @@ const [errorStore, setErrorStore] = useState(null);
       // basket.push(item)
       setBasket([...basket, item])
       localStorage.setItem('cart', JSON.stringify(itemsStore))
+      setNum(++num)
     }
     
   }
@@ -96,6 +97,7 @@ const less = (id) => {
       if(product.id === id && product.count > 1){
         // if()
         setCount(--product.count)
+        setNum(--num)
         console.log(id)
       } else return product
     })
@@ -108,6 +110,7 @@ const more = (id) => {
       console.log(id)
       if(product.id === id){
         setCount(++product.count)
+        setNum(++num)
         console.log(id)
       } else return product
     })
@@ -115,7 +118,11 @@ const more = (id) => {
 
   const deleteItem = (id) => {
     setBasket(basket.filter(el => el.id !== id))
-    
+    basket.filter(el => {
+      if(el.id === id){
+        setNum(num - el.count)
+      }
+    })
   }
 
   const chooseCat = (category) => {
@@ -143,7 +150,7 @@ console.log(itemsStore)
 
   return (
     <div className="wrapper">
-      <Header basket={basket} onDelete={deleteItem} chooseCat={chooseCat} setRegAndAuth={setRegAndAuth} regAndAuth={regAndAuth} setCount={setCount} less={less} more={more} login={login} setLogin={setLogin} signup={signup} setSignup={setSignup} />
+      <Header basket={basket} onDelete={deleteItem} chooseCat={chooseCat} setRegAndAuth={setRegAndAuth} regAndAuth={regAndAuth} setCount={setCount} less={less} more={more} login={login} setLogin={setLogin} signup={signup} setSignup={setSignup} num={num} setNum={setNum} />
       <Routes>
         <Route path='/' element={
         <div className="wrapper">
@@ -170,7 +177,7 @@ console.log(itemsStore)
         <Categories chooseCat={chooseCat} />
         <div className='App'>
           <div className='repo-container'>
-            <DataLoading error={errorStore} onShowItem={onShowItem} isLoaded={isLoadedStore} items={currentItems} itemsStore={itemsStore} onAdd={addToOrder} />
+            <DataLoading error={errorStore} onShowItem={onShowItem} isLoaded={isLoadedStore} items={currentItems} itemsStore={itemsStore} onAdd={addToOrder} num={num} setNum={setNum} />
           </div>
         </div>
         </>
@@ -180,7 +187,6 @@ console.log(itemsStore)
       {descriptionItem && <ShowFullItem item={fullItem} onShowItem={onShowItem} onAdd={addToOrder} />}
       <Footer />
     </div>
-    
   );
 
   

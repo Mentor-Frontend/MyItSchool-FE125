@@ -52,7 +52,11 @@ export default function Header(props) {
                     <li ><Link to='/store'>Магазин</Link></li>
                     <BsHouses className={`bsHouses ${props.regAndAuth && 'active'}`} onClick={() => props.setRegAndAuth(!props.regAndAuth)} />
                     {props.regAndAuth && <RegAndAuth login={props.login} setLogin={props.setLogin} signup={props.signup} setSignup={props.setSignup} />}
+                    <div className='wrapperForNum'>
+                    
                     <BsShop onClick={() => setCartOpen(cartOpen = !cartOpen)} className={`shopCartButton ${cartOpen && 'active'}`}/>
+                    <div className='num'>{props.num}</div>
+                    </div>
                 </ul>
 
                 {cartOpen && (

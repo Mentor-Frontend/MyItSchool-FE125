@@ -15,8 +15,6 @@ const Icons = styled.div`
 width: 100%;
 height: auto;
 margin-bottom: 3%;
-/* background-color: #fff; */
-/* background-image: url('../../public/img/icon-skype.png'); */
 `
 const Social = styled(Info)`
 font-weight: normal;

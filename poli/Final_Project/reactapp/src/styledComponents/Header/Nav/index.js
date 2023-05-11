@@ -16,7 +16,7 @@ const NavStyled = styled.nav`
       width: 100%;
       height: 100vh;
       background: #fff;
-      z-index: 1;
+      z-index: 19;
       transition: right 0.2s;
       box-shadow: 0px 10px 10px gray;
     }

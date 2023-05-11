@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import HeaderStyled from "../../styledComponents/Header";
 import ContainerStyled from "../../styledComponents/Container";
+import Modal from "../../styledComponents/Header/LogIn/modal";
 import NavStyled from "../../styledComponents/Header/Nav";
 import LinkStyled from "../../styledComponents/Header/Link";
 import CartContain from "../../styledComponents/Header/Cart/CartContain";
@@ -30,6 +31,7 @@ export default function Header() {
       <HeaderStyled>
         <ContainerStyled>
           <Logo src={logo} alt="logo" />
+
           <NavStyled
             className={
               burgerMenu ? ["navStyled", "active"].join(" ") : ["navStyled"]
@@ -47,6 +49,11 @@ export default function Header() {
               <LinkStyled className="HeaderLink">CART</LinkStyled>
             </Link>
           </NavStyled>
+          <Modal
+            className={
+              burgerMenu ? ["navStyled", "active"].join(" ") : ["navStyled"]
+            }
+          ></Modal>
 
           <CDAndBurfer>
             <CartAndButton>
@@ -65,7 +72,10 @@ export default function Header() {
               </CartContain>
             </CartAndButton>
 
-            <BurgerContainer onClick={() => setBurgerMenuActive(!burgerMenu)}>
+            <BurgerContainer
+              style={{ zIndex: "20" }}
+              onClick={() => setBurgerMenuActive(!burgerMenu)}
+            >
               {burgerMenu ? (
                 <ion-icon name="close"></ion-icon>
               ) : (

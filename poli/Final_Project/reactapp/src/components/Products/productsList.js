@@ -20,6 +20,7 @@ export default function Products() {
         setItems(arr);
         setLoading(false);
       });
+    window.scrollTo(0, 0);
   }, [cathegoryFilter]);
 
   return (

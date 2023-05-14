@@ -908,7 +908,6 @@ header .shopCart .sum {
 
 .listCharacterContainer {
   display: flex;
-  /* min-height: 200px; */
   margin-top: 3%;
   align-items: flex-start;
   gap: 2%;

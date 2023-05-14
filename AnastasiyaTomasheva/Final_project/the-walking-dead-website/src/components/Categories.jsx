@@ -36,12 +36,24 @@ function Categories(props) {
     ])
     console.log(props)
     return (
+        <>
     <div className='categories'>
         {categories.map(el => (
         <div key={el.key} onClick={() => props.chooseCat(el.key)}>{el.name}</div>
         ))}
     </div>
-    
+    <div className='store-form'>
+            <form className='search-form'>
+                <input 
+                    type='text'
+                    placeholder='Поиск товара'
+                    className='search-input'
+                    onChange={(event) => props.setValueSearch(event.target.value)}
+                    onClick={() => props.setSearchField(true)} 
+                    />
+            </form>
+        </div>
+    </>
     )
 }
 

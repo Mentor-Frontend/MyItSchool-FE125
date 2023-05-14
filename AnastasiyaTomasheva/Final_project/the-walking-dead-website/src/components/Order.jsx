@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BsTrash3Fill } from "react-icons/bs";
 import { TiPlusOutline, TiMinusOutline } from "react-icons/ti";
 
@@ -12,9 +12,9 @@ export default function Order(props) {
             <h2>{props.item.name}</h2>
             <div className='price'><b>{props.item.price} руб.</b></div>
             <div className='count'>
-                <TiMinusOutline onClick={() => props.less(props.item.id)} />
+                <TiMinusOutline className='calc' onClick={() => props.less(props.item.id)} />
                 <div className='countOfItem'>{props.item.count}</div>
-                <TiPlusOutline onClick={() => props.more(props.item.id)} />
+                <TiPlusOutline className='calc' onClick={() => props.more(props.item.id)} />
             </div>
             
             <BsTrash3Fill className='deleteIcon' onClick={() => props.onDelete(props.item.id)} />

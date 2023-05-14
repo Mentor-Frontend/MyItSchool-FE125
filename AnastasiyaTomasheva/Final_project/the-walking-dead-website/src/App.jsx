@@ -1,8 +1,6 @@
 import React from "react";
-import styled from 'styled-components';
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from 'axios';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import List from "./components/List";
@@ -10,12 +8,14 @@ import withListLoading from "./components/withListLoading";
 import Store from "./components/Store";
 import Categories from "./components/Categories";
 import ShowFullItem from "./components/ShowFullItem";
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import MainPage from "./components/MainPage";
 import NotFoundPage from "./components/NotFoundPage";
 import VideoPage from "./components/VideoPage";
 import ListComics from "./components/ListComics";
-import RegAndAuth from "./components/RegAndAuth";
+import BtnUp from "./components/BtnUp";
+import Search from "./components/Search";
+
 
 function App() {
 
@@ -50,7 +50,7 @@ function App() {
 const [errorStore, setErrorStore] = useState(null);
   const [isLoadedStore, setIsLoadedStore] = useState(false);
   const [itemsStore, setItemsStore] = useState([]);
-  console.log(itemsStore)
+  
   useEffect(() => {
     fetch("http://localhost:3001/staffs")
       .then(res => res.json())
@@ -66,22 +66,23 @@ const [errorStore, setErrorStore] = useState(null);
       )
   }, [])
 
+  const [valueSearch, setValueSearch] = useState('');
+
   let [currentItems, setCurrentItems] = useState();
   let [num, setNum] = useState(0);
-  console.log(currentItems)
+  
 
   const [basket, setBasket] = useState([]);
-  console.log(basket)
+  
 
   const addToOrder = (item) => {
     let isInArr = false;
-    console.log(basket)
+    
     basket.forEach(el => {
       if(el.id === item.id)
       isInArr = true
     })
     if(!isInArr){
-      // basket.push(item)
       setBasket([...basket, item])
       localStorage.setItem('cart', JSON.stringify(itemsStore))
       setNum(++num)
@@ -91,27 +92,24 @@ const [errorStore, setErrorStore] = useState(null);
 
 const less = (id) => {
   console.log(basket.id)
-  // if(basket.count > 1){
     basket.map((product) => {
-      console.log(id)
+      
       if(product.id === id && product.count > 1){
-        // if()
         setCount(--product.count)
         setNum(--num)
-        console.log(id)
+        
       } else return product
     })
   }
 
 const more = (id) => {
-  console.log(basket.id)
-  // if(basket.count > 1){
+  
     basket.map((product) => {
-      console.log(id)
+      
       if(product.id === id){
         setCount(++product.count)
         setNum(++num)
-        console.log(id)
+        
       } else return product
     })
   }
@@ -139,18 +137,29 @@ let [fullItem, setFullItem] = useState({})
 
 const onShowItem = (item) => {
   setFullItem(item)
-  setDescriptionItem(!descriptionItem)
+  setDescriptionItem(true)
 }
 
 let [regAndAuth, setRegAndAuth] = useState(false)
 
+const [showBtn, setShowBtn] = useState(false);
 
-console.log(itemsStore)
+window.addEventListener('scroll', () => {
+
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  scrollY > 400 ? setShowBtn(true) : setShowBtn(false);
+})
+
+const [searchField, setSearchField] = useState(false)
+
+
+const [footer, setFooter] = useState(true);
+const [header, setHeader] = useState(true)
 
 
   return (
     <div className="wrapper">
-      <Header basket={basket} onDelete={deleteItem} chooseCat={chooseCat} setRegAndAuth={setRegAndAuth} regAndAuth={regAndAuth} setCount={setCount} less={less} more={more} login={login} setLogin={setLogin} signup={signup} setSignup={setSignup} num={num} setNum={setNum} />
+      {header && <Header basket={basket} onDelete={deleteItem} chooseCat={chooseCat} setRegAndAuth={setRegAndAuth} regAndAuth={regAndAuth} setCount={setCount} less={less} more={more} login={login} setLogin={setLogin} signup={signup} setSignup={setSignup} num={num} setNum={setNum} />}
       <Routes>
         <Route path='/' element={
         <div className="wrapper">
@@ -174,7 +183,8 @@ console.log(itemsStore)
         <Route path='/video' element={<VideoPage />} />
         <Route path='/store' element={
         <>
-        <Categories chooseCat={chooseCat} />
+        <Categories chooseCat={chooseCat} searchField={searchField} setSearchField={setSearchField} valueSearch={valueSearch} setValueSearch={setValueSearch} />
+        {searchField && <Search onShowItem={onShowItem} storeState={itemsStore} valueSearch={valueSearch} setValueSearch={setValueSearch} searchField={searchField} setSearchField={setSearchField} />}
         <div className='App'>
           <div className='repo-container'>
             <DataLoading error={errorStore} onShowItem={onShowItem} isLoaded={isLoadedStore} items={currentItems} itemsStore={itemsStore} onAdd={addToOrder} num={num} setNum={setNum} />
@@ -182,14 +192,15 @@ console.log(itemsStore)
         </div>
         </>
         } />
-        <Route path='/*' element={<NotFoundPage />} />
+        <Route path='/*' element={<NotFoundPage setHeader={setHeader} setFooter={setFooter} />}  />
       </Routes>
-      {descriptionItem && <ShowFullItem item={fullItem} onShowItem={onShowItem} onAdd={addToOrder} />}
-      <Footer />
+
+      {descriptionItem && <ShowFullItem item={fullItem} onShowItem={onShowItem} onAdd={addToOrder} setDescriptionItem={setDescriptionItem} setFullItem={setFullItem}/>}
+      {footer && <Footer />}
+      {showBtn && <BtnUp showBtn={showBtn} setShowBtn={setShowBtn} />}
     </div>
   );
 
-  
 }
 
 export default App;

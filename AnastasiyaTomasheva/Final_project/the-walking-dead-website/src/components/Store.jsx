@@ -1,10 +1,12 @@
 import Item from './Item';
 
 const Store = (props) => {
+
     const { items } = props;
-    console.log(props)
     if (!items || items.length === 0) {return (
-        <main className='list-head'>
+        <>
+        <main>
+        
         {props.itemsStore.map(data => (
 
             <>
@@ -12,19 +14,24 @@ const Store = (props) => {
             </>
             // );
         ))}
+
         </main>
+        </>
         )} else
     return (
+        <>
+
+        <main>
         
-        <main className='list-head'>
         {items.map(data => (
             <>
                 <Item onShowItem={props.onShowItem} item={data} onAdd={props.onAdd} storeState={props.itemsStore} />
             </>
-            // );
+
         ))}
-        </main>
         
+        </main>
+        </>
     );
 };
 export default Store;

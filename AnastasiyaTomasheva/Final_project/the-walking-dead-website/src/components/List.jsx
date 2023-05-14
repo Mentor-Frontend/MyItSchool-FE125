@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 
 const List = (props) => {
     let { repos } = props;
@@ -8,7 +7,6 @@ const List = (props) => {
     
         let rep = repos.filter(el => el.type === "сериал")
         let repC = repos.filter(el => el.type === "комикс")
-        // let repc = repC.map()
 
         console.log(rep.id)
         console.log(repC)
@@ -18,8 +16,7 @@ const List = (props) => {
         for (let i=0; i<rep.length; i++){
             arr.push(i)
         }
-        
-    // }
+
     if (!repos || repos.length === 0) return <p>Информация не найдена</p>;
     return (
         <>
@@ -33,7 +30,19 @@ const List = (props) => {
             return (
             
                 <div className='listCharacterContainer'>
-                    <div className='listCharacter' key={rep[repo].id}>
+                    <div onMouseOver={(e) => {if(e.currentTarget === e.target) {
+                        console.dir(e.target); 
+                        let myElement = e.target;
+                        console.log(myElement); 
+                        let height = e.target.nextElementSibling.lastElementChild.clientHeight;
+                        
+                        if(e.target.lastChild.clientHeight > e.target.nextElementSibling.lastElementChild.clientHeight){
+                            let myElementCont = e.target.parentElement;
+                            height = e.target.lastChild.clientHeight
+                            myElementCont.style.setProperty('--img-height', height + 'px');
+                        };
+                        myElement.style.setProperty('--element-height', height + 'px');
+                        }}} className='listCharacter' key={rep[repo].id}>
                         <div className='front'>
                             <img src={rep[repo].img} />
                             
@@ -50,7 +59,6 @@ const List = (props) => {
                                 <>
                                 <input type="checkbox" id={repo} className="hide"/>
                             <label for={repo} >Внимание, спойлеры!</label>
-                            {/* <p className='openSpoiler'></p> */}
                             <div className='spoiler'>{repC[repo].spoilers}</div>
                             </>
                             )}

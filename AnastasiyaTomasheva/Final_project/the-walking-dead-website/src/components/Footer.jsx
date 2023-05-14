@@ -7,10 +7,39 @@ margin-bottom: 3%;
 `
 const Flex = styled.div`
 display: flex;
-width: 80%;
+width: 50%;
 margin-right: auto;
 margin-left: auto;
+@media (max-width: 700px) {
+    width: 60%;
+}
+
+@media (max-width: 500px) {
+    width: 70%;
+}
+
+@media (max-width: 400px) {
+    width: 80%;
+}
 `
+const FlexForBottom = styled.div`
+display: flex;
+width: 35%;
+margin-right: auto;
+margin-left: auto;
+@media (max-width: 700px) {
+    width: 45%;
+}
+
+@media (max-width: 500px) {
+    width: 55%;
+}
+
+@media (max-width: 400px) {
+    width: 65%;
+}
+`
+
 const Icons = styled.div`
 width: 100%;
 height: auto;
@@ -36,7 +65,7 @@ cursor: pointer;
 export default function Footer() {
     return (
         <footer>
-            <Info>Сделано с любовью и трепетом Анастасией Томашевой</Info>
+            <Info>Душу в сайт вложила Анастасия Томашева</Info>
             <Social>Контакты</Social>
             <Flex>
                 <Icons>
@@ -59,7 +88,7 @@ export default function Footer() {
                 </Icons>
             </Flex>
             <Social>Соцсети</Social>
-            <Flex>
+            <FlexForBottom>
                 <Icons>
                     <Link href='https://www.tiktok.com/@happyreading03?_t=8b1AlakRHIT&_r=1' target='_blank'><Image src='img/icon-tik-tok.png'/></Link>
                 </Icons>
@@ -72,7 +101,7 @@ export default function Footer() {
                 <Icons>
                     <Link href='https://www.instagram.com/_s_i_h_a_/?igshid=YmMyMTA2M2Y%3D' target='_blank'><Image src='img/icon-instagram.png'/></Link>
                 </Icons>
-            </Flex>
+            </FlexForBottom>
         </footer>
     )
 }

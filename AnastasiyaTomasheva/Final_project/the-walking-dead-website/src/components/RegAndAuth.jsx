@@ -1,10 +1,9 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
 
 function RegAndAuth(props) {
-    console.log(props)
+    
     return (
-        <div className='wrapperForForm'>
+        <div className='wrapperForForm' onClick={e => (e.currentTarget === e.target) && props.setRegAndAuth(false)}>
             <section className='forms_section'>
                 <div className='forms'>
                 
@@ -15,17 +14,17 @@ function RegAndAuth(props) {
                         </button>
                         <form className='form form_login'>
                             <fieldset>
-                                <legend>Please, enter your email and password for login</legend>
+                                <legend>Пожалуйста, укажите электронную почту и пароль чтобы войти</legend>
                                 <div className='input_block'>
                                     <label htmlFor='login-email'>E-mail</label>
                                     <input id='login_email' type="email" required />
                                 </div>
                                 <div className='input_block'>
-                                    <label htmlFor='login_password'>Password</label>
+                                    <label htmlFor='login_password'>Пароль</label>
                                     <input id='login_password' type="password" required />
                                 </div>
                             </fieldset>
-                            <button type='submit' className='btn_login'>Login</button>
+                            <button type='submit' className='btn_login'>Войти</button>
                         </form>
                     </div>
 
@@ -36,21 +35,21 @@ function RegAndAuth(props) {
                         </button>
                         <form className='form form_signup'>
                             <fieldset>
-                                <legend>Please, enter your email, password and password confirmation for signup</legend>
+                                <legend>Пожалуйста, введите электронную почту, пароль и подтверждение пароля для регистрации</legend>
                                 <div className='input_block'>
                                     <label htmlFor='signup_email'>Email</label>
                                     <input id='signup_email' type="email" required></input>
                                 </div>
                                 <div className='input_block'>
-                                    <label htmlFor='signup_password'>Password</label>
+                                    <label htmlFor='signup_password'>Пароль</label>
                                     <input id='signup_password' type="password" required></input>
                                 </div>
                                 <div className='input_block'>
-                                    <label htmlFor='signup_password_confirm'>Confirm password</label>
+                                    <label htmlFor='signup_password_confirm'>Подтверждение пароля</label>
                                     <input id='signup_password_confirm' type="password" required></input>
                                 </div>
                             </fieldset>
-                            <button type='submit' className='btn_signup'>Continue</button>
+                            <button type='submit' className='btn_signup'>Отправить</button>
                         </form>
                     </div>
                 </div>

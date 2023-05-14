@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { BsShop, BsHouses } from "react-icons/bs";
 import Order from './Order';
 import { Link } from 'react-router-dom';
 import RegAndAuth from './RegAndAuth';
-
+import { GiEvilEyes } from "react-icons/gi";
+import Menu from './Menu';
 
 
 const showBasket = (props) => {
@@ -34,7 +35,18 @@ const showNothing = (props) => {
 export default function Header(props) {
     
     let [cartOpen, setCartOpen] = useState(false)
-    console.log(props)
+    let [burger, setBurger] = useState(false)
+    let [burgerOpen, setBurgerOpen] = useState(false)
+    let [menu, setMenu] = useState(false)
+    const screenWidth = document.documentElement.clientWidth;
+
+    window.addEventListener('resize', () => {
+
+    
+    document.documentElement.clientWidth <= 700 ? setBurger(true) : setBurger(false);
+})
+    let height = 0;
+    console.dir(document)
     return (
         <header>
         <div className="intro">
@@ -43,22 +55,29 @@ export default function Header(props) {
         </video>
         </div>
         </div>
+        {(burger || screenWidth <= 700) && <GiEvilEyes className='burger' onClick={() => setMenu(!menu)} />}
+        {menu && <Menu setMenu={setMenu} />}
             <nav className='menu'>
+            <div className='wrapperForMenu'>
+                <div className='wrapperForNav'>
                 <ul>
-                    <li><Link to='/'>Главная</Link></li>
+                    <li onClick={() => {window.scrollTo({top: height++, left: 0, behavior: 'smooth'})}}><Link to='/'>Главная</Link></li>
                     <li><Link to='/series'>Сериал</Link></li>
                     <li><Link to='/comics'>Комикс</Link></li>
-                    <li ><Link to='/video'>Видео</Link></li>
-                    <li ><Link to='/store'>Магазин</Link></li>
-                    <BsHouses className={`bsHouses ${props.regAndAuth && 'active'}`} onClick={() => props.setRegAndAuth(!props.regAndAuth)} />
-                    {props.regAndAuth && <RegAndAuth login={props.login} setLogin={props.setLogin} signup={props.signup} setSignup={props.setSignup} />}
+                    <li><Link to='/video'>Видео</Link></li>
+                    <li><Link to='/store'>Магазин</Link></li>
+                </ul>
+                </div>
+                <div className='wrapperForIcons'>
+                <BsHouses className={`bsHouses ${props.regAndAuth && 'active'}`} onClick={() => props.setRegAndAuth(true)} />
+                    {props.regAndAuth && <RegAndAuth login={props.login} setLogin={props.setLogin} signup={props.signup} setSignup={props.setSignup} setRegAndAuth={props.setRegAndAuth}/>}
                     <div className='wrapperForNum'>
                     
                     <BsShop onClick={() => setCartOpen(cartOpen = !cartOpen)} className={`shopCartButton ${cartOpen && 'active'}`}/>
                     <div className='num'>{props.num}</div>
                     </div>
-                </ul>
-
+                </div>
+            </div>
                 {cartOpen && (
                     
                     <div className='shopCart'>
@@ -70,8 +89,6 @@ export default function Header(props) {
                 )}
                 
             </nav>
-            
-            
         </header>
     )
 }

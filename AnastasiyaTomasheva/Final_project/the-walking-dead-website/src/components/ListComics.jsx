@@ -1,25 +1,16 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 
 const ListComics = (props) => {
     let { repos } = props;
-        console.log(props)
-        
-    
+
         let rep = repos.filter(el => el.type === "сериал")
         let repC = repos.filter(el => el.type === "комикс")
-        // let repc = repC.map()
-
-        console.log(rep.id)
-        console.log(repC)
 
         let arr = [];
 
         for (let i=0; i<rep.length; i++){
             arr.push(i)
         }
-        
-    // }
     if (!repos || repos.length === 0) return <p>Информация не найдена</p>;
     return (
         <>
@@ -27,13 +18,23 @@ const ListComics = (props) => {
         
         <h2 className='title titleComics'>Персонажи</h2>
         {arr.map((repo) => {
-            console.log(rep[repo])
+
             let textSpoilers;
             textSpoilers = repC[repo].spoilers || false
             return (
             
-                <div className='listCharacterContainer'>
-                    <div className='listCharacter' key={rep[repo].id}>
+                <div className='listCharacterContainer' >
+                    <div onMouseOver={(e) => {if(e.currentTarget === e.target) { 
+                        let myElement = e.target; 
+                        let height = e.target.nextElementSibling.lastElementChild.clientHeight;
+                        if(e.target.lastChild.clientHeight > e.target.nextElementSibling.lastElementChild.clientHeight){
+                            let myElementCont = e.target.parentElement;
+                            height = e.target.lastChild.clientHeight
+                            myElementCont.style.setProperty('--img-height', height + 'px')
+                        };
+                        myElement.style.setProperty('--element-height', height + 'px')
+                        }}} 
+                        className='listCharacter' key={rep[repo].id}>
                         <div className='front'>
                             <img src={repC[repo].img} />
                             
@@ -49,8 +50,7 @@ const ListComics = (props) => {
                             {textSpoilers && (
                                 <>
                                 <input type="checkbox" id={repo} className="hide"/>
-                            <label for={repo} >Внимание, спойлеры!</label>
-                            {/* <p className='openSpoiler'></p> */}
+                            <label htmlFor={repo} >Внимание, спойлеры!</label>
                             <div className='spoiler'>{repC[repo].spoilers}</div>
                             </>
                             )}
@@ -58,7 +58,7 @@ const ListComics = (props) => {
                         </div>
                         <div className='backDesk changeThemeSerial'>
                             <h3>{rep[repo].name}</h3>
-                            <p className='desc'>{rep[repo].description}</p>
+                            <div className='desc'>{rep[repo].description}</div>
                         </div> 
                     </div>
                 </div>

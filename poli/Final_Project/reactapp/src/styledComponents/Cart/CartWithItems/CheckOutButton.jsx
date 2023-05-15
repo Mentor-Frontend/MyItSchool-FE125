@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const CheckOutButton = styled.button`
-font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 600;
   color: #fff;
   background: rgba(58, 163, 159, 1);
@@ -13,5 +13,5 @@ font-family: 'Lato', sans-serif;
   text-align: center;
   line-height: 0;
   border: none;
-`
+`;
 export default CheckOutButton;

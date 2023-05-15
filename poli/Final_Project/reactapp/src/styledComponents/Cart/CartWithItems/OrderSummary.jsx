@@ -8,5 +8,13 @@ const OrderSummary = styled.div`
   @media (max-width: 426px) {
     padding: 16px;
   }
+
+  &.check{
+    padding: 15px;
+
+    @media (max-width: 376px) {
+      width: 320px;
+    }
+  }
 `;
 export default OrderSummary;

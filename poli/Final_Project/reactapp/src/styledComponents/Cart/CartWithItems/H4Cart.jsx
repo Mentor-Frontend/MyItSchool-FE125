@@ -11,6 +11,7 @@ const H4Cart = styled.h4`
   @media (max-width: 426px) {
     font-size: 19px;
   }
+
 `;
 
 export default H4Cart;

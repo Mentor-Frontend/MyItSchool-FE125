@@ -16,6 +16,10 @@ const H5Cart = styled.h5`
   @media (max-width: 1280px) {
     font-size: 22px;
   }
+
+  &.check{
+    margin-top: 0;
+  }
 `;
 
 export default H5Cart;

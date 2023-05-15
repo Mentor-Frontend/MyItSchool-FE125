@@ -6,6 +6,12 @@ const OrderSummaryWrapper = styled.div`
   align-items: center;
 
   max-width: 380px;
+
+  &.check{
+    @media (max-width: 376px) {
+      max-width: 300px;
+    }
+  }
 `
 
 export default OrderSummaryWrapper;

@@ -6,8 +6,14 @@ const Info = styled.div`
     justify-content: space-between;
     width: 316px;
 
-    &.TotalPrice{
-        border-top: 2px solid rgba(209, 209, 216, 1);
+  &.TotalPrice {
+    border-top: 2px solid rgba(209, 209, 216, 1);
+  }
+
+  &.check {
+    @media (max-width: 376px) {
+      width: 280px;
     }
-`
+  }
+`;
 export default Info;

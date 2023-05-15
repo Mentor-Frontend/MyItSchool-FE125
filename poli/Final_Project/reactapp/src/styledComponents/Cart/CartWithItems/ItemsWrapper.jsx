@@ -6,6 +6,7 @@ const ItemsWrapper = styled.div`
   align-items: center;
 
   max-width: 820px;
+
 `
 
 export default ItemsWrapper;
